@@ -20,7 +20,7 @@ var hours = "";
 var minutes = "";
 var auctionEndTime = "";
 //拍卖大厅首页返回数据条数
-var auctionListData ="";
+var auctionListData = "";
 //手机软键盘设置
 //var bodyHeight=document.body.clientHeight;
 //document.body.Height == bodyHeight;
@@ -103,7 +103,6 @@ function auctionSlider() {
 	});
 };
 
-
 //搜索
 var auctionSearch = document.getElementById('auctionInput');
 var clickBtn = document.getElementsByClassName('.mui-search');
@@ -127,55 +126,60 @@ $('#auctionInput').on('compositionend', function() {
 	auctionData(1)
 });
 $('#auctionInput').on('input', function() {
-	setTimeout(function(){
+	setTimeout(function() {
 		if(!cpLock) {
-		console.log("字母搜索")
-		var keyWord = $("#auctionInput").val();
-		$("#auctionListData").empty();
-		auctionData(1)
-	}
-	},500)
+			console.log("字母搜索")
+			var keyWord = $("#auctionInput").val();
+			$("#auctionListData").empty();
+			auctionData(1)
+		}
+	}, 500)
 });
 
-	var auctionTimeNew = [];//定义数组
+var auctionTimeNew = []; //定义数组
 
-	function formateTime(time) {//转换时间
-		var timestamp2 = time;
-//		var timestamp2 = Date.parse(new Date(stringTime));	
-		var timestamp = Date.parse(new Date());
-		var endTamp = timestamp2 - timestamp;
-		
-		var auctionDate = parseInt(endTamp / (3600 * 24 * 1000)); //天
-		var hours = parseInt((endTamp % (3600 * 24 * 1000)) / (3600 * 1000)); //1小时=3600s
-		var minutes = parseInt((endTamp % (3600 * 1000)) / (60 * 1000)); //分钟
-		var seconds = parseInt((endTamp%(60*1000))/1000);//秒
-		var haveEnd = '<span style="color:#FF5350">已结束</span>';
-		if(endTamp>=0){
-			return "距结束："+auctionDate+"天"+hours+"时"+minutes+"分" + seconds+"秒";
-		}else{
-			return haveEnd;
-		}
-	}
-	
-	const interval = setInterval(customInterval, 100);
-	
-	function customInterval() {
-		const newActionTime = auctionTimeNew.map((item, i) => {//更新当前列表的时间和数组
-			$(`#auctionEndTime${i}`).html(formateTime(auctionTimeNew[i]));
-			return item;
-		});
-		
-		auctionTimeNew = newActionTime;
-	}
+function formateTime(time) { //转换时间
+	var timestamp2 = time;
+	//		var timestamp2 = Date.parse(new Date(stringTime));	
+	var timestamp = Date.parse(new Date());
+	var endTamp = timestamp2 - timestamp;
 
+	var auctionDate = parseInt(endTamp / (3600 * 24 * 1000)); //天
+	var hours = parseInt((endTamp % (3600 * 24 * 1000)) / (3600 * 1000)); //1小时=3600s
+	var minutes = parseInt((endTamp % (3600 * 1000)) / (60 * 1000)); //分钟
+	var seconds = parseInt((endTamp % (60 * 1000)) / 1000); //秒
+	var haveEnd = '<span style="color:#FF5350">已结束</span>';
+	if(endTamp >= 0) {
+		return "距结束：" + auctionDate + "天" + hours + "时" + minutes + "分" + seconds + "秒";
+	} else {
+		return haveEnd;
+	}
+}
+
+const interval = setInterval(customInterval, 100);
+
+function customInterval() {
+	const newActionTime = auctionTimeNew.map((item, i) => { //更新当前列表的时间和数组
+		$(`#auctionEndTime${i}`).html(formateTime(auctionTimeNew[i]));
+		return item;
+	});
+
+	auctionTimeNew = newActionTime;
+}
+var loading = false;
+var AuctionPageIndex = 1;
 //获取拍卖大厅数据
 function auctionData(auctionPageIndex) {
+	if(loading) {
+		return false;
+	}
+	loading = true;
 	var auctionKerWord = "";
 	var auctionSearch = $("#auctionInput").val();
-	if(auctionSearch == ""){
+	if(auctionSearch == "") {
 		auctionKerWord = "";
-	}else{
-		auctionKerWord =  auctionSearch;
+	} else {
+		auctionKerWord = auctionSearch;
 	}
 	var auctionCollection = -1;
 	var auctionHouseType = -1;
@@ -191,9 +195,9 @@ function auctionData(auctionPageIndex) {
 		if(data.code == 200) {
 			auctionListData = data.data;
 			if(auctionListData.length > 0) {
-				$("#auctionListData").empty();
+//				$("#auctionListData").empty();
 				var auctionListHtml = '';
-				auctionListData.map(item => auctionTimeNew.push(new Date(item.endTime).getTime()));//往数组里填当前列表的结束时间
+				auctionListData.map(item => auctionTimeNew.push(new Date(item.endTime).getTime())); //往数组里填当前列表的结束时间
 				for(var i = 0; i < auctionListData.length; i++) {
 					auctionEndTime = auctionListData[i].endTime;
 					console.log(auctionEndTime)
@@ -203,7 +207,7 @@ function auctionData(auctionPageIndex) {
 					auctionListHtml += '</div>';
 					auctionListHtml += '<div class="auctionHallListRight">';
 					auctionListHtml += '<h5>' + auctionListData[i].title + '</h5>';
-					auctionListHtml += '<div class="auctionHallListRightEndTime" id="auctionEndTime'+i+'">' + formateTime(auctionTimeNew[i]) + '</div>';
+					auctionListHtml += '<div class="auctionHallListRightEndTime" id="auctionEndTime' + i + '">' + formateTime(auctionTimeNew[i]) + '</div>';
 					auctionListHtml += '<div class="auctionHallListRightDescribe">';
 					auctionListHtml += '<span>当前价:</span>';
 					auctionListHtml += '<span>' + "￥" + auctionListData[i].nowPrice + "元/月" + '</span>';
@@ -215,9 +219,16 @@ function auctionData(auctionPageIndex) {
 					auctionListHtml += '</div>';
 				}
 				$("#auctionListData").append(auctionListHtml);
-				if(auctionListData.length<10){
-					mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
-				}
+				setTimeout(function() {
+					loading = false;
+					AuctionPageIndex = parseInt(AuctionPageIndex) + 1;
+					if(auctionListData.length < 10) {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+						AuctionPageIndex = 1;
+					} else {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+					}
+				}, 500);
 			} else {
 				layer.open({
 					content: "没有更多数据",
@@ -228,7 +239,6 @@ function auctionData(auctionPageIndex) {
 		}
 	})
 }
-
 
 mui.init({
 	pullRefresh: {
@@ -248,13 +258,7 @@ mui.init({
 //上拉加载
 function pullupRefresh() {
 	setTimeout(function() {
-		auctionPageIndex = parseInt(auctionPageIndex) + 1;
-		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-		auctionData(auctionPageIndex); //ajax
-		if(auctionListData.length<=10){
-			mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
-			myCollectionPageIndex = 1;
-		}
+		auctionData(AuctionPageIndex); //ajax
 	}, 500)
 
 };
@@ -267,7 +271,7 @@ function pulldownRefresh() {
 		mui.toast("已为您更新了最新的10条数据")
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-		mui('#pullrefresh').pullRefresh().enablePullupToRefresh();
+		mui('#pullrefresh').pullRefresh().refresh(true);
 	}, 500);
 };
 
@@ -305,9 +309,7 @@ mui('#screenWrap').on('tap', '#auctionOkBtn', function() {
 	$("#screenWrap").css('display', 'none');
 });
 
-
 //拍卖大厅详细页
 mui("#auctionListData").on("tap", ".auctionHallList", function() {
 	this.click();
 });
-
