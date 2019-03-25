@@ -1,0 +1,90 @@
+body{
+	 background-color: #F0EFF4;
+}
+*{
+	font-family: PingFang SC;
+	font-size: 3.3vw;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+/*导航栏样式*/
+.bar-color-style{
+	background-color: #02BB9A !important;
+}
+.reset-left-icon-color{
+	color: #fff !important;
+}
+.title-color{
+	color: #fff !important;
+}
+/*内容样式*/
+.content{
+	margin-top: 44px;
+	padding: 20px 5.8vw;
+}
+/*列表样式*/
+.publicList{
+	width: 100%;
+    padding: 7px 3.3vw 10px 3.3vw;
+    background-color: #fff !important;
+    border-radius: 2.8vw;
+    overflow: auto;
+    line-height: 26px;
+}
+/*按钮样式*/
+.myButton{
+	text-align: center;
+}
+.myButtonStyle{
+	width: 56.9vw;
+	height: 40px;
+	text-align: center;
+	border: none;
+	background-color: #02BB9A;
+	font-size: 5.6vw;
+	color: #fff;
+	border-radius: 1.1vw;
+}
+/*登录设置*/
+.loginContent{
+	padding: 0px 5.8vw;
+}
+.loginButtonStyle{
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	border: none;
+	background-color: #02BB9A;
+	font-size: 5.6vw;
+	color: #fff;
+	border-radius: 1.1vw;
+}
+.logoLogin{
+	height: 154px;
+	text-align: center;
+	background-image: url(../../images/myIndex/logoBanner.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+    display: table;
+    width: 100%;
+}
+.logoLogin span{
+	width: 100%;
+	display: table-cell;
+	vertical-align: middle;
+}
+.setPwd{
+	text-align: center;
+	padding-top: 22px;
+}
+.setPwd h4{
+	font-size: 5.3vw;
+	color: #000000;
+	font-family: PingFang SC;
+}
+.logoLogin span img{
+	width: 64px;
+	height: 64px;
+	border-radius: 10px;
+}

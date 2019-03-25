@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../js/mui.min.js"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myIndexPublic.css" />
+		<link rel="stylesheet" href="../../css/myIndex/myWallet.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myInvite.css" />
+
+		<style type="text/css">
+			.mui-grid-9 {
+				background: white !important;
+			}
+			
+			li {
+				border-left: none !important;
+			}
+			
+			img {
+				width: 50px !important;
+			}
+			
+			body {
+				background: transparent !important;
+			}
+			
+			.mui-content {
+				background: white;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body onclick="closeShare();">
+		<header class="mui-bar mui-bar-nav mui-bar-nav-bg bar-color-style">
+			<a id="icon-menu" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left reset-left-icon-color"></a>
+			<h1 class="mui-title title-color">我的邀请</h1>
+		</header>
+		<div class="myWalletBody">
+			<div class="myWalletBodyTitle myInviteBodyTitle">
+				<div class="myWalletBodyTitleContent myInviteTitle">
+					<span>累计收益</span> 677.0￥
+				</div>
+			</div>
+			<div class="twoButtonTop shareBgColor">
+				<div class="twoButton">
+					<div class="twoButtonLeft" id="open">
+						<span>分享海报</span>
+					</div>
+					<div class="twoButtonRight" onclick="nextPage(this)" data-page = "myInviteSharePoster.html">
+						<span>分享链接</span>
+					</div>
+				</div>
+			</div>
+			<div class="mui-content">
+				<div style="padding: 10px 10px;">
+					<div id="segmentedControl" class="mui-segmented-control updateControl">
+						<a class="mui-control-item new-item mui-active" href="#item1">我的团队</a>
+						<a class="mui-control-item new-item" href="#item2">收益记录</a>
+					</div>
+				</div>
+				<div>
+					<div id="item1" class="mui-control-content mui-active">
+						<div id="scroll" class="mui-scroll-wrapper">
+							<div class="mui-scroll transactionRecordAll">
+								<div class="transactionRecordContent">
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+											<div>马云</div>
+										</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+											<div>马云</div>
+										</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+											<div>马云</div>
+										</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item2" class="mui-control-content transactionRecordAll">
+						<div class="transactionRecordContent">
+							<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>
+							<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>
+							<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>
+							<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer style="position: absolute;bottom: 0px; width:100%;background: white;">
+			<div style="height: 30px; line-height: 30px ;font-family: '黑体'; margin-left:40%; ;margin-top: 50%;">分享订单</div>
+			<ul class="mui-table-view mui-grid-view mui-grid-9">
+				<li onclick="shareHref(1);" class="mui-table-view-cell mui-media mui-col-xs-6">
+					<img class="mui-media-object" src="../../images/myIndex/wx.png">
+					<div class="mui-media-body">微信</div>
+				</li>
+				<li onclick="shareHref(0);" class="mui-table-view-cell mui-media mui-col-xs-6">
+					<img class="mui-media-object" src="../../images/myIndex/CircleOfFriends.png">
+					<div class="mui-media-body">朋友圈</div>
+				</li>
+			</ul>
+		</footer>
+		<input id="sharehref" style="display: none;" class="sharehref" type="url" value="www.baidu.com" placeholder="请输入要分享的链接地址" />
+		<input id="sharehrefTitle" style="display: none;" class="sharehref" type="text" value="加工详情" placeholder="请输入要分享的链接标题" />
+		<input id="sharehrefDes" style="display: none;" class="sharehref" type="text" value="我正在使用HBuilder+HTML5开发移动应用，赶紧跟我一起来体验！" placeholder="请输入要分享的链接描述" />
+	</body>
+
+	<script type="text/javascript" charset="utf-8">
+		var shares = null;
+		var Intent = null,
+			File = null,
+			Uri = null,
+			main = null;
+		// H5 plus事件处理
+		function plusReady() {
+			updateSerivces();
+			if(plus.os.name == "Android") {
+				main = plus.android.runtimeMainActivity();
+				Intent = plus.android.importClass("android.content.Intent");
+				File = plus.android.importClass("java.io.File");
+				Uri = plus.android.importClass("android.net.Uri");
+				main = plus.android.runtimeMainActivity();
+			}
+			var shareInfo = plus.webview.currentWebview().shareInfo;
+			sharehref.value = shareInfo.href;
+			sharehrefTitle.value = shareInfo.title;
+			sharehrefDes.value = shareInfo.content;
+			pageSourceId = shareInfo.pageSourceId;
+			console.log("pageSource:" + pageSourceId);
+		}
+		if(window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+
+		/**
+		 * 
+		 * 更新分享服务
+		 */
+		function updateSerivces() {
+			plus.share.getServices(function(s) {
+				shares = {};
+				for(var i in s) {
+					var t = s[i];
+					shares[t.id] = t;
+				}
+			}, function(e) {
+				outSet("获取分享服务列表失败：" + e.message);
+			});
+		}
+
+		/**
+		 * 分享操作
+		 * @param {JSON} sb 分享操作对象s.s为分享通道对象(plus.share.ShareService)
+		 * @param {Boolean} bh 是否分享链接
+		 */
+		function shareAction(sb, bh) {
+			if(!sb || !sb.s) {
+				console.log("无效的分享服务！");
+				return;
+			}
+			if(plus.os.name !== "Android") {
+				plus.nativeUI.alert("此平台暂不支持系统分享功能!");
+				return;
+			}
+
+			var msg = {
+				content: sharehrefDes.value,
+				extra: {
+					scene: sb.x
+				}
+			};
+			if(bh) {
+				msg.href = sharehref.value;
+				if(sharehrefTitle && sharehrefTitle.value != "") {
+					msg.title = sharehrefTitle.value;
+				}
+				if(sharehrefDes && sharehrefDes.value != "") {
+					msg.content = sharehrefDes.value;
+				}
+				msg.thumbs = ["_www/logo.png"];
+				msg.pictures = ["_www/logo.png"];
+			} else {
+				if(pic && pic.realUrl) {
+					msg.pictures = [pic.realUrl];
+				}
+			}
+			// 发送分享
+			if(sb.s.authenticated) {
+				console.log("---已授权---");
+				shareMessage(msg, sb.s);
+			} else {
+				console.log("---未授权---");
+				sb.s.authorize(function() {
+					shareMessage(msg, sb.s);
+				}, function(e) {
+					console.log("认证授权失败：" + e.code + " - " + e.message);
+
+				});
+			}
+		}
+		/**
+		 * 发送分享消息
+		 * @param {JSON} msg
+		 * @param {plus.share.ShareService} s
+		 */
+		function shareMessage(msg, s) {
+
+			console.log(JSON.stringify(msg));
+			s.send(msg, function() {
+				console.log("分享到\"" + s.description + "\"成功！ ");
+
+			}, function(e) {
+				console.log("分享到\"" + s.description + "\"失败: " + JSON.stringify(e));
+
+			});
+		}
+		// 分析链接
+		function shareHref(index) {
+			var shareBts = [];
+			// 更新分享列表
+			var ss = shares['weixin'];
+			ss && ss.nativeClient && (shareBts.push({
+					title: '微信朋友圈',
+					s: ss,
+					x: 'WXSceneTimeline'
+				}),
+				shareBts.push({
+					title: '微信好友',
+					s: ss,
+					x: 'WXSceneSession'
+				}));
+			ss = shares['qq'];
+			ss && ss.nativeClient && shareBts.push({
+				title: 'QQ',
+				s: ss
+			});
+
+			shareAction(shareBts[index], true);
+		}
+		mui.back = function() {
+			var sourcePage = plus.webview.getWebviewById(pageSourceId);
+			if(sourcePage) {
+				sourcePage.evalJS("closeMask()");
+			}
+		}
+
+		function closeShare() {
+			console.log("e:" + event.target.name);
+		}
+	</script>
+
+</html>

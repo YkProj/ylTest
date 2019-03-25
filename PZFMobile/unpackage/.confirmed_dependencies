@@ -1,0 +1,488 @@
+{
+  "htmls/main/main.html": {
+    "resources": [
+      "css/layer.css",
+      "css/main/main.css",
+      "images/main/my_icon01.png",
+      "images/main/quotation_icon.png",
+      "images/main/quotation_icon01.png",
+      "js/ServerUrl.js",
+      "images/main/my_icon.png",
+      "images/main/deal_icon.png",
+      "js/mui.min.js",
+      "js/tools/layer.js",
+      "js/main/main.js",
+      "css/mui.min.css",
+      "images/main/foot_bg.jpg",
+      "htmls/main/deal.html",
+      "htmls/main/home.html",
+      "images/main/deal_icon01.png",
+      "htmls/main/homeIndex.html",
+      "images/main/homeIndex.png",
+      "images/main/myIndex.png",
+      "images/main/auctionHall.png",
+      "images/main/myIndexActive.png",
+      "images/main/auctionHallActive.png",
+      "images/main/homeIndexActive.png",
+      "htmls/main/myIndex.html",
+      "htmls/main/auctionHall.html",
+      "fonts/mui.ttf",
+      "js/jquery-3.2.1.min.js",
+      "css/iconfont.css"
+    ],
+    "refer": [
+      "htmls/main/dashbord.html",
+      "htmls/main/message.html",
+      "htmls/main/deal.html",
+      "htmls/main/auctionHall.html",
+      "htmls/main/myIndex.html",
+      "htmls/main/home.html",
+      "htmls/main/homeIndex.html"
+    ]
+  },
+  "htmls/main/dashbord.html": {
+    "resources": [
+      "images/settings/help.png",
+      "css/main/dashbord.css",
+      "images/settings/popularize.png",
+      "js/tools/storage.js",
+      "images/settings/bitcoiner.png",
+      "images/settings/remind.png",
+      "images/settings/advertisement.png",
+      "images/settings/wallet.png",
+      "js/jquery-3.2.1.min.js",
+      "js/my/setting/setting.js",
+      "images/settings/settings.png",
+      "images/settings/log.png",
+      "images/settings/ensure.png",
+      "js/main/dashbord.js"
+    ],
+    "refer": [
+      "htmls/user/sign-in.html"
+    ]
+  },
+  "htmls/main/message.html": {
+    "resources": [
+      "js/main/message.js",
+      "images/my/btn_add.png",
+      "images/main/pay_ico_4.png",
+      "images/main/pay_ico_1.png",
+      "images/main/large_advertisement_01.jpg",
+      "images/main/jiantou.png",
+      "images/my/ico_picture.png",
+      "images/my/ico_close.png",
+      "images/main/pay_ico_2.png",
+      "css/common.css",
+      "images/my/ico_text.png",
+      "js/mui.js",
+      "css/main/message.css",
+      "images/main/pay_ico_3.png",
+      "images/main/banner.png",
+      "js/main/deal_slider.js",
+      "js/tools/storage.js",
+      "fonts/mui.ttf",
+      "js/tools/common.js",
+      "images/bg.jpg",
+      "js/ServerUrl.js",
+      "js/deal-coin.js",
+      "js/tools/layer.js",
+      "fonts/iconfont.ttf",
+      "js/jquery-3.2.1.min.js"
+    ],
+    "refer": []
+  },
+  "htmls/user/sign-in.html": {
+    "resources": [
+      "js/tools/phone.js",
+      "images/login/login_ico_1.png",
+      "images/login/login_logo.png",
+      "css/user/sign-in.css",
+      "js/user/sign-in.js",
+      "images/login/login_ico_2.png",
+      "images/login/login_bg.png"
+    ],
+    "refer": [
+      "htmls/user/register.html"
+    ]
+  },
+  "htmls/main/deal.html": {
+    "resources": [
+      "js/tools/download.js",
+      "js/main/deal_slider.js",
+      "js/jquery.min.js",
+      "fonts/mui.ttf",
+      "js/tools/common.js",
+      "css/public.css",
+      "htmls/main/js/ApiUrl.js",
+      "css/mui.css",
+      "images/bg.jpg",
+      "js/main/deal_market.js",
+      "css/my/my.css",
+      "js/deal-coin.js",
+      "js/main/deal.js",
+      "js/main/candlestick.js",
+      "js/mx.min.js",
+      "css/main/deal.css",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/tools/echarts.min.js",
+      "js/ServerUrl.js",
+      "js/mui.min.js",
+      "js/tools/layer.js"
+    ],
+    "refer": []
+  },
+  "htmls/user/register.html": {
+    "resources": [
+      "css/user/register.css",
+      "js/user/register.js",
+      "css/user/login.css"
+    ],
+    "refer": []
+  },
+  "htmls/main/homeIndex.html": {
+    "resources": [
+      "css/public.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "htmls/homeIndex/areaPulldown.png",
+      "images/homeIndex/homeIndexLogo.png",
+      "css/homeIndex/homeIndex.css",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "images/homeIndex/homIndexList.png",
+      "images/homeIndex/areaPulldown.png",
+      "js/ServerUrl.js",
+      "js/homeIndex/homeIndex.js",
+      "js/jquery-3.2.1.min.js",
+      "js/homeIndex/screen.js",
+      "htmls/homeIndex/indexSub.html",
+      "js/homeIndex/indexSub.js",
+      "css/main/main.css"
+    ],
+    "refer": [
+      "htmls/homeIndex/indexListSub.html",
+      "htmls/homeIndex/indexSub.html",
+      "slider-native.html",
+      "htmls/main/slider-native.html",
+      "htmls/homeIndex/slider-native.html",
+      "htmls/homeIndex/indexSubDetail.html",
+      "htmls/main/auctionHall.html"
+    ]
+  },
+  "htmls/main/myIndex.html": {
+    "resources": [
+      "css/public.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/myIndex/landlord.png",
+      "images/myIndex/MyInvitation.png",
+      "images/myIndex/PersonalSettings.png",
+      "images/myIndex/myWallet.png",
+      "images/myIndex/MessageNotification.png",
+      "images/myIndex/MyCollection.png",
+      "css/myIndex/myIndex.css",
+      "images/myIndex/EntryRecord.png",
+      "images/homeIndex/registered.png",
+      "js/ServerUrl.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "htmls/myIndex/myWallet.html",
+      "htmls/myIndex/messageNotification.html",
+      "htmls/myIndex/personalSettings.html",
+      "htmls/myIndex/entryRecord.html",
+      "htmls/myIndex/myCollection.html",
+      "htmls/myIndex/myInvite.html",
+      "htmls/myIndex/ theLandlord.html",
+      "htmls/main/homeIndex.html"
+    ]
+  },
+  "htmls/main/auctionHall.html": {
+    "resources": [
+      "css/public.css",
+      "js/main/auctionHall.js",
+      "images/homeIndex/shuijiao.jpg",
+      "images/yuantiao.jpg",
+      "images/auctionHall/auctionHallBanner.png",
+      "images/shuijiao.jpg",
+      "css/auctionHall/auctionHall.css",
+      "images/auctionHall/screen.png",
+      "images/homeIndex/homIndexList.png",
+      "js/jquery-3.2.1.min.js",
+      "fonts/mui.ttf",
+      "css/homeIndex/homeIndex.css",
+      "js/mui.min.js",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "js/ServerUrl.js",
+      "js/homeIndex/homeIndex.js",
+      "js/auctionHall/raceLamp.js",
+      "css/layer.css",
+      "js/tools/layer.js"
+    ],
+    "refer": [
+      "htmls/auctionHall/auctionHallDetail.html",
+      "htmls/homeIndex/indexSubDetail.html",
+      "htmls/main/myIndex.html",
+      "htmls/main/homeIndex.html"
+    ]
+  },
+  "htmls/homeIndex/indexListSub.html": {
+    "resources": [
+      "images/homeIndex/shuijiao.jpg",
+      "images/homeIndex/yuantiao.jpg"
+    ],
+    "refer": []
+  },
+  "htmls/homeIndex/indexSub.html": {
+    "resources": [
+      "images/homeIndex/shuijiao.jpg",
+      "images/homeIndex/yuantiao.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/homeIndex/indexSub.css",
+      "js/jquery-3.2.1.min.js",
+      "js/homeIndex/indexSub.js",
+      "images/homeIndex/indexSubActive/signUp.png",
+      "css/homeIndex/indexSubDetail.css",
+      "images/homeIndex/indexSub/Refrigerator.png",
+      "images/homeIndex/indexSub/Wardrobe.png",
+      "images/homeIndex/indexSubActive/SofaActive.png",
+      "images/homeIndex/indexSubActive/WashingMachineActive.png",
+      "images/homeIndex/indexSubActive/balconyActive.png",
+      "images/homeIndex/indexSubActive/bedActive.png",
+      "images/homeIndex/indexSubActive/HeaterActive.png",
+      "js/mui.zoom.js",
+      "images/homeIndex/indexSub/toilet.png",
+      "images/homeIndex/indexSub/broadband.png",
+      "images/homeIndex/indexSub/Heating.png",
+      "images/homeIndex/indexSub/watch.png",
+      "js/mui.previewimage.js",
+      "images/homeIndex/indexSub/favorite.png",
+      "images/homeIndex/indexSubActive/AirConditionerActive.png",
+      "css/mui.imageviewer.css",
+      "images/homeIndex/indexSubActive/CooksActive.png",
+      "js/ServerUrl.js",
+      "images/homeIndex/registered.png",
+      "js/homeIndex/homeIndex.js",
+      "js/lodash.core.js",
+      "css/iconfont.css",
+      "css/homeIndex/navBarNative.css"
+    ],
+    "refer": [
+      "htmls/auctionHall/auctionHallDetail.html"
+    ]
+  },
+  "slider-native.html": {
+    "resources": [
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "htmls/homeIndex/slider-native.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "htmls/homeIndex/indexSubDetail.html": {
+    "resources": [
+      "css/homeIndex/indexSubDetail.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/homeIndex/registered.png",
+      "images/homeIndex/indexSubActive/signUp.png",
+      "images/homeIndex/indexSub/Refrigerator.png",
+      "images/homeIndex/indexSub/Wardrobe.png",
+      "images/homeIndex/indexSubActive/SofaActive.png",
+      "images/homeIndex/indexSubActive/WashingMachineActive.png",
+      "images/homeIndex/indexSubActive/balconyActive.png",
+      "images/homeIndex/indexSubActive/bedActive.png",
+      "images/homeIndex/indexSubActive/HeaterActive.png",
+      "images/homeIndex/indexSub/toilet.png",
+      "images/homeIndex/indexSub/broadband.png",
+      "images/homeIndex/indexSub/Heating.png",
+      "images/homeIndex/indexSub/watch.png",
+      "images/homeIndex/indexSub/favorite.png",
+      "images/homeIndex/indexSubActive/AirConditionerActive.png",
+      "images/homeIndex/indexSubActive/CooksActive.png",
+      "js/homeIndex/indexSubDetail.js",
+      "js/jquery-3.2.1.min.js"
+    ],
+    "refer": [
+      "htmls/homeIndex/baiduMap.html",
+      "htmls/auctionHall/auctionHallDetail.html"
+    ]
+  },
+  "htmls/homeIndex/baiduMap.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "htmls/auctionHall/auctionHallDetail.html": {
+    "resources": [
+      "images/homeIndex/indexSub/Refrigerator.png",
+      "images/homeIndex/indexSub/Wardrobe.png",
+      "images/homeIndex/indexSubActive/SofaActive.png",
+      "images/homeIndex/indexSubActive/WashingMachineActive.png",
+      "images/homeIndex/indexSubActive/balconyActive.png",
+      "images/homeIndex/indexSubActive/bedActive.png",
+      "images/homeIndex/indexSubActive/HeaterActive.png",
+      "images/homeIndex/indexSub/toilet.png",
+      "images/homeIndex/indexSub/broadband.png",
+      "images/homeIndex/indexSub/Heating.png",
+      "images/homeIndex/indexSub/watch.png",
+      "images/homeIndex/indexSubActive/AirConditionerActive.png",
+      "images/homeIndex/registered.png",
+      "images/homeIndex/indexSubActive/CooksActive.png",
+      "images/homeIndex/indexSubActive/signUp.png",
+      "css/homeIndex/indexSubDetail.css",
+      "css/auctionHall/auctionHallDetail.css",
+      "js/auctionHall/auctionHallDetail.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/homeIndex/yuantiao.jpg",
+      "css/homeIndex/indexSub.css",
+      "images/homeIndex/shuijiao.jpg",
+      "js/ServerUrl.js",
+      "js/jquery-3.2.1.min.js",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js"
+    ],
+    "refer": []
+  },
+  "htmls/myIndex/myWallet.html": {
+    "resources": [
+      "css/myIndex/myWallet.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/myIndex/Recharge.png",
+      "images/myIndex/CashWithdrawal.png",
+      "css/myIndex/myIndexPublic.css",
+      "js/ServerUrl.js"
+    ],
+    "refer": [
+      "htmls/myIndex/Recharge.html",
+      "htmls/myIndex/cashWithdrawal.html"
+    ]
+  },
+  "htmls/myIndex/Recharge.html": {
+    "resources": [
+      "css/myIndex/recharge.css",
+      "images/myIndex/wx.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/myIndex/myIndexPublic.css"
+    ],
+    "refer": []
+  },
+  "htmls/myIndex/cashWithdrawal.html": {
+    "resources": [
+      "css/myIndex/recharge.css",
+      "images/myIndex/wx.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/myIndex/myIndexPublic.css"
+    ],
+    "refer": []
+  },
+  "htmls/myIndex/messageNotification.html": {
+    "resources": [
+      "css/myIndex/messageNotification.css",
+      "css/myIndex/myIndexPublic.css"
+    ],
+    "refer": []
+  },
+  "htmls/myIndex/personalSettings.html": {
+    "resources": [
+      "css/myIndex/setting.css",
+      "css/myIndex/personalSettings.css",
+      "js/myIndex/personalSettings.js",
+      "js/tools/storage.js"
+    ],
+    "refer": [
+      "htmls/myIndex/setPhoneNum.html",
+      "htmls/myIndex/setLoginPwd.html",
+      "htmls/myIndex/setTranscationPwd.html"
+    ]
+  },
+  "htmls/myIndex/entryRecord.html": {
+    "resources": [
+      "js/myIndex/entryRecord.js",
+      "css/myIndex/entryRecord.css",
+      "js/myIndex/mui.pullToRefresh.js",
+      "js/myIndex/mui.pullToRefresh.material.js",
+      "css/myIndex/myIndexPublic.css"
+    ],
+    "refer": []
+  },
+  "htmls/myIndex/myInvite.html": {
+    "resources": [
+      "css/myIndex/myInvite.css",
+      "css/myIndex/myWallet.css",
+      "css/myIndex/myIndexPublic.css",
+      "js/myIndex/myInvite.js",
+      "images/homeIndex/homIndexList.png",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/ServerUrl.js",
+      "images/myIndex/invitePoster.png",
+      "images/myIndex/wx.png",
+      "images/myIndex/CircleOfFriends.png",
+      "js/jquery-3.2.1.min.js",
+      "js/myIndex/myInviteShareLink.js"
+    ],
+    "refer": [
+      "htmls/myIndex/myInviteSharePoster.html"
+    ]
+  },
+  "htmls/myIndex/myInviteSharePoster.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/myIndex/wx.png",
+      "images/myIndex/CircleOfFriends.png",
+      "css/myIndex/myInviteSharePoster.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/myIndex/myInvite.css",
+      "css/myIndex/myWallet.css",
+      "js/myIndex/myInvite.js",
+      "js/ServerUrl.js",
+      "images/homeIndex/homIndexList.png",
+      "images/myIndex/invitePoster.png",
+      "js/jquery-3.2.1.min.js",
+      "css/myIndex/myIndexPublic.css",
+      "js/myIndex/myInvitePoster.js"
+    ],
+    "refer": []
+  },
+  "htmls/myIndex/ theLandlord.html": {
+    "resources": [
+      "css/myIndex/theLandlord.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/myIndex/myIndexPublic.css"
+    ],
+    "refer": []
+  },
+  "htmls/myIndex/myCollection.html": {
+    "resources": [
+      "css/myIndex/myIndexPublic.css",
+      "css/myIndex/entryRecord.css"
+    ],
+    "refer": []
+  }
+}

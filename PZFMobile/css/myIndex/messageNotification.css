@@ -1,0 +1,28 @@
+.messageTitle{
+	text-align: center;
+	margin-bottom: 8px;
+	font-size: 3.3vw;
+	color: #A2A2A2;
+}
+.messageListTitle{
+	font-family: PingFang SC;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #C8C7CC;
+	font-size: 3.9vw;
+	font-weight: 600;
+	color: #000;
+}
+.messageListContent{
+	height: 30px;
+	line-height: 30px;
+	font-size: 3.9vw;
+	color: #888888;
+	margin-bottom: 20px;
+}
+.messageListBottom{
+	text-align: right;
+	font-size: 3.9vw;
+	color: #02BB9A;
+	font-weight: 500;
+}

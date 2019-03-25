@@ -1,0 +1,380 @@
+/*响应式布局*/
+@media (max-width:320px ){
+	.homeIndexListLeft img {
+	}
+	.homeIndexListLeft {
+	}
+}
+/*全局样式*/
+body,html{
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 2.8vw;
+}
+.mui-bar-nav-height{
+	top: 0px;
+    position: fixed;
+	height: 48px;
+	line-height: 48px;
+	padding-right: 0.75rem;
+    padding-left: 0.75rem !important;
+}
+.homeIndexLeftHeight>.homeIndexRightIcon{
+	font-size: 4.4vw;
+}
+.homeIndexNav {
+	display: inline-block;
+	vertical-align: middle;
+	color: #fff;
+}
+
+.homeIndexNavImg {
+}
+
+.homeIndexNavImg img {
+	width: 19.2vw;
+    vertical-align: middle;
+    border-right: 1px solid rgba(119,119,119,0.5);
+    padding-right: 2.4vw;
+}
+
+.homeIndexNavArea {
+	font-size: 2.8vw;
+	padding: 0px 1.2vw;
+}
+
+.homeIndexNavPulldown img {
+	vertical-align: middle;
+	width: 2.4vw;
+}
+
+/*搜索框和筛选条件样式*/
+.positionFixed{
+	width: 100%;
+	position: fixed;
+}
+
+
+/*搜索样式*/
+
+.searchList {
+	z-index: 10;
+	margin-top: 48px;
+	width: 100%;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.homeIndexSearch {
+    padding: 14px 3.3vw 7px 3.3vw;
+}
+.homeIndexSearch input{
+	font-size: 4.2vw;
+	width: 100%;
+	height: 34px;
+	border: none;
+	background-color: #F0EFF4;
+	border-radius: 9.6vw;
+	margin-bottom: 0px;
+}
+.input-color {
+	background-color: #F0EFF4 !important;
+	height: 34px !important;
+	margin-bottom: 0px !important;
+}
+.mui-icon {
+	line-height: 34px !important;
+}
+.mui-search.mui-active{
+	line-height: 34px !important;
+}
+.mui-icon-clear{
+	top: 0px !important;
+}
+.homeIndexSearchStyle::-ms-input-placeholder {
+	text-align: center;
+	color: #C1C0C5;
+	font-size: 2.8vw;
+}
+
+.homeIndexSearchStyle::-webkit-input-placeholder {
+	text-align: center;
+	color: #C1C0C5;
+	font-size: 2.8vw;
+}
+.homeIndexSearchStyle::-ms-input-placeholder:focus{
+	text-align: left;
+}
+.homeIndexSearchStyle::-webkit-input-placeholder:focus{
+	text-align: left;
+	color: #fff;
+}
+/*筛选条件样式*/
+/*清楚折叠面板原有样式*/
+
+.mui-navigate-right:after, .mui-push-right:after{
+	padding-left: 10px;
+	right: auto;
+}
+.hidHeight{
+	    margin-top: 16px;
+    height: 94px;
+}
+.homeIndexScreen{
+	background-color: #fff;
+	z-index: 10;
+    padding: 7px 0px;
+    margin: 0px 3.6vw;
+    border-bottom: 1px solid #EFEFEF;
+}
+.homeIndexScreenList{
+	margin: 0px;
+	padding: 0px;
+    overflow: auto;
+    width: 100%;
+    list-style: none;
+}
+.homeIndexScreenList li{
+	float: left;
+	text-align: center;
+}
+.homeIndexScreenList li:nth-child(2){
+	width: 37%;
+	text-align: left;
+}
+.homeIndexScreenList li:nth-child(3){
+	width: 22%;
+	text-align: left;
+}
+.homeIndexScreenList li:first-child{
+	width: 25%;
+	text-align: left;
+}
+.homeIndexScreenList li:last-child{
+	width: 16%;
+	text-align: right;
+}
+.homeIndexScreenList li a{
+	color: #353D46;
+	font-size: 3.6vw;
+}
+.homeIndexScreenList li a span{
+	color: #353D46;
+	font-size: 3.6vw;
+}
+.homeIndexScreenList li span{
+	font-size: 2.4vw;
+	color: #8E8E8E;
+}
+/*正文内容样式*/
+.scroll-wrap-height{
+	margin-top: 140px;
+	margin-bottom: 51px;
+}
+.homeIndexContent{
+	z-index: -1;
+    overflow: auto;
+    margin: 0px 3.6vw;
+    height: 100%;
+}
+.homeIndexList{
+	float: left;
+	overflow: auto;
+	width: 100%;
+	background-color: #fff;
+	padding: 17px 0px 12px 0px;
+    border-bottom: 1px solid #eee;
+}
+.homeIndexList:last-child{
+	border-bottom: none;
+}
+.homeIndexListLeft{
+	float: left;
+	width: 32.8%;
+	border-radius: 2.4vw;
+}
+.homeIndexListLeft img{
+	width: 100%;
+	height: 26vw;
+	border-radius: 4px;
+}
+.homeIndexListRight{
+	padding-left: 2.4vw;
+	margin-left: 32.8%;
+}
+
+.homeIndexListRight h5{
+	font-family: PingFang SC;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    color: #000;
+    font-size: 3.9vw;
+    font-weight: 600;
+    line-height: 18px;
+}
+.homeIndexListRight p{
+	margin-bottom: 5px;
+}
+.areaSize{
+	margin-bottom: 0px !important;
+}
+.areaSize span:first-child{
+	margin-right: 1.8vw;
+}
+.positionLabel span:first-child{
+	font-size: 3.5vw;
+}
+.positionLabel span:last-child{
+	margin-left: 1.8vw;
+}
+.positionLabel{
+	color: #939393;
+}
+.decorationLabel{
+	display: inline-block;
+	margin-bottom: 8px !important;
+}
+.decorationLabel button{
+	padding: 2px 2.8vw;
+	font-size: 1.9vw;
+	background-color: #F0F3F8;
+	border: none;
+	color: #5576BA;
+	margin-right: 1.8vw;
+}
+.homeIndexListRight>.homeIndexListRightPrice{
+	font-weight: 600;
+	font-family: PingFang SC;
+	display: block;
+	color: #EB6866;
+	font-size: 4.4vw;
+	margin-bottom: 0px !important;
+} 
+/*筛选条件样式*/
+.homeIndex-screen-wrap{
+	display: none;
+	padding: 3vh 3vw;
+	position: absolute;
+    top: 140px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid #EBEBEB;
+}
+/*区域选择样式*/
+.mui-table-view-left{
+	width: 50%;
+	float: left;
+}
+.mui-table-view-left span{
+	font-size: 3vw;
+	color: #353D46;
+	font-weight: 500;
+}
+.leftActive span{
+	padding-left: 1vw;
+	border-left: 1px solid #02BB9A;
+	color: #02BB9A !important;
+}
+.rightActive span{
+	color: #02BB9A !important;
+}
+#areaRight{
+	margin-left: 50%;
+}
+.mui-table-view-right span{
+	font-size: 3vw;
+	color: #868686;
+}
+/*租住宅样式*/
+.navBarSelect{
+	display: none;
+	position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 999;
+    text-align: center;
+    background-color: #F0EFF4;
+    color: #000;
+    width: 30%;
+}
+.navBarSelect ul{
+	background-color: #F0EFF4 !important;
+}
+.navBarSelect ul li{
+	padding: 5px 15px;
+}
+.auctionHallScreen{
+	padding: 1vh 3vw;
+	text-align: left;
+}
+.auctionHallScreenStyle {
+    text-align: left;
+}
+.auctionHallScreenStyle button {
+    text-align: center;
+    margin-bottom: 1vh;
+    margin-right: 3vw;
+    font-size: 3.3vw;
+    background-color: #F0EFF4;
+    border: none;
+    color: #000;
+}
+.screen-wrap>.mui-table-view:after{
+	background-color: #fff;
+}
+.screen-wrap>.mui-table-view:before{
+	background-color: #fff;
+}
+.auctionHallBtn{
+	padding: 2vh 0px;
+}
+.auctionHallBtn span{
+	display: inline-block;
+	width: 48%;
+}
+.auctionHallBtn span button{
+	padding: 1vh 16.5vw;
+	border-radius: 1.7vw;
+}
+.resetBtn:active{
+	
+}
+.okBtnActive{
+	background-color: #3DBD77;
+	border: none;
+	color: #fff;
+}
+/*区域选择样式*/
+.mui-row.mui-fullscreen>[class*="mui-col-"] {
+				height: auto;
+				padding-bottom: 1.5vh;
+				border-top: 1px solid #e5e5e5;
+			}
+			.mui-col-xs-3,
+			.mui-control-content {
+				overflow-y: auto;
+				height: auto;
+			}
+			.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+			}
+			.col-xs-3-bgColor{
+				background-color: #fff !important;
+			}
+			
+			
+			

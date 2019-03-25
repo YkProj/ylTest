@@ -1,0 +1,33 @@
+body{
+	background-color: #fff;
+}
+.setContentList{
+	height: auto;
+	line-height: 50px;
+	overflow: auto;
+	width: 100%;
+	padding: 0px 3.8vw 0px 5.8vw;
+	border-bottom: 1px solid #E0E0E0;
+}
+.setContentListLeft{
+	width: 30%;
+	float: left;
+	font-size: 3.3vw;
+	color: #000;
+}
+.setContentListRight{
+	position: relative;
+	width: 70%;
+	float: right;
+	text-align: right;
+	padding-right: 18px;
+	font-size: 3.6vw;
+	height: 50px;
+}
+/*设置右边箭头样式*/
+.mui-navigate-right:after, .mui-push-right:after{
+	right: 0px !important;
+	color: #000;
+	font-size:4.4vw;
+	line-height: 50px;
+}

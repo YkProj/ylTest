@@ -1,0 +1,56 @@
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+.mui-bar {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.mui-search {
+	margin: 10px 15px;
+	border: 1px solid #C0C0C0;
+	border-radius: 5px;
+}
+
+.mui-search .mui-placeholder {
+	text-align: left;
+	padding-left: 5px;
+}
+/*清除右侧abcd...背景颜色*/
+.mui-indexed-list-bar{
+	background-color: inherit;
+}
+/*清除右侧自带上下线条*/
+.mui-indexed-list{
+	/*position: inherit;*/
+	border-top: none;
+	border-bottom: none;
+}
+/*修改右侧abcd...间距*/
+.mui-indexed-list-bar a{
+	height: 20px !important;
+}
+/*清除点击mui-table-view背景样式*/
+.mui-table-view-cell.mui-active {
+	background-color: transparent;
+}
+/*清除li下划线*/
+.mui-table-view-divider:after{
+	background-color: transparent;
+}
+/*清除背景样式*/
+.mui-table-view{
+	background-color: rgba(23, 52, 111, 0) !important;
+}
+
+/*分组样式*/
+.goup-style{
+	background-color:#1a306d !important;
+}
+
+.mui-indexed-list-bar a:hover{
+	background-color: transparent;
+}

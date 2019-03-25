@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myIndexPublic.css"/>
+		<link rel="stylesheet" href="../../css/myIndex/myWallet.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-nav-bg bar-color-style">
+			<a id="icon-menu" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left reset-left-icon-color"></a>
+			<h1 class="mui-title title-color">我的钱包</h1>
+		</header>
+		<div class="myWalletBody">
+			<div class="myWalletBodyTitle">
+				<div class="myWalletBodyTitleContent">677.0￥</div>
+			</div>
+			<div class="twoButtonTop">
+				<div class="twoButton">
+					<div class="twoButtonLeft" onclick="nextPage(this)" data-page = "Recharge.html">
+						<span>充值</span>
+					</div>
+					<div class="twoButtonRight" onclick="nextPage(this)" data-page = "cashWithdrawal.html">
+						<span>提现</span>
+					</div>
+				</div>
+			</div>
+			<div class="transactionRecordAll">
+				<div class="transactionRecordTitle">交易记录</div>
+				<div class="transactionRecordContent">
+					<div class="publicList transactionRecordList">
+						<div class="transactionRecordListLeft">
+							<img src="../../images/myIndex/Recharge.png" alt="" />
+							<span>
+								<div>充值</div>
+								<div>2019/2/12 09:11:12</div>
+							</span>
+						</div>
+						<div class="transactionRecordListRight">
+							<div>+200.00￥</div>
+							<div>处理中</div>
+						</div>
+					</div>
+					<div class="publicList transactionRecordList">
+						<div class="transactionRecordListLeft">
+							<img src="../../images/myIndex/CashWithdrawal.png" alt="" />
+							<span>
+								<div>提现</div>
+								<div>2019/2/12 09:11:12</div>
+							</span>
+						</div>
+						<div class="transactionRecordListRight negative">
+							<div>-100.00￥</div>
+							<div>已完成</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

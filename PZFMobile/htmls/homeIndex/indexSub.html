@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/mui.imageviewer.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/navBarNative.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/indexSub.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/indexSubDetail.css" />
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		<div class="mui-content content-style">
+			<!--轮播图片-->
+			<div id="slider" class="mui-slider" style="height: 250px;">
+				<div class="mui-slider-group" id="sliderImgGroup">
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="bannerimg" src="../../images/homeIndex/shuijiao.jpg" data-preview-src="" data-preview-group="1" />
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="bannerimg" src="../../images/homeIndex/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="bannerimg" src="../../images/homeIndex/shuijiao.jpg" data-preview-src="" data-preview-group="1" />
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img class="bannerimg" src="../../images/homeIndex/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator mui-slider-indicator-add-style">
+					<!--<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>-->
+					<span class="mui-badge mui-badge-add-style">
+						<span id="indexSubNumber">1</span>
+					<span>/</span>
+					<span id="indexSubNumberCount">14</span>
+					</span>
+				</div>
+			</div>
+			<div class="mui-content mui-content-bg-color">
+				<div class="mui-content-clear-padded">
+					<div class="indexSubDetailTitle">
+						<h5 id="indexSubH5">桃源村 桃源村三期 次卧 朝东</h5>
+						<div class="indexSubDetailTitleContent">
+							<div class="indexSubDetailTitleContentLeft">
+								<span class="indexSubDetailTitleContentLeftPrice" id="indexSubDetailTitleContentLeftPrice">￥3500元/月</span><span class="startShooting">起拍</span>
+							</div>
+							<div class="indexSubDetailTitleContentRight">
+								<span id="indexSubTitleTime">2019-01-09</span>
+								<span>发布</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="indexSubDetailSecond">
+					<div class="indexSubContentSecond">
+						<span>户 型</span>
+						<span id="indexSubApartment">3室2厅1卫</span>
+					</div>
+					<div class="indexSubContentSecond">
+						<span>装 修</span>
+						<span id="indexSubDectraction">精装修</span>
+					</div>
+					<div class="indexSubContentSecond">
+						<span>面 积</span>
+						<span id="indexSubarea">87平米</span>
+					</div>
+					<div class="indexSubContentSecond">
+						<span>楼 层</span>
+						<span id="indexSubFloor">6楼</span>
+					</div>
+					<div class="indexSubContentSecond">
+						<span>看房时间 </span>
+						<span id="indexSubSeeTime">01-14至01-16</span>
+					</div>
+					<div class="indexSubContentSecond">
+						<span>报名时间 </span>
+						<span id="indexSubSignTime">截止01-18号</span>
+					</div>
+				</div>
+				<div class="indexSubDetailSecond numberOfRegisteredPersons" id="HiddenHeadImg">
+					<h5 id="signEdUp">已报名12人</h5>
+					<div class="indexSubHeadImg">
+						<div class="numberOfRegisteredPersonsLogo" id="indexSubHeadImg">
+							<span>
+						<img src="../../images/homeIndex/registered.png" />
+					</span>
+							<span>
+						<img src="../../images/homeIndex/registered.png" />
+					</span>
+							<span>
+						<img src="../../images/homeIndex/registered.png" />
+					</span>
+							<span>
+						<img src="../../images/homeIndex/registered.png" />
+					</span>
+							<span>
+						<img src="../../images/homeIndex/registered.png" />
+					</span>
+						</div>
+						<div class="numberOfRegisteredPersonsLogoAfter">
+							<span>........</span>
+						</div>
+					</div>
+				</div>
+				<div class="indexSubDetailSecond numberOfRegisteredPersons">
+					<h5 id="indexSubArea">小区：竹园小区（宝安，新安）</h5>
+					<div class="indexSubDetailPosition">
+						<div id="allmap" style="width: 100%;height: 26.6vh;"></div>
+					</div>
+				</div>
+				<div class="indexSubDetailSecond housingMatching numberOfRegisteredPersons">
+					<h5>房屋配套</h5>
+					<div class="houseLogoAll" id="supFacilities">
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-chuang"></span>
+							</div>
+							<div>床</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-xiyiji"></span>
+							</div>
+							<div>洗衣机</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-kongtiao"></span>
+							</div>
+							<div>空调</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-yangtai"></span>
+							</div>
+							<div>阳台</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-bingxiang2"></span>
+							</div>
+							<div>冰箱</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-kezuofan"></span>
+							</div>
+							<div>可做饭</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-dianshi"></span>
+							</div>
+							<div>电视</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-reshuiqi"></span>
+							</div>
+							<div>热水器</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-kuandai"></span>
+							</div>
+							<div>宽带</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-shafa"></span>
+							</div>
+							<div>沙发</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-nuanqi"></span>
+							</div>
+							<div>暖气</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-weishengjian"></span>
+							</div>
+							<div>卫生间</div>
+						</div>
+						<div class="houseLogo">
+							<div class="list-icon-style">
+								<span class="iconfont icon-shimuyigui"></span>
+							</div>
+							<div>衣柜</div>
+						</div>
+					</div>
+				</div>
+				<div class="indexSubLast housingMatching numberOfRegisteredPersons">
+					<h5>房源描述</h5>
+					<ul class="houseDescribe" id="indexSubHoseDescribe">
+						<li>房子干净整洁，家电齐全</li>
+						<li>高层，卧室朝花园，很干净</li>
+						<li>屋内干净干净舒适，家电齐全，24小时可以上网</li>
+					</ul>
+				</div>
+				<div class="indexSubdetailBottom">
+					<div class="indexSubdetailBottomLeft" onclick="indexFavour();">
+						<span>收藏</span>
+						<span>
+						<img src="../../images/homeIndex/indexSub/favorite.png"/>
+					</span>
+					</div>
+					<div class="indexSubdetailBottomRight">
+						<span onclick="auctionDetailPage(this)" data-page="../auctionHall/auctionHallDetail.html">报名</span>
+						<span>
+						<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
+					</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=g8juUWeciEMwCFIhvWjS32LpxgOimjYI"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/homeIndex/indexSub.js"></script>
+		<script type="text/javascript" src="../../js/homeIndex/homeIndex.js"></script>
+		<script type="text/javascript" src="../../js/lodash.core.js"></script>
+		<script type="text/javascript">
+			mui.previewImage();
+		</script>
+	</body>
+
+</html>

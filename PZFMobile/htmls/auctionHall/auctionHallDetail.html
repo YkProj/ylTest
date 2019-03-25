@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>PZFClient</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css" />
+		<link rel="stylesheet" type="text/css" href="http://api.map.baidu.com/res/11/bmap.css" />
+		<link rel="stylesheet" href="../../css/homeIndex/indexSubDetail.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/navBarNative.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/indexSub.css" />
+		<link rel="stylesheet" href="../../css/auctionHall/auctionHallDetail.css" />
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
+		<style type="text/css">
+			/*p {
+				text-indent: 22px;
+			}
+			
+			.mui-content {
+				padding-top: 215px;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		<div class="mui-slider" style="height: 250px;">
+			<div class="mui-slider-group" id="auctionSliderPicture">
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img class="bannerimg" src="../../images/homeIndex/shuijiao.jpg" data-preview-src="" data-preview-group="1" />
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img class="bannerimg" src="../../images/homeIndex/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img class="bannerimg" src="../../images/homeIndex/shuijiao.jpg" data-preview-src="" data-preview-group="1" />
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href="#">
+						<img class="bannerimg" src="../../images/homeIndex/yuantiao.jpg" data-preview-src="" data-preview-group="1" />
+					</a>
+				</div>
+			</div>
+			<div class="mui-slider-indicator mui-slider-indicator-add-style">
+				<!--<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>-->
+				<span class="mui-badge mui-badge-add-style">
+					<span id="auctionNumbers">1</span>
+				<span>/</span>
+				<span id="auctionPictureNumbers">14</span>
+				</span>
+			</div>
+		</div>
+		<div class="mui-content-bg-color">
+			<div class="mui-content-clear-new-padded">
+				<div class="indexSubDetailTitle">
+					<h5 id="auctionHouseTitle">桃源村 桃源村三期 次卧 朝东</h5>
+					<div class="auctionHallDetailLabel" id="auctionLabel">
+						<button type="button" class="mui-btn-grey">简单装修</button>
+						<button type="button" class="mui-btn-grey">精装修</button>
+						<button type="button" class="mui-btn-grey">豪华装修</button>
+					</div>
+					<div class="indexSubDetailTitleContent">
+						<div class="indexSubDetailTitleContentLeft">
+							<span class="indexSubDetailTitleContentLeftPrice auctionHallDetailSignUp" id="auctionNumber">12人</span>
+							<span class="startShooting">/已报名</span>
+							<span class="auctionHallDetailEndTIme" id="specialTime">距结束<span id="auctionTimeHours">20</span>时<span id="auctionTimeMinutes">20</span>分
+							<sapn id="auctionTimeSeconds">20</sapn>秒</span>
+						</div>
+						<div class="indexSubDetailTitleContentRight auctionHallDetailauction">
+							<button type="button" class="mui-btn-green" id="auctionStatus">正在拍卖</button>
+						</div>
+						<div class=""></div>
+					</div>
+				</div>
+				<div class="priceDescribeAll">
+					<div class="priceDescribeList">
+						<div class="priceDescribeLeft">当前价：<span id="auctionCurrentPrice">￥3500元/月</span></div>
+						<div class="priceDescribeRght">起拍价：<span id="auctionStartPrice">￥3500/月</span></div>
+					</div>
+					<div class="priceDescribeList">
+						<div class="priceDescribeLeft ensure">保证金：<span id="auctionProfile">300元</span></div>
+						<div class="priceDescribeRght">加价幅度：<span id="auctionMarkup">100元</span></div>
+					</div>
+				</div>
+				<div class="tabBarAll">
+					<div style="padding: 5px 10px;">
+						<div id="segmentedControl" class="mui-segmented-control">
+							<a class="mui-control-item mui-active" onclick="houseDescribe();">房源描述</a>
+							<a class="mui-control-item" onclick="signUp();">出价记录</a>
+							<a class="mui-control-item" onclick="notice();">竞拍须知</a>
+						</div>
+					</div>
+					<div>
+						<div id="item1" class="mui-control-content mui-active">
+							<div class="ApartmentDescribe">
+								<div class="priceDescribeList">
+									<div class="priceDescribeLeft">户型：<span id="auctionApartment">3室2厅1卫</span></div>
+									<div class="priceDescribeRght">面积：<span id="auctionArea">87平米</span></div>
+								</div>
+								<div class="priceDescribeList">
+									<div class="priceDescribeLeft ensure">装修：<span id="auctionRanType">精装修</span></div>
+									<div class="priceDescribeRght">楼层：<span id="auctionFloor">6楼</span></div>
+								</div>
+							</div>
+							<div class="indexSubDetailSecond numberOfRegisteredPersons">
+								<h5 id="auctionAddress">小区：竹园小区（宝安，新安）</h5>
+								<div class="indexSubDetailPosition">
+									<div id="allmap" style="width: 100%;height: 26.6vh;"></div>
+								</div>
+							</div>
+							<div class="indexSubDetailSecond housingMatching numberOfRegisteredPersons">
+								<h5>房屋配套</h5>
+								<div class="houseLogoAll" id="supFacilities">
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-chuang"></span>
+										</div>
+										<div>床</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-xiyiji"></span>
+										</div>
+										<div>洗衣机</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-kongtiao"></span>
+										</div>
+										<div>空调</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-yangtai"></span>
+										</div>
+										<div>阳台</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-bingxiang2"></span>
+										</div>
+										<div>冰箱</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-kezuofan"></span>
+										</div>
+										<div>可做饭</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-dianshi"></span>
+										</div>
+										<div>电视</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-reshuiqi"></span>
+										</div>
+										<div>热水器</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-kuandai"></span>
+										</div>
+										<div>宽带</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-shafa"></span>
+										</div>
+										<div>沙发</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-nuanqi"></span>
+										</div>
+										<div>暖气</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-weishengjian"></span>
+										</div>
+										<div>卫生间</div>
+									</div>
+									<div class="houseLogo">
+										<div class="list-icon-style">
+											<span class="iconfont icon-shimuyigui"></span>
+										</div>
+										<div>衣柜</div>
+									</div>
+								</div>
+							</div>
+							<div class="indexSubLast housingMatching numberOfRegisteredPersons">
+								<h5>房源描述</h5>
+								<ul class="houseDescribe" id="auctionHoseDescribe">
+									<li>房子干净整洁，家电齐全</li>
+									<li>高层，卧室朝花园，很干净</li>
+									<li>屋内干净干净舒适，家电齐全，24小时可以上网</li>
+								</ul>
+							</div>
+							<div class="indexSubdetailBottom auctionBottom" id="auctionBottomEnd">
+								<span>
+									<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
+								</span>
+								<span id="Bond">交报名保证金</span>
+							</div>
+						</div>
+						<div id="item2" class="mui-control-content">
+							<div class="auctionContent">
+								<div class="auctionTitle">
+									<span>状态</span>
+									<span>竞拍人</span>
+									<span>价格</span>
+									<span>时间</span>
+								</div>
+								<div class="auctionListContent" id="auctionLogsContent">
+									<div class="auctionListContentList">
+										<span>领先</span>
+										<span>张三</span>
+										<span>3800元</span>
+										<span>01/15 17:15:20</span>
+									</div>
+									<div class="auctionListContentList">
+										<span class="Out-of-office">出局</span>
+										<span>张三</span>
+										<span>3800元</span>
+										<span>01/15 17:15:20</span>
+									</div>
+									<div class="auctionListContentList">
+										<span class="Out-of-office">出局</span>
+										<span>张三</span>
+										<span>3800元</span>
+										<span>01/15 17:15:20</span>
+									</div>
+									<div class="auctionListContentList">
+										<span class="Out-of-office">出局</span>
+										<span>张三</span>
+										<span>3800元</span>
+										<span>01/15 17:15:20</span>
+									</div>
+									<div class="auctionListContentList">
+										<span class="Out-of-office">出局</span>
+										<span>张三</span>
+										<span>3800元</span>
+										<span>01/15 17:15:20</span>
+									</div>
+								</div>
+							</div>
+							<div class="indexSubdetailBottom auctionBottom" id="auctionBottomEnd" onclick="offer();">
+								<span>
+									<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
+								</span>
+								<span>出价</span>
+							</div>
+						</div>
+						<div id="item3" class="mui-control-content">
+							<div class="auctionContent">
+								<div class="auctionDescribeList">
+									<h5>竞拍流程</h5>
+									<p>交保证金-出价拍卖-竞拍成功-在线确认-线下签约</p>
+								</div>
+								<div class="auctionDescribeList">
+									<h5>保证金释放</h5>
+									<p>1.未竞拍成功（出局），待拍卖结束后，系统会在24小时内释放保证金</p>
+									<p>2.竞拍成功后，房东主动关闭交易，系统会在24小时内释放保证金</p>
+								</div>
+								<div class="auctionDescribeList">
+									<h5>保证金扣除</h5>
+									<p>1.凡是竞拍成功的租客，在竞拍结束后不履行交易，系统将扣除保证金，用于赔付给房东</p>
+									<p>2.如因房东原因导致租客不付款，租客可在竞拍结束后的15天内联系平台客服4000-0000-555，逾期保证金申述不予处理</p>
+								</div>
+							</div>
+							<div class="indexSubdetailBottom auctionBottom" id="auctionBottomEnd" onclick="offer();">
+								<span>
+									<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
+								</span>
+								<span>出价</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/mui.zoom.js"></script>
+		<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
+		<script type="text/javascript" src="../../js/auctionHall/auctionHallDetail.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=g8juUWeciEMwCFIhvWjS32LpxgOimjYI"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.previewImage(); //轮播图点击放大缩小
+//			// 百度地图API功能
+//			var map = new BMap.Map("allmap");
+//			var point = new BMap.Point(116.331398, 39.897445);
+//			map.centerAndZoom(point, 100);
+//
+//			var geolocation = new BMap.Geolocation();
+//			geolocation.getCurrentPosition(function(r) {
+//				if(this.getStatus() == BMAP_STATUS_SUCCESS) {
+//					var mk = new BMap.Marker(r.point);
+//					map.addOverlay(mk);
+//					map.panTo(r.point);
+//					//					alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+//				} else {
+//					alert('failed' + this.getStatus());
+//				}
+//			}, {
+//				enableHighAccuracy: true
+//			})
+//
+//			function showInfo(e) {
+//
+//				mui.openWindow({
+//					url: 'baiduMap.html'
+//				});
+//			}
+//			map.addEventListener("click", showInfo);
+		</script>
+	</body>
+
+</html>

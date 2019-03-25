@@ -1,0 +1,159 @@
+body{
+	background-color: #F0EFF4;
+}
+.myInviteTitle {
+	line-height: 41px !important;
+}
+
+.myInviteTitle span {
+	width: 100%;
+	display: inline-block;
+	height: 17px;
+	line-height: 17px;
+}
+
+.myInviteBodyTitle {
+	background: linear-gradient(180deg, rgba(2, 187, 154, 1) 0%, rgba(62, 225, 163, 1) 100%) !important;
+}
+
+.shareBgColor {
+	background: linear-gradient(180deg, rgba(62, 225, 163, 1) 100%, rgba(2, 187, 154, 1) 0%) !important;
+	background-color: initial !important;
+}
+
+
+/*列表样式*/
+
+.mui-card .mui-control-content {
+	padding: 10px;
+}
+
+.mui-control-content {
+	height: 52vh;
+}
+
+.mui-segmented-control.updateControl {
+	width: 45%;
+	border: none;
+	font-size: 3.9vw;
+}
+
+.mui-segmented-control>.mui-control-item.new-item.mui-active {
+	background-color: none;
+}
+
+.mui-segmented-control .mui-control-item {
+	height: 20px;
+	line-height: 20px !important;
+	color: #8E8E8E;
+	border-left: 1px solid #8E8E8E;
+}
+
+.mui-segmented-control .mui-control-item.mui-active {
+	color: #222 !important;
+	background-color: initial !important;
+	margin-right: 10px;
+}
+
+.myInvite img {
+	margin-top: 0px !important;
+}
+
+.myInvite span div {
+	color: #000 !important;
+	opacity: 1 !important;
+}
+
+.myInviteRight div {
+	color: #454545 !important;
+	opacity: 0.5 !important;
+}
+
+.profitLeft {
+	width: 60% !important;
+}
+
+.profitRight {
+	width: 40% !important;
+}
+
+.profitRight div:first-child {
+	text-align: right;
+}
+.transactionRecordListLeft span div:last-child{
+	float: left;
+}
+
+
+/*蒙版样式*/
+
+#popover {
+	top: -3% !important;
+    margin-top: 40px;
+    left: 39% !important;
+    bottom: 0px !important;
+    margin-left: -38.9vw;
+    width: 100%;
+    background-color: initial;
+}
+#Linkpopover {
+	top: -3% !important;
+    margin-top: 40px;
+    left: 39% !important;
+    bottom: 0px !important;
+    margin-left: -38.9vw;
+    width: 100%;
+    background-color: initial;
+}
+
+@media (min-width: 400px) {
+	#popover {
+		width: 80%;
+		margin-left: -40%;
+	}
+}
+
+.mui-popover .mui-popover-arrow {
+	display: none !important;
+}
+
+.mui-backdrop {
+	background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.invitePoster img {
+	width: 100%;
+}
+.mui-content-padded.set-content-padded{
+	margin: 16.9vw;
+}
+
+/*蒙版新样式*/
+.invitePoster{
+	width: 100%;
+	padding: 60px;
+}
+/*分享样式*/
+
+.mui-grid-9 {
+}
+
+li {
+	border-left: none !important;
+}
+
+.wx-img img{
+	width: 37px !important;
+}
+
+
+
+.mui-content {
+	text-align: center;
+}
+/*清除样式*/
+.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+	border-right: initial !important;
+	border-bottom: initial !important;
+	padding: 18px 15px !important;
+}

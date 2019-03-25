@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<title></title>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/mui.indexedlist.css" rel="stylesheet" />
+		<link href="../../css/public.css" rel="stylesheet" />
+		<link href="../../css/layer.css" rel="stylesheet" />
+		<link href="../../css/user/country_code.css" rel="stylesheet" />
+		<style>
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.mui-indexed-list {
+				background-color: transparent;
+			}
+			
+			.mui-indexed-list-inner .mui-table-view {
+				padding: 10px;
+				margin-bottom: 10px;
+				color: white;
+			}
+			
+			.mui-indexed-list-group {
+				background-color: transparent;
+				color: white;
+			}
+			
+			.mui-table-view-divider:before {
+				height: 0px;
+			}
+			
+			.mui-table-view-divider:after {}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-back"></a>
+			<h1 class="mui-title">国家/地区</h1>
+		</header>
+		<div class="mui-content">
+			<div id='list' class="mui-indexed-list">
+				<div class="mui-indexed-list-search mui-input-row mui-search">
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索国家或地区">
+				</div>
+				<div class="mui-indexed-list-bar">
+					<a>A</a>
+					<a>B</a>
+					<a>C</a>
+					<a>D</a>
+					<a>E</a>
+					<a>F</a>
+					<a>G</a>
+					<a>H</a>
+					<a>I</a>
+					<a>J</a>
+					<a>K</a>
+					<a>L</a>
+					<a>M</a>
+					<a>N</a>
+					<a>O</a>
+					<a>P</a>
+					<a>Q</a>
+					<a>R</a>
+					<a>S</a>
+					<a>T</a>
+					<a>U</a>
+					<a>V</a>
+					<a>W</a>
+					<a>X</a>
+					<a>Y</a>
+					<a>Z</a>
+				</div>
+				<div class="mui-indexed-list-alert"></div>
+				<div class="mui-indexed-list-inner">
+					<div class="mui-indexed-list-empty-alert">没有数据</div>
+					<ul id="country_ul" class="mui-table-view">
+						<li data-code="86" data-tags="中国" data-id="16" class="mui-table-view-cell mui-indexed-list-item">中国</li>
+                        <!--<li data-group="A" class="mui-table-view-divider mui-indexed-list-group goup-style">A</li>-->
+						<!--<li data-value="AKU" data-tags="AKeSu" class="mui-table-view-cell mui-indexed-list-item">阿克苏机场</li>
+						<li data-value="BPL" data-tags="ALaShanKou" class="mui-table-view-cell mui-indexed-list-item">阿拉山口机场</li>
+						<li data-value="AAT" data-tags="ALeTai" class="mui-table-view-cell mui-indexed-list-item">阿勒泰机场</li>
+						<li data-value="NGQ" data-tags="ALiKunSha" class="mui-table-view-cell mui-indexed-list-item">阿里昆莎机场</li>
+						<li data-value="AQG" data-tags="AnQingTianZhuShan" class="mui-table-view-cell mui-indexed-list-item">安庆天柱山机场</li>-->
+						
+						
+						<!--<li data-code="86" data-tags="美国" data-id="16" class="mui-table-view-cell mui-indexed-list-item">美国</li>
+						<li data-code="86" data-tags="芝加哥" data-id="16" class="mui-table-view-cell mui-indexed-list-item">芝加哥</li>
+						<li data-code="86" data-tags="印度" data-id="16" class="mui-table-view-cell mui-indexed-list-item">印度</li>-->
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jquery-3.2.1.min.js"></script>
+		<script src="../../js/ServerUrl.js"></script>
+		<script src="../../js/tools/layer.js"></script>
+		<script src="../../js/user/country_code.js"></script>
+		<script src="../../js/mui.indexedlist.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>HTML5页面直接调用百度地图API,获取当前位置，直接导航目的地</title>
+    <link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=g8juUWeciEMwCFIhvWjS32LpxgOimjYI"></script>  
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script><!--调用jQuery-->
+ 
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style> 
+ 
+</head>
+ 
+<body>
+ 	<header id="header" class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">导航栏</h1>
+		</header>
+   <div id="allmap"></div>
+</body>  
+</html>  
+<script type="text/javascript">  
+ 
+    var map = new BMap.Map("allmap");  
+    var point = new BMap.Point(116.709684,39.89778);
+    map.centerAndZoom(point, 16);  
+    map.enableScrollWheelZoom(); 
+    var latCurrent = "";
+     var lngCurrent = "";
+ 
+    var marker = new BMap.Marker(point); // 创建标注 
+    map.addOverlay(marker);  
+ 
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function(r){
+        if(this.getStatus() == BMAP_STATUS_SUCCESS){
+            var mk = new BMap.Marker(r.point);
+            map.addOverlay(mk);
+            //map.panTo(r.point);//地图中心点移到当前位置
+            latCurrent= r.point.lat;
+            lngCurrent = r.point.lng;
+            
+            alert('我的位置：'+ latCurrent + ',' + lngCurrent);
+// 			location.href="http://api.map.baidu.com/direction?origin="+latCurrent+","+lngCurrent+"&destination=39.89778,116.709684&mode=driving®ion=北京&output=html";
+            
+   
+        }
+        else {
+            alert('failed'+this.getStatus());
+        }        
+    },{enableHighAccuracy: true})
+ 
+// 	scheme = "://map/direction?origin=latlng:" + r.point.lat + "," + r.point.lng + "|name:我的位置&destination=latlng:@ViewBag.Latitude,@ViewBag.Longitude|name:@ViewBag.Address&mode=driving";
+    map.addOverlay(marker);  
+    var licontent="<b>宝安小区</b><br>";  
+        licontent+='<a href="http://api.map.baidu.com/marker?location=40.047669,116.313082|name:我的位置&title=我的位置&content=百度奎科大厦&output=html&src=yourComponyName|yourAppName">打开百度地图查看详情</a>';  
+    var opts = { 
+        width : 200,
+        height: 80,
+    };         
+    var  infoWindow = new BMap.InfoWindow(licontent, opts);  
+    marker.openInfoWindow(infoWindow);  
+    marker.addEventListener('click',function(){
+        marker.openInfoWindow(infoWindow);
+    });  
+ 
+</script>

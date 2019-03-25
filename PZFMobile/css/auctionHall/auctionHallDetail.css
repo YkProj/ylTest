@@ -1,0 +1,182 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 2.8vw;
+}
+
+
+
+.indexSubDetailTitle h5,
+.auctionHallDetailLabel {
+	padding-top: 10px !important;
+    padding: 0px 3.6vw;
+    margin-bottom: 0px !important;
+}
+
+.indexSubDetailTitle>.indexSubDetailTitleContent {
+	padding-left: 3.6vw;
+}
+
+.auctionHallDetailLabel {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 7px;
+}
+
+.auctionHallDetailLabel button {
+	padding: 2px 3.3vw;
+	background-color: #F5F9FC;
+	border: none;
+	color: #9EA2A5;
+	font-size: 2.5vw;
+}
+
+.auctionHallDetailSignUp {
+	color: #02BB9A;
+}
+
+.auctionHallDetailEndTIme {
+	margin-left: 2.8vw;
+	color: #B4B2B3;
+	font-size: 3.3vw;
+}
+
+.auctionHallDetailauction button {
+	padding: 2px 2px 2px 2.8vw;
+	border-top-left-radius: 5.6vw;
+	border-bottom-left-radius: 5.6vw;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	font-size: 3.3vw;
+	color: #fff;
+	background: linear-gradient(255deg, rgba(2, 187, 154, 1) 0%, rgba(34, 207, 187, 1) 100%);
+}
+
+.priceDescribeAll {
+	margin: 12px 3.6vw 9px 3.6vw;
+	border-bottom: 1px solid #E2E2E2;
+	margin-bottom: 13px;
+}
+
+.priceDescribeList {
+	width: 100%;
+	display: inline-block;
+	color: #888888;
+}
+
+.priceDescribeLeft {
+	width: 50%;
+	float: left;
+}
+
+.priceDescribeRght {
+	float: right;
+	text-align: left;
+	width: 50%;
+}
+
+.ensure {
+	color: #FF5350;
+}
+
+
+/*选项卡标题样式*/
+
+.mui-card .mui-control-content {
+	padding: 10px;
+}
+
+
+/*清楚选项卡原有样式*/
+.mui-segmented-control{
+	border: 1px solid #02BB9A !important;
+}
+.mui-segmented-control .mui-control-item.mui-active{
+	background-color: #02BB9A !important;
+}
+.mui-segmented-control .mui-control-item{
+	    color: #02BB9A;
+	    border-color: #02BB9A;
+    border-left: 1px solid #02BB9A;
+}
+/*房源描述样式修改*/
+.priceDescribeAll:last-child{
+	margin: 12px 3.6vw 0px 3.6vw !important;
+}
+.ApartmentDescribe{
+	margin: 12px 3.6vw 0px 3.6vw;
+    border-bottom: 1px solid #E2E2E2;
+}
+.auctionBottom{
+	background-color: #02BB9A;
+}
+.auctionBottomEnd{
+	background-color: #B7B7B7 !important;
+}
+.auctionBottom span:last-child{
+	color: #fff;
+}
+.auctionBottom img{
+	vertical-align: text-bottom;
+	width: auto;
+}
+/*出价记录样式*/
+.auctionTitle{
+	width: 100%;
+}
+.auctionTitle span{
+	text-align: center;
+	width: 24%;
+	display: inline-block;
+	font-size: 3.3vw;
+	font-weight: 600;
+}
+.auctionTitle span:first-child{
+	width: 14%;
+}
+.auctionTitle span:last-child{
+	width: 34%;
+}
+.auctionContent{
+	padding: 11px 3.6vw;
+	height: auto;
+	margin-bottom: 6.9vh;
+}
+.auctionListContentList{
+	margin-top: 17px;
+}
+.auctionListContentList span{
+	text-align: center;
+	width: 24%;
+	display: inline-block;
+	font-size: 3.3vw;
+	color: #454545;
+}
+.auctionListContentList span:first-child{
+	width: 14%;
+	color: #FF3734;
+}
+.auctionListContentList span:last-child{
+	width: 34%;
+}
+.auctionListContent{
+	margin-bottom: 6.9vh;
+}
+.Out-of-office{
+	color: #02BB9A;
+}
+/*竞拍流程样式*/
+.auctionDescribeList{
+	margin-bottom: 15px;
+}
+.auctionDescribeList h5{
+	color: #000000;
+	font-size: 3.3vw;
+	font-weight: 600;
+}
+.auctionDescribeList p{
+	text-indent: 0em;
+	font-size: 3.1vw;
+	color: #454545;
+}

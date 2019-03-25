@@ -1,0 +1,44 @@
+/*透明渐变导航栏样式Start*/
+
+.content-style {
+	padding-top: 0px !important;
+}
+
+header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	z-index: 50;
+	height: 40px;
+	text-align: center;
+	background: rgba(255, 255, 255, 0);
+	color: rgba(66, 66, 66, 0);
+	font-size: 1.2rem;
+	line-height: 40px;
+}
+
+.mui-bar {
+	background-color: transparent;
+}
+
+.mui-bar h1 {
+	background: rgba(255, 255, 255, 0);
+	color: rgba(66, 66, 66, 0);
+}
+
+.mui-bar a {
+	color: rgba(0,0,0,0.6);
+}
+
+.mui-icon-left-nav:before {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+.mui-bar-nav{
+	-webkit-box-shadow: initial;
+}
+
+/*透明渐变导航栏样式End*/

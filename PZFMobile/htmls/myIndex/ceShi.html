@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>跨域test</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <script type="text/javascript">
+        function test() {
+            $.ajax({
+           		contentType: 'application/json;charset=UTF-8',
+                type: "POST",
+                dataType: "json",
+                url: "http://zkp.natapp1.cc/user/updatePhoneNo" ,
+                headers:{'token':'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiLotoXnuqfnrqHnkIblkZgiLCJzdWIiOiIxIiwiaWF0IjoxNTQ2NTg5MzIzLCJleHAiOjE1NDY3NjIxMjN9.A-9TgAT24adm17A8juEDHCjtrWbjVhFiyUqfSZiiiHk'},
+                data: JSON.stringify(
+
+                	{
+						"userId":1,
+						"phone":"18487272670",
+						"loginPwd":"123456",
+						"code":"091248"
+					}
+
+                	),
+                success: function (result) {
+                     alert(result.code+result.msg);
+					 console.log(result);
+                },
+                error : function() {
+                    alert("ERROR");
+                }
+            });
+        }
+    </script>
+
+</head>
+<body>
+<input type="button" value="do" onclick="test()">
+</body>
+</html>

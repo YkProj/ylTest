@@ -1,0 +1,7 @@
+<li class="mui-table-view-cell">
+	            <a class="" href="">
+	                <div class="navigate-left"><img class="user-img" src="../../../images/icon_person.png"/></div>
+	                <div class="navitate-sec">Kmskjdhf</div>
+	                <button type="button" name="" data-loading-text="添加中" onclick="" class="mui-btn guarantee-btn guarantee-btn-color-primary">添加好友</button>
+	            </a>	            
+</li>
