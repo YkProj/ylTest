@@ -5,11 +5,10 @@ createtime: 2017-11-19
 summary: 服务调用方法
 */
 //首页分页全局变量
-var  homePageIndex = 0; //分页
+var  homePageIndex = 1; //分页
    
 var  homePageCount = ""; //总页码
 var homPageSize = 6; //每页数据
-var isOver = false; //是否加载完
 
 //首页列表id
 var homeIndexListId = 1;

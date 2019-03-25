@@ -26,8 +26,14 @@ getData(1);
 //	$("#bottomBar").css('display','block')
 //});
 
+var loding = false;
 
 function getData(HomePageIndex) {
+	if(loding) {
+		return false;
+	}
+
+	loding = true;
 	var areaCity = $("#homeIndexArea").html();
 	var homeKeword = "";
 	var district = "";
@@ -86,7 +92,6 @@ function getData(HomePageIndex) {
 	}
 	var DATA = new Object();
 	DATA.page = HomePageIndex;
-	DATA.size = 6;
 	DATA.city = areaCity;
 	DATA.keyword = homeKeword;
 	DATA.place = place;
@@ -154,15 +159,17 @@ function getData(HomePageIndex) {
 					liHtml += '</div>';
 				}
 				$("#list").append(liHtml);
-				if(returnData.length<6){
-					mui('#pullrefresh').pullRefresh().disablePullupToRefresh();
-				}
-			}else{
-				layer.open({
-				content: "没有更多数据",
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
+
+				setTimeout(function() {
+					loding = false;
+					homePageIndex = parseInt(homePageIndex) + 1;
+					if(homePageIndex <= homePageCount) {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+					} else {
+						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+						homePageIndex = 1;
+					}
+				}, 500)
 			}
 		} else {
 			layer.open({
@@ -182,7 +189,7 @@ mui.init({
 			callback: pulldownRefresh
 		},
 		up: {
-			auto: true,
+			auto: false,
 			contentrefresh: '正在加载...',
 			callback: pullupRefresh
 		}
@@ -192,8 +199,6 @@ mui.init({
 //上拉加载
 function pullupRefresh() {
 	setTimeout(function() {
-		homePageIndex = parseInt(homePageIndex) + 1;
-		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
 		getData(homePageIndex); //ajax
 	}, 500)
 
@@ -204,8 +209,10 @@ function pulldownRefresh() {
 	setTimeout(function() {
 		$("#list").empty();
 		getData(1);
-		mui.toast("已为您更新了最新的6条数据")
+		mui.toast("已为您更新到最新数据");
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
+		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+		mui('#pullrefresh').pullRefresh().refresh(true);
 	}, 500);
 };
 
@@ -233,4 +240,3 @@ function indexDetail(HomeIndexListId) {
 		url: '../homeIndex/indexSub.html'
 	});
 };
-
