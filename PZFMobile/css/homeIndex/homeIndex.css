@@ -34,8 +34,6 @@ body,html{
 	color: #fff;
 }
 
-.homeIndexNavImg {
-}
 
 .homeIndexNavImg img {
 	width: 19.2vw;
@@ -308,10 +306,11 @@ body,html{
     width: 30%;
 }
 .navBarSelect ul{
-	background-color: #F0EFF4 !important;
+	background-color: rgba(255,255,255,0.5);
 }
 .navBarSelect ul li{
 	padding: 5px 15px;
+	text-align: left;
 }
 .auctionHallScreen{
 	padding: 1vh 3vw;
@@ -353,6 +352,13 @@ body,html{
 	background-color: #3DBD77;
 	border: none;
 	color: #fff;
+}
+.homeIndexIcon{
+	margin-right: 5px;
+	display: inline-block;
+	width: 20px;
+	text-align: center;
+	color: #02BB9A;
 }
 /*区域选择样式*/
 .mui-row.mui-fullscreen>[class*="mui-col-"] {

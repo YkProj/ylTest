@@ -26,16 +26,20 @@
 				</div>
 				<div class="rechargeContentBottom">
 					<span class="iconfont icon-qian"></span>
-					<input type="number" class="rechargeInput cashInput" placeholder="请输入提现金额" />
-					<span class="cashAll">全部</span>
+					<input type="number" id="cashwithdrawNum" class="rechargeInput cashInput" placeholder="请输入提现金额" />
+					<span class="cashAll" onclick="CashWithdrawalAll()">全部</span>
 				</div>
 			</div>
 			<div class="myButton">
-					<p>提现手续费：0.5%</p>
+					<p id="poundage">提现手续费：0.5%</p>
 					<button type="button" class="myButtonStyle">确认</button>
 				</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/myWallet.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>

@@ -229,6 +229,6 @@ function selectWrapControl() { //租住宅
 	$("#startingPriceWrap").css('display', 'none');
 	mui('#selectWrap').on('tap', 'a', function() {
 		$("#selectWrap").css('display', 'none');
-		$("#selectWrapInfo").html(this.innerHTML);
+		$("#selectWrapInfo").html($(this).text());
 	});
 }

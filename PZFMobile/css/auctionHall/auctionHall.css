@@ -11,6 +11,7 @@ body {
 
 .mui-content-style {
 	margin: 3.3vw 9px;
+	position: fixed;
 	/*height: 220px;
 	position: fixed;
 	z-index: 9999;*/

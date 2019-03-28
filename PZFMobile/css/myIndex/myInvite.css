@@ -29,11 +29,11 @@ body{
 }
 
 .mui-control-content {
-	height: 52vh;
+	height: 260px;
 }
 
 .mui-segmented-control.updateControl {
-	width: 45%;
+	width: 32%;
 	border: none;
 	font-size: 3.9vw;
 }
@@ -47,6 +47,10 @@ body{
 	line-height: 20px !important;
 	color: #8E8E8E;
 	border-left: 1px solid #8E8E8E;
+	text-align: left;
+}
+.mui-segmented-control .mui-control-item:last-child{
+	text-align: right !important;
 }
 
 .mui-segmented-control .mui-control-item.mui-active {
@@ -143,10 +147,11 @@ li {
 }
 
 .wx-img img{
-	width: 37px !important;
+	width: 25px !important;
 }
-
-
+.mui-media-body.media-body-size{
+	font-size: 12px;
+}
 
 .mui-content {
 	text-align: center;
@@ -155,5 +160,12 @@ li {
 .mui-grid-view.mui-grid-9 .mui-table-view-cell{
 	border-right: initial !important;
 	border-bottom: initial !important;
-	padding: 18px 15px !important;
+	padding: 10px 8px !important;
 }
+
+/*优化滚动*/
+.myInvite-scroll-height{
+	overflow-y: scroll;
+}
+
+

@@ -61,6 +61,7 @@ var entryPageIndex0=1;
 var entryPageIndex2=1;
 var entryPageIndex3=1;
 
+
 //var BASIC_HOST = "http://manage.galaxyotc.com/api/"; //外网生产服务器地址
 var BASIC_HOST = "http://192.168.1.157:8080/"; //外网服务器地址
 var URL_VERSION = 'http://www.galaxyotc.com/DownLoadFile/version.json';

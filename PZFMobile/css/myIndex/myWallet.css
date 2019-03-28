@@ -9,6 +9,7 @@ body{
 }
 /*我的钱包样式*/
 .myWalletBodyTitle{
+	position: fixed;
 	width: 100%;
 	height: 97px;
 	background-color: #02BB9A;
@@ -35,11 +36,12 @@ body{
 
 /*充值提现样式*/
 .twoButtonTop{
+	position: fixed;
 	background-color: #02BB9A;
     width: 100%;
-    height: 7vw;
+    height: 25.3px;
     padding: 0 8.6vw;
-    margin-bottom: calc(7vw + 20px);
+    margin-bottom: calc(25.3px + 20px);
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -132,6 +134,8 @@ body{
 	padding: 0px 1.9vw;
 }
 .transactionRecordTitle{
+	position: fixed;
+	z-index: 3;
 	padding: 0px 1.9vw;
 	font-size: 3.9vw;
 	color: #555555;
@@ -148,8 +152,8 @@ body{
 }
 .transactionRecordListLeft img{
 	margin-top: 7px;
-    width: 7.2vw;
-    height: 4.1vh;
+    width: 24px;
+    height: 23.5px;
     margin-right: 2.8vw;
     border-radius: 50%;
 }
@@ -164,8 +168,7 @@ body{
 }
 .transactionRecordListLeft span div:last-child{
 	display: inline-block;
-	color: #454545;
-	opacity: 0.5;
+	color: rgba(0,0,0,0.5);
 }
 .transactionRecordListRight{
 	float: right;
@@ -181,4 +184,31 @@ body{
 }
 .negative div:first-child{
 	color: #DC4D4D;
+}
+
+/*修改下拉加载样式*/
+.transactionRecordTitleBgColor{
+	width: 100%;
+    position: fixed;
+    height: 31px;
+    background-color: #F0EFF4;
+}
+.twoButtonTopBgColor{
+	width: 100%;
+	height: 97px;
+	position: fixed;
+	background-color: #F0EFF4;
+}
+.mui-table-view.clear-style{
+	background-color: initial;
+}
+.scroll-myWallet-height{
+	margin-top: 239px;
+	overflow-y: scroll;
+}
+.mui-scroll-padding{
+	padding: 0px 1.9vw;
+}
+.mui-table-view:before,:after{
+	background-color: initial;
 }

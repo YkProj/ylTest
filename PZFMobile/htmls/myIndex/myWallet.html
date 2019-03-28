@@ -17,21 +17,33 @@
 		</header>
 		<div class="myWalletBody">
 			<div class="myWalletBodyTitle">
-				<div class="myWalletBodyTitleContent">677.0￥</div>
+				<div class="myWalletBodyTitleContent" id="myWalletMoney">677.0￥</div>
 			</div>
+			<div style="height: 97px;"></div>
+			<div class="twoButtonTopBgColor">
 			<div class="twoButtonTop">
 				<div class="twoButton">
 					<div class="twoButtonLeft" onclick="nextPage(this)" data-page = "Recharge.html">
 						<span>充值</span>
 					</div>
-					<div class="twoButtonRight" onclick="nextPage(this)" data-page = "cashWithdrawal.html">
+					<div class="twoButtonRight" onclick="CashWithdrawal();">
 						<span>提现</span>
 					</div>
 				</div>
 			</div>
+			</div>
+			<div style="height: 67px;background-color: #F0EFF4;"></div>
 			<div class="transactionRecordAll">
+				<div class="transactionRecordTitleBgColor">
 				<div class="transactionRecordTitle">交易记录</div>
-				<div class="transactionRecordContent">
+				</div>
+				<div style="height: 31px;background-color: #F0EFF4;"></div>
+				<div id="pullrefresh" class="mui-scroll-wrapper scroll-myWallet-height">
+			<div class="mui-scroll mui-scroll-padding">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron clear-style">
+				
+				<div class="transactionRecordContent" id="myWalletContent">
 					<div class="publicList transactionRecordList">
 						<div class="transactionRecordListLeft">
 							<img src="../../images/myIndex/Recharge.png" alt="" />
@@ -58,11 +70,82 @@
 							<div>已完成</div>
 						</div>
 					</div>
+					<div class="publicList transactionRecordList">
+						<div class="transactionRecordListLeft">
+							<img src="../../images/myIndex/Recharge.png" alt="" />
+							<span>
+								<div>充值</div>
+								<div>2019/2/12 09:11:12</div>
+							</span>
+						</div>
+						<div class="transactionRecordListRight">
+							<div>+200.00￥</div>
+							<div>处理中</div>
+						</div>
+					</div>
+					<div class="publicList transactionRecordList">
+						<div class="transactionRecordListLeft">
+							<img src="../../images/myIndex/Recharge.png" alt="" />
+							<span>
+								<div>充值</div>
+								<div>2019/2/12 09:11:12</div>
+							</span>
+						</div>
+						<div class="transactionRecordListRight">
+							<div>+200.00￥</div>
+							<div>处理中</div>
+						</div>
+					</div>
+					<div class="publicList transactionRecordList">
+						<div class="transactionRecordListLeft">
+							<img src="../../images/myIndex/Recharge.png" alt="" />
+							<span>
+								<div>充值</div>
+								<div>2019/2/12 09:11:12</div>
+							</span>
+						</div>
+						<div class="transactionRecordListRight">
+							<div>+200.00￥</div>
+							<div>处理中</div>
+						</div>
+					</div>
+					<div class="publicList transactionRecordList">
+						<div class="transactionRecordListLeft">
+							<img src="../../images/myIndex/Recharge.png" alt="" />
+							<span>
+								<div>充值</div>
+								<div>2019/2/12 09:11:12</div>
+							</span>
+						</div>
+						<div class="transactionRecordListRight">
+							<div>+200.00￥</div>
+							<div>处理中</div>
+						</div>
+					</div>
+					<div class="publicList transactionRecordList">
+						<div class="transactionRecordListLeft">
+							<img src="../../images/myIndex/Recharge.png" alt="" />
+							<span>
+								<div>充值</div>
+								<div>2019/2/12 09:11:12</div>
+							</span>
+						</div>
+						<div class="transactionRecordListRight">
+							<div>+200.00￥</div>
+							<div>处理中</div>
+						</div>
+					</div>
 				</div>
+				</ul>
+			</div>
+		</div>
 			</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/myWallet.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>

@@ -26,3 +26,13 @@
 	color: #02BB9A;
 	font-weight: 500;
 }
+.messageList{
+	margin-bottom: 20px;
+}
+/*清除下拉样式*/
+.mui-table-view:after{
+	background-color: initial;
+}
+.mui-table-view:before{
+	background-color: initial;
+}
