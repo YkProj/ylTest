@@ -240,3 +240,33 @@ function indexDetail(HomeIndexListId) {
 		url: '../homeIndex/indexSub.html'
 	});
 };
+
+
+
+var href = window.location.href;
+
+var data =  href.split("?")[1].split("&");
+var userId = data[0].split("=")[1];
+var nickName = decodeURI(data[1].split("=")[1]);
+var headImgUrl = data[2].split("=")[1];
+window.localStorage.setItem("userId",userId);
+window.localStorage.setItem("nickName",nickName);
+window.localStorage.setItem("headImgUrl",headImgUrl);
+
+function useInfo(){//获取用户信息
+	var userId = window.localStorage.getItem("userId");
+	getWebData("landlord", "allHouseInfByPage", METHOD_GET, DATA, function(data) {
+		var DATA = new Object();
+		DATA.userId = userId;
+		if(data.code == 200){
+			var userData = data.data;
+			saveUserData(userData);
+		}else{
+			layer.open({
+				content: data.msg,
+				skin: 'msg',
+				time: 2 //2秒后自动关闭
+			});
+		}
+	});
+}

@@ -4,6 +4,7 @@ email: 1216226589@qq.com
 createtime: 2017-11-19
 summary: 服务调用方法
 */
+
 //首页分页全局变量
 var  homePageIndex = 1; //分页
    
@@ -62,9 +63,9 @@ var entryPageIndex2=1;
 var entryPageIndex3=1;
 
 
-//var BASIC_HOST = "http://manage.galaxyotc.com/api/"; //外网生产服务器地址
-var BASIC_HOST = "http://192.168.1.157:8080/"; //外网服务器地址
-var URL_VERSION = 'http://www.galaxyotc.com/DownLoadFile/version.json';
+var BASIC_HOST = "http://47.112.115.82:8081/"; //外网生产服务器地址
+//var BASIC_HOST = "http://192.168.1.169:8080/"; //内网服务器地址
+//var URL_VERSION = 'http://www.galaxyotc.com/DownLoadFile/version.json';
 
 var METHOD_GET = 1;
 var METHOD_POST = 2;
@@ -139,7 +140,6 @@ function hasOwnProperty(target, key) {
 	if(target) {
 		return target.hasOwnProperty(key);
 	}
-
 	return false;
 }
 
@@ -154,17 +154,6 @@ function nextPage(ele) {
 		isLogin(current, page, '');
 	}
 };
-//拍卖大厅详细页透明渐变导航栏
-var anctionDetailtitleNView = {
-	backgroundColor: '#f7f7f7', //导航栏背景色  
-	titleText: '透明渐变(native模式)', //导航栏标题  
-	titleColor: '#000000', //文字颜色  
-	type: 'transparent', //透明渐变样式  
-	autoBackButton: true, //自动绘制返回箭头  
-	splitLine: { //底部分割线  
-		color: '#cccccc'
-	}
-}
 
 function nextPage(ele) {
 	var page = ele.getAttribute("data-page");
@@ -175,17 +164,6 @@ function nextPage(ele) {
 
 };
 
-function auctionDetailPage(ele) {
-	var page = ele.getAttribute("data-page");
-
-	mui.openWindow({
-		url: page,
-		styles: {
-			titleNView: anctionDetailtitleNView
-		}
-	});
-
-}
 
 function nextPageWithextras(ele) {
 	var page = ele.getAttribute("data-page");
@@ -291,7 +269,7 @@ function auctionDetail(auctionListId) {
 function saveUserData(array) {
 	for(var item in array) {
 		//		console.log(item);
-		window.localStorage.setItem('local_user_' + item, array[item] + "");
+		window.localStorage.setItem('local_user_' + item, array[item] + "''");
 	}
 }
 
@@ -339,3 +317,4 @@ function clearData() { //清空用户登录存储的数据
 	//清空数据
 	//window.localStorage.clear();
 }
+

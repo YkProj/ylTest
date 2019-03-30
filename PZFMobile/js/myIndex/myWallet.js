@@ -1,7 +1,7 @@
 myWalletData(1);
-let loading = false;
-let MyWalletPageIndex = 1;
-let myWalletDataList = "";
+var loading = false;
+var MyWalletPageIndex = 1;
+var myWalletDataList = "";
 function myWalletData(myWalletPageIndex) { //获取我的钱包数据
 	if(loading){
 		loading = false;
@@ -93,9 +93,9 @@ function pulldownRefresh() {
 		//		$("#myWalletContent").empty();
 		//		myWalletData(1) //获取数据
 		mui.toast("已为您更新到最新数据");
-		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
-		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-		mui('#pullrefresh').pullRefresh().refresh(true);
+//		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
+//		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+//		mui('#pullrefresh').pullRefresh().refresh(true);
 	}, 500);
 };
 

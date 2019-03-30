@@ -139,9 +139,9 @@ function indexInit(HomeIndexListId) {
 };
 //地图
 function map(Longitude, Lantitude, homeIndextSubTitle, homeIndexSubArea) {
-	var indexTitleSub = homeIndextSubTitle.substr(0,18)+"...";
-	var longitude =Longitude;
-	var Lantitude =Lantitude;
+	var indexTitleSub = homeIndextSubTitle.substr(0, 18) + "...";
+	var longitude = Longitude;
+	var Lantitude = Lantitude;
 	var map = new BMap.Map("allmap"); //创建地图实例
 	var point = new BMap.Point(Longitude, Lantitude);
 	map.centerAndZoom(point, 13); //初始化地图设置中心点坐标和地图级别
@@ -149,35 +149,35 @@ function map(Longitude, Lantitude, homeIndextSubTitle, homeIndexSubArea) {
 	map.addOverlay(marker); // 将标注添加到地图中
 	var latCurrent = "";
 	var lngCurrent = "";
-	
-//	var geolocation = new BMap.Geolocation();
-//  geolocation.getCurrentPosition(function(r){console.log(r.point)
-//      if(this.getStatus() == BMAP_STATUS_SUCCESS){
-//          var mk = new BMap.Marker(r.point);
-//          map.addOverlay(mk);//标出所在地
-//          map.panTo(r.point);//地图中心移动
-//            alert('您的位置：'+r.point.lng+','+r.point.lat);
-//          latCurrent = r.point.lat;
-//          lngCurrent = r.point.lng;
-//          var point = new BMap.Point(r.point.lng,r.point.lat);//用所定位的经纬度查找所在地省市街道等信息
-//          var gc = new BMap.Geocoder();
-//          gc.getLocation(point, function(rs){
-//             var addComp = rs.addressComponents; console.log(rs.address);//地址信息
-//             alert(rs.address);//弹出所在地址
-//
-//          });
-//      }else {
-//          alert('failed'+this.getStatus());
-//      }        
-//  },{enableHighAccuracy: true})
-    
-    
+
+//		var geolocation = new BMap.Geolocation();
+//	  geolocation.getCurrentPosition(function(r){console.log(r.point)
+//	      if(this.getStatus() == BMAP_STATUS_SUCCESS){
+//	          var mk = new BMap.Marker(r.point);
+//	          map.addOverlay(mk);//标出所在地
+//	          map.panTo(r.point);//地图中心移动
+//	            alert('您的位置：'+r.point.lng+','+r.point.lat);
+//	          latCurrent = r.point.lat;
+//	          lngCurrent = r.point.lng;
+//	          var point = new BMap.Point(r.point.lng,r.point.lat);//用所定位的经纬度查找所在地省市街道等信息
+//	          var gc = new BMap.Geocoder();
+//	          gc.getLocation(point, function(rs){
+//	             var addComp = rs.addressComponents; console.log(rs.address);//地址信息
+//	             alert(rs.address);//弹出所在地址
+//	
+//	          });
+//	      }else {
+//	          alert('failed'+this.getStatus());
+//	      }        
+//	  },{enableHighAccuracy: true})
+
 	var opts = {
 		width: 120, // 信息窗口宽度
 		height: 65, // 信息窗口高度
 		title: indexTitleSub, // 信息窗口标题
 	}
-	var baiduApp = '<a href="http://api.map.baidu.com/marker?location=latCurrent,lngCurrent|name:我的位置&destination=latlng:116.404，39.915|name:目的地&title=所在位置名称&content=所在位置的简介（可选）&output=html">打开百度地图查看详情</a>';
+//	var baiduApp = '<a href="http://api.map.baidu.com/marker?location=latCurrent,lngCurrent|name:我的位置&destination=latlng:116.404，39.915|name:目的地&title=所在位置名称&content=所在位置的简介（可选）&output=html">打开百度地图查看详情</a>';
+	var baiduApp = '<a href="http://api.map.baidu.com/geocoder?address=北京市海淀区上地信息路9号奎科科技大厦&output=html&src=webapp.baidu.openAPIdemo">打开百度地图查看详情</a>';
 	var infoWindow = new BMap.InfoWindow(baiduApp, opts); // 创建信息窗口对象 
 	marker.addEventListener("click", function() {
 		map.openInfoWindow(infoWindow, point); //开启信息窗口
@@ -210,4 +210,17 @@ function indexFavour() {
 			});
 		}
 	});
+}
+
+//点击报名方法
+function signup() {
+	if(hasLogin()) {
+		mui.openWindow({
+			 url: '../auctionHall/auctionHallDetail.html'
+		});
+	}else{
+		mui.openWindow({
+			 url: 'http://www.zukepai.com/Authentication.html?Math=random()'
+		});
+	}
 }

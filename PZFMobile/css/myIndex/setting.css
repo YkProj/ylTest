@@ -43,11 +43,11 @@ input::-webkit-input-placeholder {
     padding: 0px 0px !important;
 }
 .settingListCenter{
-	width: 53%;
+	width: 50%;
 	float: left;
 }
 .settingListOutRight{
-	width: 28%;
+	width: 31%;
 	float: right;
 	text-align: right;
 	color: #02BB9A;
@@ -69,11 +69,11 @@ input::-webkit-input-placeholder {
 	font-size: 3.9vw;
 }
 .settingListLeftCenter{
-	width: 70%;
+	width: 67%;
 	float: left;
 }
 .settingListLeftOutRight{
-	width: 28%;
+	width: 31%;
 	float: right;
 	text-align: right;
 }
