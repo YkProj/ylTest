@@ -144,6 +144,8 @@ function auctionDetail(auctionListId) {
 			if(auctionHouseData.status == 1) {
 				auctionStatus = "审核中";
 				$("#auctionBottomEnd").addClass('auctionBottomEnd');
+				$("#auctionBottomEndSecond").addClass('auctionBottomEnd');
+				$("#auctionBottomEndThird").addClass('auctionBottomEnd');
 			} else if(auctionHouseData.status == 0) {
 				auctionStatus = "报名中";
 			} else if(auctionHouseData.status == 2) {
@@ -151,6 +153,10 @@ function auctionDetail(auctionListId) {
 			} else if(auctionHouseData.status == 3) {
 				auctionStatus = "已成功";
 				$("#auctionBottomEnd").addClass('auctionBottomEnd');
+				$("#auctionBottomEndSecond").addClass('auctionBottomEnd');
+				$("#auctionBottomEndThird").addClass('auctionBottomEnd');
+			}else{
+				auctionStatus = auctionHouseDataStatus;
 			}
 			$("#auctionStatus").html(auctionStatus);
 			if(auctionHouseData.status !== 2) {
@@ -247,7 +253,7 @@ function auctionDetail(auctionListId) {
 //地图
 function map(Longitude, Lantitude, homeIndextSubTitle) {
 	var SubhomeIndextSubTitle = homeIndextSubTitle.substr(0, 18) + "...";
-	var map = new BMap.Map("allmap"); //创建地图实例
+	var map = new BMap.Map("allmap");  //创建地图实例
 	var point = new BMap.Point(Longitude, Lantitude);
 	map.centerAndZoom(point, 13); //初始化地图设置中心点坐标和地图级别
 	var marker = new BMap.Marker(point); // 创建标注

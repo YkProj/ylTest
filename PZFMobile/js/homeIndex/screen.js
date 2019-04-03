@@ -26,7 +26,6 @@ $('#homeIndexSearch').on('input', function() {
 		if(!cpLock) {
 		console.log("字母搜索")
 		var keyWord = $("#homeIndexSearch").val();
-		$("#list").empty();
 		getData(1);
 	}
 	},500)

@@ -132,7 +132,7 @@ function entryLog(self, ul, index, entryPageIndex) { //self表示当前处于选
 		entryStatus = 3;
 	}
 	var DATA = new Object();
-	DATA.userId = 1;
+	DATA.userId = getUserData("id");
 	DATA.pageNo = entryPageIndex;
 	DATA.status = entryStatus;
 	getWebData("landlord", "findOneCollectionHouse", METHOD_POST, DATA, function(data) {

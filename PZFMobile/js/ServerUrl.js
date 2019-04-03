@@ -57,11 +57,10 @@ var myCollectionPageCount = "";
 //报名记录全局变量
 var entryStatus = 1;
 var entryPageIndex = "";
-var entryPageIndex1=1;
-var entryPageIndex0=1;
-var entryPageIndex2=1;
-var entryPageIndex3=1;
-
+var entryPageIndex1 = 1;
+var entryPageIndex0 = 1;
+var entryPageIndex2 = 1;
+var entryPageIndex3 = 1;
 
 var BASIC_HOST = "http://47.112.115.82:8081/"; //外网生产服务器地址
 //var BASIC_HOST = "http://192.168.1.169:8080/"; //内网服务器地址
@@ -164,7 +163,6 @@ function nextPage(ele) {
 
 };
 
-
 function nextPageWithextras(ele) {
 	var page = ele.getAttribute("data-page");
 	var extraStr = ele.getAttribute('data-extras');
@@ -251,7 +249,13 @@ document.getElementById("auctionTab").addEventListener('tap', function() {
 	mui.openWindow('auctionHall.html', 'auctionTab');
 })
 document.getElementById("myTab").addEventListener('tap', function() {
-	mui.openWindow('myIndex.html', 'myTab');
+	if(hasLogin()) {
+		mui.openWindow('myIndex.html', 'myTab');
+	} else {
+		mui.openWindow({
+			url: '../myIndex/login.html'
+		});
+	}
 })
 
 //拍卖大厅跳转详细页
@@ -269,7 +273,7 @@ function auctionDetail(auctionListId) {
 function saveUserData(array) {
 	for(var item in array) {
 		//		console.log(item);
-		window.localStorage.setItem('local_user_' + item, array[item] + "''");
+		window.localStorage.setItem('local_user_' + item, array[item] + "");
 	}
 }
 
@@ -295,13 +299,14 @@ function getStorageData(key) { //获取storage数据
 }
 //校验是否登录
 function hasLogin() { //校验是否登录
-	var isLogined = this.getStorageData('isLogin');
-	if(isLogined && isLogined == 'true') {
+	var isLogined = this.getStorageData("isLogin");
+	if(isLogined && isLogined == "true") {
 		return true;
 	} else {
 		return false;
 	}
 }
+
 
 //清楚数据
 function clearData() { //清空用户登录存储的数据
@@ -317,4 +322,3 @@ function clearData() { //清空用户登录存储的数据
 	//清空数据
 	//window.localStorage.clear();
 }
-

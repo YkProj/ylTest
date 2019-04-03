@@ -130,7 +130,6 @@ $('#auctionInput').on('input', function() {
 		if(!cpLock) {
 			console.log("字母搜索")
 			var keyWord = $("#auctionInput").val();
-			$("#auctionListData").empty();
 			auctionData(1)
 		}
 	}, 500)
@@ -166,12 +165,26 @@ function customInterval() {
 
 	auctionTimeNew = newActionTime;
 }
+mui('#screenWrap').on('tap', '#auctionResetBtn', function() { //点击筛选重置
+	$("#screenWrap button").removeClass("mui-active");
+	collectionValue = -1;
+	houseTypeValue = -1;
+	auctionData(1);
+});
+mui('#screenWrap').on('tap', '#auctionOkBtn', function() {//点击筛选确定
+
+	collectionValue = CollectionValue;
+	houseTypeValue = HouseTypeValue;
+	$("#screenWrap").css('display', 'none');
+	$("#auctionListData").empty();
+	auctionData(1);
+});
 var loading = false;
 var AuctionPageIndex = 1;
 //获取拍卖大厅数据
 function auctionData(auctionPageIndex) {
 	if(loading) {
-		return false;
+		return ;
 	}
 	loading = true;
 	var auctionKerWord = "";
@@ -188,14 +201,14 @@ function auctionData(auctionPageIndex) {
 	var DATA = new Object();
 	DATA.collection = auctionCollection;
 	DATA.houseType = auctionHouseType;
-	DATA.userId = 1;
+	DATA.userId = getUserData("id");
 	DATA.title = auctionKerWord;
 	DATA.pageNo = auctionPageIndex;
 	getWebData("landlord", "findAuctionByPage", METHOD_POST, DATA, function(data) {
 		if(data.code == 200) {
 			auctionListData = data.data;
 			if(auctionListData.length > 0) {
-//				$("#auctionListData").empty();
+				//				$("#auctionListData").empty();
 				var auctionListHtml = '';
 				auctionListData.map(item => auctionTimeNew.push(new Date(item.endTime).getTime())); //往数组里填当前列表的结束时间
 				for(var i = 0; i < auctionListData.length; i++) {
@@ -228,7 +241,8 @@ function auctionData(auctionPageIndex) {
 					} else {
 						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
 					}
-				}, 500);
+				}, 500)
+				mui('#pullrefresh').pullRefresh().refresh(true);
 			} else {
 				layer.open({
 					content: "没有更多数据",
@@ -236,6 +250,12 @@ function auctionData(auctionPageIndex) {
 					time: 2 //2秒后自动关闭
 				});
 			}
+		} else {
+			layer.open({
+				content: data.code + data.msg,
+				skin: 'msg',
+				time: 2 //2秒后自动关闭
+			});
 		}
 	})
 }
@@ -268,45 +288,39 @@ function pulldownRefresh() {
 	setTimeout(function() {
 		$("#auctionListData").empty();
 		auctionData(1);
-		mui.toast("已为您更新了最新的10条数据")
+		mui.toast("已为您更新至最新数据")
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-		mui('#pullrefresh').pullRefresh().refresh(true);
 	}, 500);
 };
 
 //筛选
-var CollectionValue = "";
+var CollectionValue = -1;
 mui('#screen1').on('tap', 'button', function() { //获取装修类型的值
-	$(this).addClass("mui-active").siblings().removeClass("mui-active");
+	$(this).toggleClass("mui-active").siblings().removeClass("mui-active");
 	CollectionValue = $(this).attr("value"); // $(this)表示获取当前被点击元素的value值
 });
-var HouseTypeValue = "";
-mui('#screen2').on('tap', 'button', function() { //获取装修类型的值
-	$(this).addClass("mui-active").siblings().removeClass("mui-active");
+var HouseTypeValue = -1;
+mui('#screen2').on('tap', 'button', function() { //住宅
+	$(this).toggleClass("mui-active").siblings().removeClass("mui-active");
 	HouseTypeValue = $(this).attr("value"); // $(this)表示获取当前被点击元素的value值
 	if(HouseTypeValue == 1) {
+		$(this).removeClass("mui-active");
+		$("#rantType").children(":first").addClass("mui-active");
 		layer.open({
 			content: "写字楼暂未开放",
 			skin: 'msg',
 			time: 2 //2秒后自动关闭
 		});
 	} else if(HouseTypeValue == 2) {
+		$(this).removeClass("mui-active");
+		$("#rantType").children(":first").addClass("mui-active");
 		layer.open({
 			content: "商铺暂未开放",
 			skin: 'msg',
 			time: 2 //2秒后自动关闭
 		});
 	}
-});
-mui('#screenWrap').on('tap', '#auctionResetBtn', function() {
-	$("#screenWrap button").removeClass("mui-active");
-});
-mui('#screenWrap').on('tap', '#auctionOkBtn', function() {
-	collectionValue = CollectionValue;
-	houseTypeValue = HouseTypeValue;
-	auctionData(1);
-	$("#screenWrap").css('display', 'none');
 });
 
 //拍卖大厅详细页

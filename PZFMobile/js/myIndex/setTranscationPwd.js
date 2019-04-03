@@ -2,7 +2,7 @@
 var setPwdphone = null;
 $(function() { //获取当前绑定手机号
 	var DATA = new Object();
-	DATA.userId = 4;
+	DATA.userId = getUserData("id");
 	getWebData("user", "getPhoneNo", METHOD_GET, DATA, function(data) {
 		if(data.code == 200) {
 			var data = data.data;
@@ -13,7 +13,7 @@ $(function() { //获取当前绑定手机号
 
 		} else {
 			layer.open({
-				content: data.msg,
+				content: data.code+data.msg,
 				skin: 'msg',
 				time: 2 //2秒后自动关闭
 			});
@@ -22,12 +22,13 @@ $(function() { //获取当前绑定手机号
 	});
 })
 
-function transcationPwd() {
+function transcationPwd() {//验证码
 	var obj = $("#setTranPwd");
 	settime(obj);
 	var DATA = new Object();
 	DATA.phone = setPwdphone;
-	getWebData("sendSMS", "CodeForUpdatePayPwd", METHOD_GET, DATA, function(data) {
+	DATA.type = 2;
+	getWebData("code", "sendCode", METHOD_POST, DATA, function(data) {
 		if(data.code == 200) {
 			layer.open({
 				content: data.msg,
@@ -36,7 +37,7 @@ function transcationPwd() {
 			});
 		} else {
 			layer.open({
-				content: data.msg,
+				content: data.code+data.msg,
 				skin: 'msg',
 				time: 2 //2秒后自动关闭
 			});
@@ -79,7 +80,7 @@ function setTranscationPwd() {//修改交易密码
 		}
 	}
 	var DATA = new Object();
-	DATA.userId = 4;
+	DATA.userId = getUserData("id");
 	DATA.payPwd = tranPwdAgain;
 	DATA.code = setPwdCode;
 	getWebData("user", "updatePayPwd", METHOD_POST, DATA, function(data) {

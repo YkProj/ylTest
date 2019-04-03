@@ -1,10 +1,115 @@
 var messageIndex = 1;
-var messageLoading = false;
+var loading = false;
+let firstDataLength = "";
+let firstData = "";
+let messageData = "";
+//初始化调用函数
+//messageInfo(1, true);
+//setInterval(function() {
+//	messageInfo(1, false)
+//}, 10000)
+
+function messageInfo(messageInfoIndex, isFirst) {
+	if(loading) {
+		return;
+	}
+	loading = true;
+	var DATA = new Object();
+	DATA.userId = getUserData("id");
+	DATA.pageNo = messageInfoIndex;
+	getWebData("message", "findMessagesByPage", METHOD_POST, DATA, function(data) {
+		if(data.code == 200) {
+			messageData = data.data;
+			messageDataLength = messageData.length;
+			if(isFirst) {
+				firstData = data.data;
+				firstDataLength = firstData.length;
+				if(messageDataLength > 0) {
+					let messageList = "";
+					for(let i = 0; i < messageDataLength; i++) {
+						messageList += '<div class="messageList" id="`${messageData[i].id}`">';
+						messageList += '<div class="messageTitle">' + messageData[i].formatCreateTime + '</div>';
+						messageList += '<div class="publicList">';
+						messageList += '<div class="messageListTitle">' + messageData[i].title + '</div>';
+						messageList += '<div class="messageListContent">' + messageData[i].content + '</div>';
+						messageHoseId = messageData[i].houseId;
+						messageList += '<div class="messageListBottom" id="messageClick" onclick="GoToAuction(' + messageData[i].houseId + ')">去竞拍>></div>';
+						messageList += '</div>';
+						messageList += '</div>';
+					}
+					$("#messageData").append(messageList);
+					localStorage.setItem('firstDataLength', firstDataLength);
+					//					setTimeout(function() {
+					//							loading = false;
+					//							messageIndex = parseInt(messageIndex + 1);
+					//							if(messageData.length < 10) {
+					//								messageLoading = false;
+					//								mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+					//								messageIndex = 1;
+					//							} else {
+					//								mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+					//							}
+					//						}, 500)
+				}
+			} else {
+				if(messageData.length != firstData.length) {
+					console.log("有新数据");
+					if(messageDataLength > 0) {
+						$("#messageData").empty();
+						let messageList = "";
+						for(let i = 0; i < messageDataLength; i++) {
+							messageList += '<div class="messageList">';
+							messageList += '<div class="messageTitle">' + messageData[i].formatCreateTime + '</div>';
+							messageList += '<div class="publicList">';
+							messageList += '<div class="messageListTitle">' + messageData[i].title + '</div>';
+							messageList += '<div class="messageListContent">' + messageData[i].content + '</div>';
+							messageHoseId = messageData[i].houseId;
+							messageList += '<div class="messageListBottom" id="messageClick" onclick="GoToAuction(' + messageData[i].houseId + ')">去竞拍>></div>';
+							messageList += '</div>';
+							messageList += '</div>';
+						}
+						$("#messageData").append(messageList);
+					}
+					firstData = messageData;
+					firstDataLength = firstData.length;
+					localStorage.setItem('firstDataLength', firstDataLength);
+				} else {
+					let messageList = "";
+					for(let j = 0; j < firstData.length; j++) {
+							messageList += '<div class="messageList">';
+							messageList += '<div class="messageTitle">' + messageData[j].formatCreateTime + '</div>';
+							messageList += '<div class="publicList">';
+							messageList += '<div class="messageListTitle">' + messageData[j].title + '</div>';
+							messageList += '<div class="messageListContent">' + messageData[j].content + '</div>';
+							messageHoseId = messageData[j].houseId;
+							messageList += '<div class="messageListBottom" id="messageClick" onclick="GoToAuction(' + messageData[j].houseId + ')">去竞拍>></div>';
+							messageList += '</div>';
+							messageList += '</div>';
+						if(messageData[j].id != firstData[j].id) {
+							console.log("有最新数据");
+							firstDataLength = firstDataLength + 1;
+						}else if(j == firstData.length - 1){
+							console.log("肯定没有最新数据");
+						}
+					}
+					$("#messageData").empty();
+					$("#messageData").append(messageList);
+					firstData = messageData;
+					firstDataLength = firstData.length;
+					localStorage.setItem('firstDataLength', firstDataLength);
+				}
+			}
+		}
+		loading = false;
+	});
+}
+
 mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
 		down: {
 			style: 'circle',
+			contentrefresh: '正在加载...',
 			callback: pulldownRefresh
 		},
 		up: {
@@ -18,87 +123,38 @@ mui.init({
 
 //上拉加载
 function pullupRefresh() {
-	setTimeout(function() {
-		messageInfo(messageIndex); //ajax
-	}, 500)
-};
+//	setTimeout(function() {
+//		loading = false;
+//		messageIndex = parseInt(messageIndex + 1);
+//		messageInfo(messageIndex, false);
+//		if(messageData.length < 10) {
+//			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+//			messageIndex = 1;
+//		} else {
+//			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+//		}
+//	}, 500)
+}
 
 //下拉刷新
 function pulldownRefresh() {
-	setTimeout(function() {
-		$("#myCollectionList").empty();
-		messageInfo(1);
-		mui.toast("已为您更新到最新数据");
-		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
-		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-		mui('#pullrefresh').pullRefresh().refresh(true);
-	}, 500);
-};
-var messageData = "";
-function messageInfo(messageIndex) {
-	if(messageLmessageInfooading){
-		messageLoading = false;
-	}
-	messageLoading = true;
-	var ws = new WebSocket('ws://121.40.165.18:8800');
-
-	// 建立 web socket 连接成功触发事件
-	ws.onopen = function() {
-		var DATA = new Object(); //给后台发送参数
-		DATA.useid = 1;
-		DATA.pageNo = messageIndex;
-	};
-
-	//接收到消息的回调方法
-	ws.onmessage = function(event) {
-		//      alert('数据回来了额'+event.data)
-		console.log(event.data); //后台不间断发送数据，持续接收。
-		if(event.data){
-			alert("有最先数据")
-		}
-		if(event.data.code == 200) {
-			messageData = event.data.data;
-			if(messageData.length > 0) {
-				$("#messageData").empty();
-				var messageList = "";
-				for (var i=0;i<messageData.length;i++) {
-					messageList += '<div class="messageList">';
-					messageList += '<div class="messageTitle">' + messageData[i].creatTime + '</div>';
-					messageList += '<div class="publicList">';
-					messageList += '<div class="messageListTitle">' + messageData[i].title + '</div>';
-					messageList += '<div class="messageListContent">' + messageData[i].content + '</div>';
-					messageList += '<div class="messageListBottom" onclick="auctionDetail(' + messageData[i].id + ')">去竞拍>></div>';
-					messageList += '</div>';
-					messageList += '</div>';
-				}
-				$("#messageData").append(messageList);
-				setTimeout(function(){
-					messageIndex = parseInt(messageIndex + 1);
-					if(messageData.length <10){
-						messageLoading = false;
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-						messageIndex = 1;
-					}else{
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-					}
-				},500)
-			}
-		} else {
-			layer.open({
-				content: data.code + data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
-		}
-	}
-
-	//断开 web socket 连接成功触发事件
-	ws.onclose = function() {
-		alert("连接已关闭...");
-	};
+//	setTimeout(function() {
+//		$("#messageData").empty();
+//		messageInfo(1, true);
+//		mui.toast("已为您更新到最新数据");
+//		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
+//		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+//	}, 500);
 }
-function message(){
-	alert("点击事件生效")
+
+function GoToAuction(houseId) {
+	const messageHoseId = houseId;
+	firstDataLength = firstDataLength - 1;
+	localStorage.setItem('firstDataLength', firstDataLength);
+	mui.openWindow({
+		url: '../auctionHall/auctionHallDetail.html'
+	});
+	auctionDetail(messageHoseId);
 }
 mui("#messageData").on("tap", "#messageClick", function() {
 	this.click();

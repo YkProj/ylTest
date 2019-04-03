@@ -36,6 +36,8 @@ document.querySelector('.mui-slider').addEventListener('slide', function(event) 
 }, {
 	passive: true
 });
+//定义页面状态全局变量
+let indexStatus = "";
 
 function indexInit(HomeIndexListId) {
 	var HouseId = HomeIndexListId;
@@ -48,6 +50,7 @@ function indexInit(HomeIndexListId) {
 			$("#header").append(indexDetailTitle)
 			localStorage.setItem('NavBarTitle', indexDetailTitle);
 			var indexSubHouse = indexDetailData.house;
+			indexStatus = indexSubHouse.status;
 			Lantitude = indexSubHouse.lantitude;
 			Longitude = indexSubHouse.longitude;
 			var indexDetailDataSliderImg = indexDetailData.loopImg;
@@ -133,6 +136,9 @@ function indexInit(HomeIndexListId) {
 			}
 			map(Longitude, Lantitude, indexDetailTitle, indexSubHouse.district);
 			$("#indexSubHoseDescribe").html(indexSubHouse.description);
+			if(indexStatus == 1 || indexStatus == 3) {
+				$("#indexSubStatus").addClass('indexSubdetailBottomRightStatus');
+			}
 		}
 	});
 
@@ -150,33 +156,33 @@ function map(Longitude, Lantitude, homeIndextSubTitle, homeIndexSubArea) {
 	var latCurrent = "";
 	var lngCurrent = "";
 
-//		var geolocation = new BMap.Geolocation();
-//	  geolocation.getCurrentPosition(function(r){console.log(r.point)
-//	      if(this.getStatus() == BMAP_STATUS_SUCCESS){
-//	          var mk = new BMap.Marker(r.point);
-//	          map.addOverlay(mk);//标出所在地
-//	          map.panTo(r.point);//地图中心移动
-//	            alert('您的位置：'+r.point.lng+','+r.point.lat);
-//	          latCurrent = r.point.lat;
-//	          lngCurrent = r.point.lng;
-//	          var point = new BMap.Point(r.point.lng,r.point.lat);//用所定位的经纬度查找所在地省市街道等信息
-//	          var gc = new BMap.Geocoder();
-//	          gc.getLocation(point, function(rs){
-//	             var addComp = rs.addressComponents; console.log(rs.address);//地址信息
-//	             alert(rs.address);//弹出所在地址
-//	
-//	          });
-//	      }else {
-//	          alert('failed'+this.getStatus());
-//	      }        
-//	  },{enableHighAccuracy: true})
+	//		var geolocation = new BMap.Geolocation();
+	//	  geolocation.getCurrentPosition(function(r){console.log(r.point)
+	//	      if(this.getStatus() == BMAP_STATUS_SUCCESS){
+	//	          var mk = new BMap.Marker(r.point);
+	//	          map.addOverlay(mk);//标出所在地
+	//	          map.panTo(r.point);//地图中心移动
+	//	            alert('您的位置：'+r.point.lng+','+r.point.lat);
+	//	          latCurrent = r.point.lat;
+	//	          lngCurrent = r.point.lng;
+	//	          var point = new BMap.Point(r.point.lng,r.point.lat);//用所定位的经纬度查找所在地省市街道等信息
+	//	          var gc = new BMap.Geocoder();
+	//	          gc.getLocation(point, function(rs){
+	//	             var addComp = rs.addressComponents; console.log(rs.address);//地址信息
+	//	             alert(rs.address);//弹出所在地址
+	//	
+	//	          });
+	//	      }else {
+	//	          alert('failed'+this.getStatus());
+	//	      }        
+	//	  },{enableHighAccuracy: true})
 
 	var opts = {
-		width: 120, // 信息窗口宽度
-		height: 65, // 信息窗口高度
+		width: 100, // 信息窗口宽度
+		height: 50, // 信息窗口高度
 		title: indexTitleSub, // 信息窗口标题
 	}
-//	var baiduApp = '<a href="http://api.map.baidu.com/marker?location=latCurrent,lngCurrent|name:我的位置&destination=latlng:116.404，39.915|name:目的地&title=所在位置名称&content=所在位置的简介（可选）&output=html">打开百度地图查看详情</a>';
+	//	var baiduApp = '<a href="http://api.map.baidu.com/marker?location=latCurrent,lngCurrent|name:我的位置&destination=latlng:116.404，39.915|name:目的地&title=所在位置名称&content=所在位置的简介（可选）&output=html">打开百度地图查看详情</a>';
 	var baiduApp = '<a href="http://api.map.baidu.com/geocoder?address=北京市海淀区上地信息路9号奎科科技大厦&output=html&src=webapp.baidu.openAPIdemo">打开百度地图查看详情</a>';
 	var infoWindow = new BMap.InfoWindow(baiduApp, opts); // 创建信息窗口对象 
 	marker.addEventListener("click", function() {
@@ -186,12 +192,14 @@ function map(Longitude, Lantitude, homeIndextSubTitle, homeIndexSubArea) {
 }
 
 //点击收藏
+//定义是否收藏过
 function indexFavour() {
 	var DATA = new Object();
-	DATA.userId = 1;
+	DATA.userId = getUserData("id");
 	DATA.houseId = HomeIndexListId;
 	getWebData("landlord", "collectionHouse", METHOD_POST, DATA, function(data) {
 		if(data.code == 200) {
+			$("#indexCollection").attr('src', '../../images/myIndex/collectionActive.png');
 			layer.open({
 				content: "收藏成功",
 				skin: 'msg',
@@ -201,7 +209,14 @@ function indexFavour() {
 				mui.openWindow({
 					url: '../myIndex/myCollection.html'
 				});
-			}, 1500)
+			}, 1000)
+		} else if(data.code == 202) {
+			$("#indexCollection").attr('src', '../../images/myIndex/collectionActive.png');
+			layer.open({
+				content: data.msg,
+				skin: 'msg',
+				time: 5 //2秒后自动关闭
+			})
 		} else {
 			layer.open({
 				content: data.code + data.msg,
@@ -215,12 +230,41 @@ function indexFavour() {
 //点击报名方法
 function signup() {
 	if(hasLogin()) {
-		mui.openWindow({
-			 url: '../auctionHall/auctionHallDetail.html'
+		if(indexStatus == 0 || indexStatus == 2) {
+			var btnArray = ['取消', '确定'];
+			mui.prompt('参与竞拍需要交300元保证金', '请输入支付密码', '报名交保证金', btnArray, function(e) {
+				if(e.index == 1) {
+					layer.open({
+						content: "点击了确定按钮",
+						skin: 'msg',
+						time: 2 //2秒后自动关闭
+					});
+				} else {
+					layer.open({
+						content: "点击了取消按钮",
+						skin: 'msg',
+						time: 2 //2秒后自动关闭
+					});
+				}
+			})
+		} else {
+			layer.open({
+				content: "竞拍已结束",
+				skin: 'msg',
+				time: 2 //2秒后自动关闭
+			});
+
+		}
+	} else {
+		layer.open({
+			content: "您还未设置账号,请先进行账号设置",
+			skin: 'msg',
+			time: 2 //2秒后自动关闭
 		});
-	}else{
-		mui.openWindow({
-			 url: 'http://www.zukepai.com/Authentication.html?Math=random()'
-		});
+		setTimeout(function() {
+			mui.openWindow({
+				url: '../myIndex/login.html'
+			});
+		}, 1000)
 	}
 }

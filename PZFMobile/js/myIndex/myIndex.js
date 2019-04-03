@@ -3,11 +3,10 @@ function setTranscationPwd() {
 	verifyPhone(phone);
 	var DATA = new Object();
 	DATA.phone = phone;
-
 	getWebData("sendSMS", "CodeForUpdatePayPwd", METHOD_GET, DATA, function(data) {
 		if(data.code == 200) {
 			layer.open({
-				content: data.code,
+				content: data.msg,
 				skin: 'msg',
 				time: 2 //2秒后自动关闭
 			});
@@ -15,14 +14,29 @@ function setTranscationPwd() {
 	});
 }
 
-function verrifyCode() {//获取验证码
+function verrifyCode() { //获取验证码
 	phone = $("input[name='setPhone']").val();
-	verifyPhone(phone);
-	var obj = $("#verifyCode");
-	settime(obj);
+	const accountPhoneModefy = /^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/; //验证手机号11位
+	if(phone == "") {
+		layer.open({
+			content: "请先输入手机号",
+			skin: 'msg',
+			time: 2 //2秒后自动关闭
+		});
+	} else if(!accountPhoneModefy.test(phone)) {
+		layer.open({
+			content: "请输入正确手机号",
+			skin: 'msg',
+			time: 2 //2秒后自动关闭
+		});
+	} else {
+		var obj = $("#verifyCode");
+		settime(obj);
+	}
 	var DATA = new Object();
 	DATA.phone = phone;
-	getWebData("sendSMS", "CodeForUpdatePhone", METHOD_GET, DATA, function(data) {
+	DATA.type = 2;
+	getWebData("code", "sendCode", METHOD_POST, DATA, function(data) {
 		if(data.code == 200) {
 			layer.open({
 				content: data.msg,
@@ -40,7 +54,7 @@ function verrifyCode() {//获取验证码
 	});
 }
 
-function setPhoneOk() {//修改手机号
+function setPhoneOk() { //修改手机号
 	phone = $("input[name='setPhone']").val();
 	var verifyCodeContet = $("input[name='verifyCodeContent']").val();
 	var setPhoneLoginPwd = $("input[name='setPhoneLoginPwd']").val();
@@ -58,7 +72,7 @@ function setPhoneOk() {//修改手机号
 		});
 	}
 	var DATA = new Object();
-	DATA.userId = 4;
+	DATA.userId = getUserData("id");
 	DATA.phone = phone;
 	DATA.code = verifyCodeContet;
 	DATA.loginPwd = setPhoneLoginPwd;
@@ -80,7 +94,7 @@ function setPhoneOk() {//修改手机号
 	});
 }
 
-function setLoginPwdOk() {//修改登陆密码
+function setLoginPwdOk() { //修改登陆密码
 	var currentLoginPwd = $("input[name='currentLoginPwd']").val();
 	var newLoginPwd = $("input[name='newLoginPwd']").val();
 	var confirmLoginPwdAgain = $("input[name='confirmLoginPwdAgain']").val();
@@ -97,14 +111,14 @@ function setLoginPwdOk() {//修改登陆密码
 				skin: 'msg',
 				time: 2 //2秒后自动关闭
 			});
-		} else if(!(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,18}$/.test(newLoginPwd))) {
+		} else if(!(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,18}$/.test(newLoginPwd))) {
 			layer.open({
 				content: '登陆密码为8-18位字母和数字组合，请重新输入',
 				skin: 'msg',
 				time: 2 //2秒后自动关闭
 			});
 		} else {
-			if(confirmLoginPwdAgain == '' || !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,18}$/.test(newLoginPwd))) {
+			if(confirmLoginPwdAgain == '' || !(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,18}$/.test(newLoginPwd))) {
 				layer.open({
 					content: '请输入正确密码',
 					skin: 'msg',
@@ -120,7 +134,7 @@ function setLoginPwdOk() {//修改登陆密码
 		}
 	}
 	var DATA = new Object();
-	DATA.userId = 1;
+	DATA.userId = getUserData("id");
 	DATA.oldLoginPwd = currentLoginPwd;
 	DATA.newLoginPwd = confirmLoginPwdAgain;
 	getWebData("user", "updateLoginPwd", METHOD_POST, DATA, function(data) {
@@ -141,7 +155,16 @@ function setLoginPwdOk() {//修改登陆密码
 	});
 }
 
-//$("#icon-menu").click(function(){
-//	alert("点击")
-//})
+//我的首页数据
+myIndex();
 
+function myIndex() {
+	const myIndexImg = getUserData("headImgUrl");
+	const myNickName = getUserData("nickname");
+	$("#headImg").attr('src', myIndexImg);
+	$("#myNickName").html(myNickName);
+}
+setInterval(function() {
+	const badgeNum = localStorage.getItem("firstDataLength");
+	$("#badgeNum").html(badgeNum)
+}, 10000)

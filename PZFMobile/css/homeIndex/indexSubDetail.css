@@ -211,6 +211,9 @@ body{
 	width: 50%;
 	background-color: #02BB9A;
 }
+.indexSubdetailBottomRightStatus{
+	background-color: #B7B7B7 !important
+}
 .indexSubdetailBottomRight span{
 	color: #fff;
 }

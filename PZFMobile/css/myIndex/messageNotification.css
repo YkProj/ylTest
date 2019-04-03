@@ -1,3 +1,7 @@
+/*下拉刷新*/
+.message-scroll-wrap-height{
+	margin-top: 44px !important;
+}
 .messageTitle{
 	text-align: center;
 	margin-bottom: 8px;

@@ -14,8 +14,8 @@
 	<body>
 		<div class="banner">
 			<div class="userLogo">
-				<img src="../../images/homeIndex/registered.png" alt="" />
-				<span>包小图</span>
+				<img id="headImg" src="../../images/homeIndex/registered.png" alt="" />
+				<span id="myNickName">包小图</span>
 			</div>
 		</div>
 		<ul class="mui-table-view myIndexContent navBar-height">
@@ -34,6 +34,10 @@
 				</div>
 				<div class="myIndexContentListRight mui-navigate-right">
 					<span>消息通知</span>
+					<sapn class="specialStyle">
+						<span style="font-size: 0.75rem;">有最新消息</span>
+						<span class="mui-badge mui-badge-danger" id="badgeNum">5</span>
+					</sapn>
 				</div>
 			</li>
 			<li class="mui-table-view-cell myIndexContentList" onclick="nextPage(this)" data-page = "../myIndex/personalSettings.html">
@@ -68,7 +72,7 @@
 					<span>我的邀请</span>
 				</div>
 			</li>
-			<li class="mui-table-view-cell myIndexContentList" onclick="nextPage(this)" data-page = "../myIndex/ theLandlord.html">
+			<li class="mui-table-view-cell myIndexContentList" onclick="nextPage(this)" data-page = "../myIndex/theLandlord.html">
 				<div class="myIndexContentListLeft">
 					<img src="../../images/myIndex/landlord.png" alt="" />
 				</div>
@@ -93,7 +97,10 @@
 			</a>
 		</nav>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/messageNotification.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/myIndex.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>

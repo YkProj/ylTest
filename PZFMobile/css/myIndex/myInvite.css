@@ -48,6 +48,7 @@ body{
 	color: #8E8E8E;
 	border-left: 1px solid #8E8E8E;
 	text-align: left;
+	font-size: 1.3rem !important;
 }
 .mui-segmented-control .mui-control-item:last-child{
 	text-align: right !important;
@@ -57,6 +58,7 @@ body{
 	color: #222 !important;
 	background-color: initial !important;
 	margin-right: 10px;
+	font-size: 1.3rem !important;
 }
 
 .myInvite img {
