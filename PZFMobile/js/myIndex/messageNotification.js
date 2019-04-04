@@ -1,13 +1,13 @@
 var messageIndex = 1;
 var loading = false;
 let firstDataLength = "";
-let firstData = "";
-let messageData = "";
+let firstData ="";
+let messageData ="";
 //初始化调用函数
-//messageInfo(1, true);
-//setInterval(function() {
-//	messageInfo(1, false)
-//}, 10000)
+messageInfo(1,true)
+setInterval(function() {
+	messageInfo(1, false)
+}, 10000)
 
 function messageInfo(messageInfoIndex, isFirst) {
 	if(loading) {
@@ -24,10 +24,11 @@ function messageInfo(messageInfoIndex, isFirst) {
 			if(isFirst) {
 				firstData = data.data;
 				firstDataLength = firstData.length;
+				localStorage.setItem('firstDataLength', firstDataLength);
 				if(messageDataLength > 0) {
 					let messageList = "";
 					for(let i = 0; i < messageDataLength; i++) {
-						messageList += '<div class="messageList" id="`${messageData[i].id}`">';
+						messageList += '<div class="messageList" id="'+messageData[i].id+'">';
 						messageList += '<div class="messageTitle">' + messageData[i].formatCreateTime + '</div>';
 						messageList += '<div class="publicList">';
 						messageList += '<div class="messageListTitle">' + messageData[i].title + '</div>';
@@ -38,7 +39,6 @@ function messageInfo(messageInfoIndex, isFirst) {
 						messageList += '</div>';
 					}
 					$("#messageData").append(messageList);
-					localStorage.setItem('firstDataLength', firstDataLength);
 					//					setTimeout(function() {
 					//							loading = false;
 					//							messageIndex = parseInt(messageIndex + 1);
@@ -58,7 +58,7 @@ function messageInfo(messageInfoIndex, isFirst) {
 						$("#messageData").empty();
 						let messageList = "";
 						for(let i = 0; i < messageDataLength; i++) {
-							messageList += '<div class="messageList">';
+							messageList += '<div class="messageList" id="'+messageData[i].id+'">';
 							messageList += '<div class="messageTitle">' + messageData[i].formatCreateTime + '</div>';
 							messageList += '<div class="publicList">';
 							messageList += '<div class="messageListTitle">' + messageData[i].title + '</div>';
@@ -109,7 +109,6 @@ mui.init({
 		container: '#pullrefresh',
 		down: {
 			style: 'circle',
-			contentrefresh: '正在加载...',
 			callback: pulldownRefresh
 		},
 		up: {
@@ -123,28 +122,29 @@ mui.init({
 
 //上拉加载
 function pullupRefresh() {
-//	setTimeout(function() {
-//		loading = false;
-//		messageIndex = parseInt(messageIndex + 1);
-//		messageInfo(messageIndex, false);
-//		if(messageData.length < 10) {
-//			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-//			messageIndex = 1;
-//		} else {
-//			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-//		}
-//	}, 500)
+	setTimeout(function() {
+		loading = false;
+		messageIndex = parseInt(messageIndex + 1);
+		messageInfo(messageIndex, false);
+		if(messageData.length < 10) {
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+			messageIndex = 1;
+		} else {
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+		}
+	}, 500)
 }
 
 //下拉刷新
 function pulldownRefresh() {
-//	setTimeout(function() {
-//		$("#messageData").empty();
-//		messageInfo(1, true);
-//		mui.toast("已为您更新到最新数据");
-//		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
-//		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-//	}, 500);
+	setTimeout(function() {
+		$("#messageData").empty();
+		messageInfo(1, true);
+		mui.toast("已为您更新到最新数据");
+		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
+		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+		mui('#pullrefresh').pullRefresh().refresh(true);
+	}, 500);
 }
 
 function GoToAuction(houseId) {

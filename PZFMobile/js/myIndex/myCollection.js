@@ -75,6 +75,7 @@ function myCollectionList(myCollectionPageIndex) {
 				time: 2 //2秒后自动关闭
 			});
 		}
+		loading = false;
 	});
 }
 
@@ -100,8 +101,8 @@ mui.init({
 //上拉加载
 function pullupRefresh() {
 	setTimeout(function() {
-		loading = false;
 		MyCollectionPageIndex = parseInt(MyCollectionPageIndex + 1);
+		myCollectionList(MyCollectionPageIndex);
 		if(myCollectionData.length < 10) {
 			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
 			MyCollectionPageIndex = 1;

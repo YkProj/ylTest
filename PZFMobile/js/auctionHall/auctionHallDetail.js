@@ -102,7 +102,8 @@ function offer() {
 }
 
 var auctionLogsHtml = "";
-
+let auctionlantitude = "";
+let auctionlontitude = "";
 function auctionDetail(auctionListId) {
 	var auctionHouseId = auctionListId;
 	var DATA = new Object();
@@ -112,6 +113,8 @@ function auctionDetail(auctionListId) {
 			var auctionData = data.data;
 			var auctionSliderPicture = auctionData.loopImg;
 			var auctionHouseData = auctionData.house;
+			auctionlantitude = auctionHouseData.lantitude;
+			auctionlontitude = auctionHouseData.longitude;
 			if(auctionSliderPicture.length > 0) {
 				$("#auctionSliderPicture").empty();
 				var auctionPictureHtml = '';
@@ -263,7 +266,8 @@ function map(Longitude, Lantitude, homeIndextSubTitle) {
 		height: 50, // 信息窗口高度
 		title: SubhomeIndextSubTitle, // 信息窗口标题
 	}
-	var baiduApp = '<a href="http://api.map.baidu.com/marker?location=latCurrent,lngCurrent|name:我的位置&destination=latlng:116.404，39.915|name:目的地&title=所在位置名称&content=所在位置的简介（可选）&output=html">打开百度地图查看详情</a>';
+	console.log(auctionlantitude , auctionlontitude)
+	var baiduApp = '<a href="http://api.map.baidu.com/geocoder?location=auctionlantitude,auctionlontitude&coord_type=gcj02&output=html&src=webapp.lj.render">打开百度地图查看详情</a>';
 	var infoWindow = new BMap.InfoWindow(baiduApp, opts); // 创建信息窗口对象 
 	marker.addEventListener("click", function() {
 		map.openInfoWindow(infoWindow, point); //开启信息窗口

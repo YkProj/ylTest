@@ -167,4 +167,4 @@ function myIndex() {
 setInterval(function() {
 	const badgeNum = localStorage.getItem("firstDataLength");
 	$("#badgeNum").html(badgeNum)
-}, 10000)
+}, 500)
