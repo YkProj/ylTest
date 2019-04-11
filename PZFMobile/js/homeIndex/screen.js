@@ -5,6 +5,7 @@ var clickBtn = document.getElementsByClassName('.mui-search');
 homeIndexSearch.addEventListener('keydown', function(e) {
 	if(e.keyCode == 13) {
 		var keyWord = $("#homeIndexSearch").val();
+		$("#bottomBar").css('display','block')
 		$("#list").empty();
 		getData(1)
 	}
@@ -18,6 +19,7 @@ $('#homeIndexSearch').on('compositionend', function() {
 	cpLock = false;
 	console.log("汉字搜索");
 	var keyWord = $("#homeIndexSearch").val();
+	$("#bottomBar").css('display','block')
 	$("#list").empty();
 	getData(1);
 });

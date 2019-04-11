@@ -22,6 +22,14 @@ body{
 }
 
 
+/*分享按钮样式*/
+.twoButtonAll span{
+	display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 4.4vw;
+}
+
 /*列表样式*/
 
 .mui-card .mui-control-content {
@@ -128,7 +136,7 @@ body{
 }
 
 .invitePoster img {
-	width: 100%;
+	float: right;
 }
 .mui-content-padded.set-content-padded{
 	margin: 16.9vw;
@@ -137,7 +145,7 @@ body{
 /*蒙版新样式*/
 .invitePoster{
 	width: 100%;
-	padding: 60px;
+	padding: 0px 20px;
 }
 /*分享样式*/
 

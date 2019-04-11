@@ -50,17 +50,21 @@ console.log(auctionListId)
 
 //交报名保证金
 document.getElementById("Bond").addEventListener('tap', function(e) {
+	//当在文本框输入内容的时候隐藏底部导航栏
+	$("#auctionBottomEnd").css('display', 'none')
 	if(auctionHouseDataStatus == 0 || auctionHouseDataStatus == 2) {
 		e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
 		var btnArray = ['取消', '确定'];
 		mui.prompt('参与竞拍需要交300元保证金', '请输入支付密码', '报名交保证金', btnArray, function(e) {
 			if(e.index == 1) {
+				$("#auctionBottomEnd").css('display', 'block')
 				layer.open({
 					content: "点击了确定按钮",
 					skin: 'msg',
 					time: 2 //2秒后自动关闭
 				});
 			} else {
+				$("#auctionBottomEnd").css('display', 'block')
 				layer.open({
 					content: "点击了取消按钮",
 					skin: 'msg',
@@ -101,9 +105,9 @@ function offer() {
 	}
 }
 
-var auctionLogsHtml = "";
-let auctionlantitude = "";
-let auctionlontitude = "";
+var auctionLogsHtml =""
+var auctionlantitude =""
+var auctionlontitude = ""
 function auctionDetail(auctionListId) {
 	var auctionHouseId = auctionListId;
 	var DATA = new Object();
@@ -154,12 +158,15 @@ function auctionDetail(auctionListId) {
 			} else if(auctionHouseData.status == 2) {
 				auctionStatus = "正在拍卖";
 			} else if(auctionHouseData.status == 3) {
-				auctionStatus = "已成功";
+				auctionStatus = "已结束";
 				$("#auctionBottomEnd").addClass('auctionBottomEnd');
 				$("#auctionBottomEndSecond").addClass('auctionBottomEnd');
 				$("#auctionBottomEndThird").addClass('auctionBottomEnd');
-			}else{
-				auctionStatus = auctionHouseDataStatus;
+			}else if(auctionHouseData.status == 4){
+				auctionStatus = "流拍";
+				$("#auctionBottomEnd").addClass('auctionBottomEnd');
+				$("#auctionBottomEndSecond").addClass('auctionBottomEnd');
+				$("#auctionBottomEndThird").addClass('auctionBottomEnd');
 			}
 			$("#auctionStatus").html(auctionStatus);
 			if(auctionHouseData.status !== 2) {
@@ -299,14 +306,14 @@ window.onload = function() {
 }
 
 function houseDescribe() {
-	$(this).attr('href', '#item1');
+	$(this).prop('href', '#item1');
 	$("#item1").addClass('mui-active');
 	$("#item2").removeClass('mui-active');
-	$("#item3").removeClass('mui-active')
+	$("#item3").removeClass('mui-active');
 }
 
 function signUp() {
-	$(this).attr('href', '#item2');
+	$(this).prop('href', '#item2');
 	$("#item2").addClass('mui-active');
 	$("#item1").removeClass('mui-active');
 	$("#item3").removeClass('mui-active');
@@ -314,15 +321,16 @@ function signUp() {
 		$("#auctionLogsContent").append(auctionLogsHtml);
 	} else {
 		layer.open({
-			content: "您暂无出价记录",
+			content: "暂无出价记录",
 			skin: 'msg',
 			time: 2 //2秒后自动关闭
 		});
 	}
 }
 
+
 function notice() {
-	$(this).attr('href', '#item3');
+	$(this).prop('href', '#item3');
 	$("#item3").addClass('mui-active');
 	$("#item1").removeClass('mui-active');
 	$("#item2").removeClass('mui-active');

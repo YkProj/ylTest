@@ -24,30 +24,30 @@ var auctionListData = "";
 //手机软键盘设置
 //var bodyHeight=document.body.clientHeight;
 //document.body.Height == bodyHeight;
-function auctionHallhideNavBar() {
-	var originalHeight = document.documentElement.clientHeight || document.body.clientHeight;
+//function auctionHallhideNavBar() {
+//	var originalHeight = document.documentElement.clientHeight || document.body.clientHeight;
+//
+//	window.onresize = function() {
+//
+//		//软键盘弹起与隐藏  都会引起窗口的高度发生变化
+//		var resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
+//
+//		if(resizeHeight * 1 < originalHeight * 1) { //resizeHeight<originalHeight证明窗口被挤压了
+//
+//			plus.webview.currentWebview().setStyle({
+//				height: originalHeight
+//			});
+//
+//		}
+//	}
+//}
 
-	window.onresize = function() {
-
-		//软键盘弹起与隐藏  都会引起窗口的高度发生变化
-		var resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
-
-		if(resizeHeight * 1 < originalHeight * 1) { //resizeHeight<originalHeight证明窗口被挤压了
-
-			plus.webview.currentWebview().setStyle({
-				height: originalHeight
-			});
-
-		}
-	}
-}
-
-//$("input").focus(function(){
-//	$("#bottomBar").css('display','none')
-//});
-//$("input").blur(function(){
-//	$("#bottomBar").css('display','block')
-//});
+$("input").focus(function(){
+	$("#bottomBar").css('display','none')
+});
+$("input").blur(function(){
+	$("#bottomBar").css('display','block')
+});
 
 //获取首页前三条公告信息
 function info() {
@@ -109,6 +109,7 @@ var clickBtn = document.getElementsByClassName('.mui-search');
 auctionSearch.addEventListener('keydown', function(e) {
 	if(e.keyCode == 13) {
 		var keyWord = $("#auctionInput").val();
+		$("#bottomBar").css('display','block')
 		$("#auctionListData").empty();
 		auctionData(1)
 	}
@@ -122,6 +123,7 @@ $('#auctionInput').on('compositionend', function() {
 	cpLock = false;
 	console.log("汉字搜索");
 	var keyWord = $("#auctionInput").val();
+	$("#bottomBar").css('display','block')
 	$("#auctionListData").empty();
 	auctionData(1)
 });

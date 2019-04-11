@@ -26,13 +26,14 @@
 			<div style="height: 97px;"></div>
 			<div class="twoButtonTop shareBgColor">
 				<div class="twoButton">
-					<div class="twoButtonLeft" onclick="Poster();">
-						<span>分享海报</span>
+					<div class="twoButtonAll" onclick="Poster()">
+						<span>分享</span>
 					</div>
-					<div class="twoButtonRight" id="popoverLinkId" onclick="popoverLink()">
+					<!--<div class="twoButtonRight" id="popoverLinkId" onclick="copyUrl()">
+						<input type="text" id="LinkUrl" style="display: none;" />
+						
 						<span>分享链接</span>
-					</div>
-					<input type="hidden" id="poster" value="1"></input>
+					</div>-->
 				</div>
 			</div>
 			<div style="height: 85px;background-color: #F0EFF4;"></div>
@@ -226,9 +227,12 @@
 		<!--蒙版-->
 		<div id="popover" class="mui-popover">
 			<div class="invitePoster">
-				<img id="inviteImg" src="../../images/myIndex/invitePoster.png" />
+				<img src="../../images/myIndex/inviteJiantou.png" alt="" />
+				<!--<a href="http://192.168.1.117:8020/PZFMobile/images/myIndex/invitePoster.png" download="pzfInvite">
+				<img id="inviteImg" src="http://www.zukepai.com/zkpClient/PZFMobile/images/myIndex/invitePoster.png" />
+				</a>-->
 			</div>
-			<footer id="posterFooter" style="position: absolute;bottom: 0px; width:100%;background: white;">
+			<!--<footer id="posterFooter" style="position: absolute;bottom: 0px; width:100%;background: white;">
 				<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #fff;">
 					<li onclick="shareHref(1);" class="mui-table-view-cell mui-media mui-col-xs-6 wx-img">
 						<img class="mui-media-object" src="../../images/myIndex/wx.png">
@@ -239,9 +243,9 @@
 						<div class="mui-media-body">朋友圈</div>
 					</li>
 				</ul>
-			</footer>
+			</footer>-->
 		</div>
-		<div id="popverLink" style="display: none;">
+		<!--<div id="popverLink" style="display: none;">
 			<footer style="position: absolute;bottom: 0px; width:100%;background: white;">
 			<ul class="mui-table-view mui-grid-view mui-grid-9"  style="background-color: #fff;">
 				<li onclick="shareHref(1);" class="mui-table-view-cell mui-media mui-col-xs-6 wx-img">
@@ -254,7 +258,7 @@
 				</li>
 			</ul>
 		</footer>
-		</div>
+		</div>-->
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/tools/layer.js"></script>
 		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>

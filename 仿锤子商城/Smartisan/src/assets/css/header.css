@@ -1,0 +1,108 @@
+*{
+	font-size: 0.9rem;
+	margin: 0;
+	padding: 0;
+}
+header{
+	background: #000;
+	position: relative;
+	z-index: 999;
+}
+.site-nav{
+	height: 57px;
+	line-height: 57px;
+	background-color: #000;
+	margin: 0 auto;
+}
+.wrap{
+	width: 1160px !important;
+}
+.logo{
+	height: 57px;
+    line-height: 57px;
+    width: 6rem;
+    text-align: left;
+    float: left;
+    color: #fff;
+}
+.logo span{
+	display: inline-block;
+	height: 57px;
+	line-height: 57px;
+	font-size: 1.8rem;
+}
+nav{
+	float: left;
+	overflow: hidden;
+}
+nav ul{
+	overflow: hidden;
+	list-style-type: none;
+}
+nav ul li{
+	float: left;
+	color: #fff;
+	margin-right: 2.5rem;
+}
+nav ul li:last-child{
+	margin-right: 0px;
+}
+.quick-menu{
+	height: 57px;
+	float: right;
+}
+.quick-menu ul{
+	overflow: hidden;
+	list-style-type: none;
+}
+.quick-menu ul li{
+	position: relative;
+	float: left;
+	margin: 0 13px;
+}
+
+.quick-menu ul li span{
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+.shoppingNum{
+	color: #fff;
+    top: 15px;
+    right: -7px;
+    text-align: center;
+    min-width: 14px;
+    display: inline-block;
+    position: absolute;
+    padding: 2px;
+    border-radius: 50%;
+    font-family: Tahoma!important;
+    background: red;
+    line-height: 14px;
+    font-size: 14px !important;
+}
+/*第二级导航栏样式*/
+.subNav{
+	background: #eee;
+}
+.subNavWrap{
+	width: 1160px !important;
+}
+.subNavStyle{
+	margin: 0 auto;
+	height: 40px;
+	line-height: 40px;
+	padding-bottom: 30px;
+}
+.subNavStyle ul{
+	overflow: hidden;
+	list-style-type: none;
+}
+.subNavStyle ul li{
+	text-align: center;
+	float: left;
+	color: #888;
+	margin: 0px 20px;
+}
+.subNavStyle ul li:first-child{
+	margin-left: 0px;
+}

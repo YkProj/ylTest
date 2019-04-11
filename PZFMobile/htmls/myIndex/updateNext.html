@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myIndexPublic.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/setting.css"/>
+	</head>
+
+	<body>
+		<div class="logoLogin">
+			<span>
+				<img src="../../images/myIndex/logo.png" alt="" />
+			</span>			
+		</div>
+		<div class="setPwd">
+		<h4>账号设置</h4>
+		</div>
+		<div class="loginContent">
+			<div class="settingListAll">
+			<div class="settingList">
+				<div class="settingListLeft">登陆密码</div>
+				<div class="settingListRight">
+					<input class="settingInput" id="accountPwd" type="password" placeholder="请输入8-18位字母和数字" />
+				</div>
+			</div>
+			<div class="settingList">
+				<div class="settingListLeft">交易密码</div>
+				<div class="settingListRight">
+					<input class="settingInput" id="accountTranscationPwd" type="password" placeholder="请输入6位数字" />
+				</div>
+			</div>
+			</div>
+			<div class="myButton">
+				<button type="button" class="loginButtonStyle" onclick="accountOk();">确定</button>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/public.js"></script>
+<!--		<script type="text/javascript" src="http://zukepai.com/zkpClient/PZFMobile/js/auctionHall/auctionHallDetail.js"></script>-->
+		<script type="text/javascript" src="../../js/myIndex/login.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

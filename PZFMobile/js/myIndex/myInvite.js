@@ -6,8 +6,19 @@ $("#popover").click(function() {
 	mui("#popover").popover("toggle");
 })
 
-function popoverLink() { //点击分享链接
-	$("#popverLink").toggle();
+//function popoverLink() { //点击分享链接
+//	$("#popverLink").toggle();
+//}
+
+//点击分享链接
+function copyUrl() {
+	var parentUserId = getUserData("id");
+	var invitation = 'http://www.zukepai.com/zkpClient/PZFMobile/htmls/myIndex/update.html?parentUserId=' + parentUserId;
+	$("#LinkUrl").val(invitation);
+	var Url = document.getElementById("LinkUrl");
+	Url.select(); // 选择对象
+	document.execCommand("Copy"); // 执行浏览器复制命令
+	mui.toast("已复制好，可贴粘。");
 }
 profitRecord(1);
 var MyTeamPageIndex = 1;
@@ -199,82 +210,91 @@ function profilepulldownRefresh() { //收益下拉刷新
 		mui('#profilePullrefresh').pullRefresh().endPullupToRefresh(false);
 	}, 500);
 };
-//myInviteShare() //调用微信分享
-function myInviteShare() { //分享海报和分享链接
-	getWebData("landlord", "findAuctionHouseInfDetail", METHOD_POST, "", function(data) {
-		if(data.code == 200) {
-			if(data.header.code == 200) {
-				var wx_info = data.body.result.wx_info;
-				if(wx_info.signature != null) {
-					// 配置
-					wx.config({
-						debug: false, // 测试阶段，可以写为true，主要是为了测试是否配置成功
-						appId: wx_info.appId,
-						timestamp: wx_info.timestamp,
-						nonceStr: wx_info.nonceStr,
-						signature: wx_info.signature,
-						jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ',
-							'onMenuShareQZone'
-						]
-					});
 
-					var title = "";
-					var desc = "";
-					// 分享的图片，最好是正方形，不是也没关系，但是一定是http模式，即绝对路径，而不是服务器路劲
-					var imgUrl = "";
-					// 这里的地址可以写死，也可以动态获取，但是一定不能带有微信分享后的参数，不然分享也是失败的
-					var link = "";
+//分享
+inviteShare();
+function inviteShare() {
+	var basePath = "<%=basePath%>";
+	var nonce = ""; //生成签名的随机串
+	var signature = ""; //签名
+	var timestamp = ""; //时间戳
+	var title = "恭喜你！中奖啦！快戳我查看吧！";
+	var desc = "原来中奖的感觉是那么美好！";
+	var sharLink = "http://www.zukepai.com/zkpClient/PZFMobile/htmls/myIndex/update.html";
+	var imgUrl = "http://www.zukepai.com/zkpClient/PZFMobile/images/logo.png";
+	$(document).ready(function() {
+		var url = encodeURIComponent(window.location.href.split('#')[0]);
+		console.log("url==" + url);
+		$.ajax({
+			url: "http://47.112.115.82:8081/weChatAuto/getEncryptJsapiTicket",
+			type: "POST",
+			data: {
+				"url": url
+			},
+			dataType: "json",
+			success: function(data) {
+				console.log(data);
+				nonce = data.noncestr;
+				signature = data.signature;
+				timestamp = data.timestamp;
 
-					// 分享给朋友、QQ、微博//海报
-					var shareDataPoster = {
-						"imgUrl": imgUrl,
-						"title": title,
-						"desc": desc,
-						'link': link
-					};
-					// 分享给朋友、QQ、微博//链接
-					var shareDataLink = {
-						"imgUrl": imgUrl,
-						"title": title,
-						"desc": desc,
-						'link': link
-					};
-					// 分享到朋友圈海报
-					var shareToTimelinePoster = {
-						"imgUrl": imgUrl,
-						"title": title,
-						'link': link,
-						"desc": desc
-					}
-					//分享到朋友圈链接
-					var shareToTimelineLink = {
-						"imgUrl": imgUrl,
-						"title": title,
-						'link': link,
-						"desc": desc
-					}
-					wx.ready(function() {
-						wx.onMenuShareTimeline(shareDataPoster);
-						wx.onMenuShareAppMessage(shareToTimelinePoster);
-						wx.onMenuShareTimeline(shareDataLink);
-						wx.onMenuShareAppMessage(shareDataLink);
-						//                      wx.onMenuShareTimeline(shareToTimeline);
-						//                      wx.onMenuShareAppMessage(shareData);
-						//                      wx.onMenuShareQQ(shareData);
-						//                      wx.onMenuShareQZone(shareData);
-
-						wx.error(function(res) {
-							alert(res.errMsg);
-						});
-					});
-				}
+				loadWx();
+			},
+			error: function(err) {
+				alert("异常")
 			}
-		} else {
-			layer.open({
-				content: data.code + data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
-		}
+		});
 	});
+
+	function loadWx() {
+		wx.config({
+			debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			appId: 'wxb17ce8f96907985a', // 必填，公众号的唯一标识
+			timestamp: timestamp, // 必填，生成签名的时间戳
+			nonceStr: nonce, // 必填，生成签名的随机串
+			signature: signature, // 必填，签名
+			jsApiList: ['updateAppMessageShareData', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表
+		});
+		wx.ready(function() {
+
+			//分享到朋友
+			wx.updateAppMessageShareData({
+				title: title, // 分享标题
+				desc: desc, // 分享描述
+				link: sharLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+				imgUrl: imgUrl, // 分享图标
+				type: '', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function() {
+					console.log("设置成功");
+					// 用户确认分享后执行的回调函数
+				},
+				cancel: function() {
+					console.log("设置失败");
+					// 用户取消分享后执行的回调函数
+				}
+			});
+
+			wx.onMenuShareAppMessage({ //即将被废弃
+				title: title, // 分享标题
+				desc: desc, // 分享描述
+				link: sharLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+				imgUrl: imgUrl, // 分享图标
+				type: '', // 分享类型,music、video或link，不填默认为link
+				dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				success: function() {
+					// 用户点击了分享后执行的回调函数
+				}
+			});
+
+		});
+		wx.error(function(res) {
+			alert("验证失败了" + JSON.stringify(res));
+		});
+
+	}
+
+	function share() {
+		wx.onMenuShareAppMessage();
+	}
 }

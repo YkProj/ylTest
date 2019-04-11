@@ -39,6 +39,7 @@ document.querySelector('.mui-slider').addEventListener('slide', function(event) 
 //定义页面状态全局变量
 let indexStatus = "";
 let locationAddress = "";
+
 function indexInit(HomeIndexListId) {
 	var HouseId = HomeIndexListId;
 	var DATA = new Object();
@@ -53,7 +54,7 @@ function indexInit(HomeIndexListId) {
 			indexStatus = indexSubHouse.status;
 			Lantitude = indexSubHouse.lantitude;
 			Longitude = indexSubHouse.longitude;
-			locationAddress = indexSubHouse.province+indexSubHouse.city+indexSubHouse.district+indexSubHouse.place+"街道"+indexSubHouse.address //拼接获取小区的位置
+			locationAddress = indexSubHouse.province + indexSubHouse.city + indexSubHouse.district + indexSubHouse.place + "街道" + indexSubHouse.address //拼接获取小区的位置
 			var indexDetailDataSliderImg = indexDetailData.loopImg;
 			var indexDetailDataSliderImgLength = indexDetailDataSliderImg.length;
 			var indexSubDectractionName = "";
@@ -137,7 +138,7 @@ function indexInit(HomeIndexListId) {
 			}
 			map(Longitude, Lantitude, indexDetailTitle, indexSubHouse.district);
 			$("#indexSubHoseDescribe").html(indexSubHouse.description);
-			if(indexStatus == 1 || indexStatus == 3) {
+			if(indexStatus == 1 || indexStatus == 3 || indexStatus == 4) {
 				$("#indexSubStatus").addClass('indexSubdetailBottomRightStatus');
 			}
 		}
@@ -183,7 +184,7 @@ function map(Longitude, Lantitude, homeIndextSubTitle, homeIndexSubArea) {
 		height: 50, // 信息窗口高度
 		title: indexTitleSub, // 信息窗口标题
 	}
-	console.log(Lantitude,Longitude)
+	console.log(Lantitude, Longitude)
 	//	var baiduApp = '<a href="http://api.map.baidu.com/marker?location=latCurrent,lngCurrent|name:我的位置&destination=latlng:116.404，39.915|name:目的地&title=所在位置名称&content=所在位置的简介（可选）&output=html">打开百度地图查看详情</a>';
 	var baiduApp = '<a href="http://api.map.baidu.com/geocoder?location=Lantitude,Longitude&coord_type=gcj02&output=html&src=webapp.lj.render">打开百度地图查看详情</a>';
 	var infoWindow = new BMap.InfoWindow(baiduApp, opts); // 创建信息窗口对象 
@@ -238,17 +239,21 @@ function indexFavour() {
 
 //点击报名方法
 function signup() {
+	//当在文本框输入内容的时候隐藏底部导航栏
+	$("#bottomBar").css('display', 'none')
 	if(hasLogin()) {
 		if(indexStatus == 0 || indexStatus == 2) {
 			var btnArray = ['取消', '确定'];
 			mui.prompt('参与竞拍需要交300元保证金', '请输入支付密码', '报名交保证金', btnArray, function(e) {
 				if(e.index == 1) {
+					$("#bottomBar").css('display', 'block')
 					layer.open({
 						content: "点击了确定按钮",
 						skin: 'msg',
 						time: 2 //2秒后自动关闭
 					});
 				} else {
+					$("#bottomBar").css('display', 'block')
 					layer.open({
 						content: "点击了取消按钮",
 						skin: 'msg',

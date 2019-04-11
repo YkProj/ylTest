@@ -40,7 +40,9 @@ body{
 }
 .myIndexContentListLeft{
 	width: 13.3%;
-	float: left;
+    float: left;
+    height: 9vh;
+    overflow: hidden;
 }
 .myIndexContentListLeft img{
 	width: 8.9vw;
@@ -52,7 +54,7 @@ body{
 	width: 86%;
 	float: right;
 	border-bottom: 1px solid #C8C7CC;
-	padding-bottom: 9px;
+	padding-bottom: 8px;
 }
 .specialStyle{
 	float: right;
