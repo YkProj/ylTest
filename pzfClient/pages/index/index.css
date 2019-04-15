@@ -1,0 +1,19 @@
+.indexImg{
+	width: 16.2vw;
+}
+.indexImg img{
+	width: 100%;
+}
+/* 导航栏样式 */
+.navBarAll{
+	height: 48px;
+	line-height: 48px;
+	background-color: #000;
+}
+.indexLogo{
+	display: inline-block;
+	width: 100px;
+}
+.indexLogo img{
+	width: 100%;
+}

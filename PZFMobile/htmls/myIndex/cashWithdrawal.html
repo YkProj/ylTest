@@ -6,6 +6,7 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myIndexPublic.css"/>
 		<link rel="stylesheet" href="../../css/myIndex/recharge.css" />
@@ -27,19 +28,19 @@
 				<div class="rechargeContentBottom">
 					<span class="iconfont icon-qian"></span>
 					<input type="number" id="cashwithdrawNum" class="rechargeInput cashInput" placeholder="请输入提现金额" />
-					<span class="cashAll" onclick="CashWithdrawalAll()">全部</span>
+					<span class="cashAll" onclick="CashWithdrawlAll()">全部</span>
 				</div>
 			</div>
 			<div class="myButton">
 					<p id="poundage">提现手续费：0.5%</p>
-					<button type="button" class="myButtonStyle">确认</button>
+					<button type="button" class="myButtonStyle" onclick="CashWithdrawal();">确认</button>
 				</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
 		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
-		<script type="text/javascript" src="../../js/tools/layer.js"></script>
-		<script type="text/javascript" src="../../js/myIndex/myWallet.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/Cashwithdrawal.js"></script>
 		<script type="text/javascript">
 			mui.init()
 		</script>

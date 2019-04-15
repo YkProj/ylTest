@@ -9,8 +9,9 @@
 		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/mui.imageviewer.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/navBarNative.css" />
-		<link rel="stylesheet" type="text/css" href="../../css/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/indexSub.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/popover.css"/>
 		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/indexSubDetail.css" />
 	</head>
 
@@ -221,31 +222,53 @@
 						<li>屋内干净干净舒适，家电齐全，24小时可以上网</li>
 					</ul>
 				</div>
-				<div class="indexSubdetailBottom" id="bottomBar">
-					<div class="indexSubdetailBottomLeft" onclick="indexFavour();">
-						<span>收藏</span>
-						<span>
-						<img id="indexCollection" src="../../images/homeIndex/indexSub/favorite.png"/>
-					</span>
-					</div>
-					<div class="indexSubdetailBottomRight" id="indexSubStatus">
-						<span onclick="signup();">报名</span>
-						<span>
-						<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
-					</span>
-					</div>
-				</div>
 			</div>
 
+		</div>
+		<div class="indexSubdetailBottom" id="auctionBottomEndThird">
+			<div class="indexSubdetailBottomLeft" onclick="indexFavour();">
+				<span>收藏</span>
+				<span>
+						<img id="indexCollection" src="../../images/homeIndex/indexSub/favorite.png"/>
+					</span>
+			</div>
+			<div class="indexSubdetailBottomRight" id="indexSubStatus">
+				<span onclick="signup();">报名</span>
+				<span>
+						<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
+					</span>
+			</div>
+		</div>
+		<div class="Sign-up-for-deposit" id="deposit">
+			<h4>报名交保证金</h4>
+			<p>参与竞拍需要交<span class="depositNum">300</span>元保证金</p>
+			<div class="box">
+				<div class="passbox">
+					<input type="text" id="ipt" maxlength="6" />
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<div class="Sign-up-for-deposit-btn">
+				<div class="Sign-up-for-deposit-btn-left" onclick="depositCancel();">取消</div>
+				<div class="Sign-up-for-deposit-btn-right" onclick="depositOk(0);">确定</div>
+			</div>
 		</div>
 		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+		<script type="text/javascript" src="../../js/myIndex/md5.js"></script>
 		<script type="text/javascript" src="../../js/mui.zoom.js"></script>
 		<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=g8juUWeciEMwCFIhvWjS32LpxgOimjYI"></script>
 		<script type="text/javascript" src="../../js/tools/layer.js"></script>
 		<script type="text/javascript" src="../../js/homeIndex/indexSub.js"></script>
+		<script type="text/javascript" src="../../js/homeIndex/signUp.js"></script>
 		<script type="text/javascript" src="../../js/homeIndex/homeIndex.js"></script>
 		<script type="text/javascript" src="../../js/lodash.core.js"></script>
 		<script type="text/javascript">

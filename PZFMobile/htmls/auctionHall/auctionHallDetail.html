@@ -15,6 +15,7 @@
 		<link rel="stylesheet" type="text/css" href="http://api.map.baidu.com/res/11/bmap.css" />
 		<link rel="stylesheet" href="../../css/homeIndex/indexSubDetail.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/navBarNative.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/popover.css" />
 		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/indexSub.css" />
 		<link rel="stylesheet" href="../../css/auctionHall/auctionHallDetail.css" />
 		<!--App自定义的css-->
@@ -107,7 +108,7 @@
 					<div style="padding: 5px 10px;">
 						<div id="segmentedControl" class="mui-segmented-control">
 							<a class="mui-control-item mui-active" href="#item1" onclick="houseDescribe();">房源描述</a>
-							<a class="mui-control-item" onclick="signUp();">出价记录</a>
+							<a class="mui-control-item" id="offerRecord" onclick="signUp();">出价记录</a>
 							<a class="mui-control-item" href="#item3" onclick="notice();">竞拍须知</a>
 						</div>
 					</div>
@@ -220,12 +221,6 @@
 									<li>屋内干净干净舒适，家电齐全，24小时可以上网</li>
 								</ul>
 							</div>
-							<div class="indexSubdetailBottom auctionBottom" id="auctionBottomEnd">
-								<span>
-									<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
-								</span>
-								<span id="Bond">交报名保证金</span>
-							</div>
 						</div>
 						<div id="item2" class="mui-control-content">
 							<div class="auctionContent">
@@ -268,12 +263,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="indexSubdetailBottom auctionBottom" id="auctionBottomEndSecond" onclick="offer();">
-								<span>
-									<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
-								</span>
-								<span>出价</span>
-							</div>
 						</div>
 						<div id="item3" class="mui-control-content">
 							<div class="auctionContent">
@@ -292,16 +281,47 @@
 									<p>2.如因房东原因导致租客不付款，租客可在竞拍结束后的15天内联系平台客服4000-0000-555，逾期保证金申述不予处理</p>
 								</div>
 							</div>
-							<div class="indexSubdetailBottom auctionBottom" id="auctionBottomEndThird" onclick="offer();">
-								<span>
-									<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
-								</span>
-								<span>出价</span>
-							</div>
 						</div>
 					</div>
 				</div>
 
+			</div>
+		</div>
+		<div class="indexSubdetailBottom auctionBottom" id="controlIsSignUp" onclick="IsSignUp();">
+			<span>
+				<img src="../../images/homeIndex/indexSubActive/signUp.png"/>
+			</span>
+			<span id="isSignUp">交报名保证金</span>
+		</div>
+		<!--交报名保证金-->
+		<div class="Sign-up-for-deposit" id="deposit">
+			<h4>报名交保证金</h4>
+			<p>参与竞拍需要交<span>300</span>元保证金</p>
+			<div class="box">
+				<div class="passbox">
+					<input type="text" id="ipt" maxlength="6" />
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+			<div class="Sign-up-for-deposit-btn">
+				<div class="Sign-up-for-deposit-btn-left" onclick="depositCancel();">取消</div>
+				<div class="Sign-up-for-deposit-btn-right" onclick="depositOk(1);">确定</div>
+			</div>
+		</div>
+
+		<!--出价-->
+		<div class="Sign-up-for-deposit offer-wrap" id="offer">
+			<h4>确认出价</h4>
+			<p>当前最高价<span id="topAmount" class="depositNum">0</span>元</p>
+			<p>加价幅度<span id="addPrice" class="depositNum">100</span>元</p>
+			<div class="Sign-up-for-deposit-btn">
+				<div class="Sign-up-for-deposit-btn-left" onclick="offerCancel();">取消</div>
+				<div class="Sign-up-for-deposit-btn-right" onclick="offerOk();">确定</div>
 			</div>
 		</div>
 
@@ -309,10 +329,13 @@
 		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
 		<script type="text/javascript" src="../../js/tools/layer.js"></script>
 		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+		<script type="text/javascript" src="../../js/myIndex/md5.js"></script>
 		<script type="text/javascript" src="../../js/mui.zoom.js"></script>
 		<script type="text/javascript" src="../../js/mui.previewimage.js"></script>
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=g8juUWeciEMwCFIhvWjS32LpxgOimjYI"></script>
 		<script type="text/javascript" src="../../js/auctionHall/auctionHallDetail.js"></script>
+		<script type="text/javascript" src="../../js/homeIndex/signUp.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 			mui.previewImage(); //轮播图点击放大缩小

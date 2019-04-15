@@ -18,6 +18,22 @@
 //		}
 //	}
 //};
+//点击跳转至相应页面
+document.getElementById("homeTab").addEventListener('tap', function() {
+	mui.openWindow('homeIndex.html', 'homeTab');
+})
+document.getElementById("auctionTab").addEventListener('tap', function() {
+	mui.openWindow('auctionHall.html', 'auctionTab');
+})
+document.getElementById("myTab").addEventListener('tap', function() {
+	if(hasLogin()) {
+		mui.openWindow('myIndex.html', 'myTab');
+	} else {
+		mui.openWindow({
+			url: '../myIndex/login.html'
+		});
+	}
+})
 getData(1);
 $("input").focus(function(){
 	$("#bottomBar").css('display','none')
@@ -241,9 +257,7 @@ function indexDetail(HomeIndexListId) {
 		url: '../homeIndex/indexSub.html'
 	});
 };
-
-
-
+useInfo();//调用获取用户信息
 var href = window.location.href;
 
 var data =  href.split("?")[1].split("&");
@@ -253,7 +267,6 @@ var userId = data[0].split("=")[1];
 window.localStorage.setItem("userId",userId);
 //window.localStorage.setItem("nickName",nickName);
 //window.localStorage.setItem("headImgUrl",headImgUrl);
-useInfo();
 function useInfo(){//获取用户信息
 	var userId = window.localStorage.getItem("userId");
 	var DATA = new Object();
@@ -263,7 +276,7 @@ function useInfo(){//获取用户信息
 			var userData = data.data;
 			saveUserData(userData);
 			var UserPhone = getUserData("phone");
-			if(UserPhone == null){
+			if(UserPhone == "null"){
 				saveStorageData("isLogin",false);
 			}else{
 				saveStorageData("isLogin",true);
@@ -277,3 +290,4 @@ function useInfo(){//获取用户信息
 		}
 	});
 }
+

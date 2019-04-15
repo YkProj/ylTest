@@ -1,0 +1,56 @@
+{
+	"pages": [
+		//pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/AuctionHall/AuctionHall",
+			"style": {
+				"navigationBarTitleText": "拍卖大厅"
+			}
+		},
+		{
+			"path": "pages/myIndex/myIndex",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "拍租房",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle":"custom"
+	},
+	"tabBar": {
+		"color": "#A7A7A7",
+		"selectedColor": "#02BB9A",
+		"backgroundColor": "#fff",
+		"borderStyle": "white",
+		"box-shadow": "0px -2px 6px rgba(0,0,0,0.06)",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "static/icon/homeIndex.png",
+				"selectedIconPath": "static/icon/homeIndexActive.png"
+			},
+			{
+				"pagePath": "pages/AuctionHall/AuctionHall",
+				"text": "拍卖大厅",
+				"iconPath": "static/icon/auctionHall.png",
+				"selectedIconPath": "static/icon/auctionHallActive.png"
+			},
+			{
+				"pagePath": "pages/myIndex/myIndex",
+				"text": "我的",
+				"iconPath": "static/icon/myIndex.png",
+				"selectedIconPath": "static/icon/myIndexActive.png"
+			}
+		]
+	}
+}

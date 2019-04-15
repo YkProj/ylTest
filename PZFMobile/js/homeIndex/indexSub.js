@@ -39,14 +39,17 @@ document.querySelector('.mui-slider').addEventListener('slide', function(event) 
 //定义页面状态全局变量
 let indexStatus = "";
 let locationAddress = "";
+let isSignUp = "";
 
 function indexInit(HomeIndexListId) {
 	var HouseId = HomeIndexListId;
 	var DATA = new Object();
+	DATA.userId = getUserData("id");
 	DATA.houseId = HouseId;
-	getWebData("landlord", "houseInfDetail", METHOD_GET, DATA, function(data) {
+	getWebData("landlord", "houseInfDetail", METHOD_POST, DATA, function(data) {
 		if(data.code == 200) {
 			var indexDetailData = data.data;
+			isSignUp = indexDetailData.isSignUp;
 			indexDetailTitle = indexDetailData.house.title;
 			$("#header").append(indexDetailTitle)
 			localStorage.setItem('NavBarTitle', indexDetailTitle);
@@ -238,29 +241,28 @@ function indexFavour() {
 }
 
 //点击报名方法
+
 function signup() {
 	//当在文本框输入内容的时候隐藏底部导航栏
 	$("#bottomBar").css('display', 'none')
 	if(hasLogin()) {
 		if(indexStatus == 0 || indexStatus == 2) {
-			var btnArray = ['取消', '确定'];
-			mui.prompt('参与竞拍需要交300元保证金', '请输入支付密码', '报名交保证金', btnArray, function(e) {
-				if(e.index == 1) {
-					$("#bottomBar").css('display', 'block')
-					layer.open({
-						content: "点击了确定按钮",
-						skin: 'msg',
-						time: 2 //2秒后自动关闭
+			if(isSignUp == 0) {
+				$("#deposit").css('display', 'block');
+			} else {
+				layer.open({
+					content: "已报名,不用重复报名",
+					skin: 'msg',
+					time: 2 //2秒后自动关闭
+				});
+				setTimeout(function() {
+					mui.openWindow({
+						//TODO 这里写正确的URL
+						url: '../auctionHall/auctionHallDetail.html'
 					});
-				} else {
-					$("#bottomBar").css('display', 'block')
-					layer.open({
-						content: "点击了取消按钮",
-						skin: 'msg',
-						time: 2 //2秒后自动关闭
-					});
-				}
-			})
+					auctionDetail(HomeIndexListId);
+				}, 600)
+			}
 		} else {
 			layer.open({
 				content: "竞拍已结束",

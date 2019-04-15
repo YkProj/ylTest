@@ -9,6 +9,23 @@ slider.slider({
 function hideShow() {
 	$("#screenWrap").toggle();
 }
+
+//点击跳转至相应页面
+document.getElementById("homeTab").addEventListener('tap', function() {
+	mui.openWindow('homeIndex.html', 'homeTab');
+})
+document.getElementById("auctionTab").addEventListener('tap', function() {
+	mui.openWindow('auctionHall.html', 'auctionTab');
+})
+document.getElementById("myTab").addEventListener('tap', function() {
+	if(hasLogin()) {
+		mui.openWindow('myIndex.html', 'myTab');
+	} else {
+		mui.openWindow({
+			url: '../myIndex/login.html'
+		});
+	}
+})
 //调用函数
 auctionData(1);
 info();

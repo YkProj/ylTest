@@ -49,6 +49,7 @@ function accountOk() { //点击确认提交信息
 	var accountPwdEncryption = escape(accountPwd);
 	var accountTranscationPwd = $("#accountTranscationPwd").val();
 	var accountTranscationPwdEncryption = escape(accountTranscationPwd);
+	localStorage.setItem('tranPwd',accountTranscationPwdEncryption);
 	if(accountPhone == '') {
 		layer.open({
 			content: "手机号不能为空",

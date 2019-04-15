@@ -62,6 +62,7 @@ var entryPageIndex0 = 1;
 var entryPageIndex2 = 1;
 var entryPageIndex3 = 1;
 
+
 var BASIC_HOST = "http://47.112.115.82:8081/"; //外网生产服务器地址
 //var BASIC_HOST = "http://192.168.1.169:8080/"; //内网服务器地址
 //var URL_VERSION = 'http://www.galaxyotc.com/DownLoadFile/version.json';
@@ -242,22 +243,6 @@ function getWebTest(conltroller, action, methodType, data, sucessCallback) {
 		}
 	});
 };
-document.getElementById("homeTab").addEventListener('tap', function() {
-	mui.openWindow('homeIndex.html', 'homeTab');
-})
-document.getElementById("auctionTab").addEventListener('tap', function() {
-	mui.openWindow('auctionHall.html', 'auctionTab');
-})
-document.getElementById("myTab").addEventListener('tap', function() {
-	if(hasLogin()) {
-		mui.openWindow('myIndex.html', 'myTab');
-	} else {
-		mui.openWindow({
-			url: '../myIndex/login.html'
-		});
-	}
-})
-
 //拍卖大厅跳转详细页
 function auctionDetail(auctionListId) {
 	console.log(auctionListId)
@@ -322,3 +307,4 @@ function clearData() { //清空用户登录存储的数据
 	//清空数据
 	//window.localStorage.clear();
 }
+

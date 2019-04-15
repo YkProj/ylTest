@@ -1,3 +1,20 @@
+
+//点击跳转至相应页面
+document.getElementById("homeTab").addEventListener('tap', function() {
+	mui.openWindow('homeIndex.html', 'homeTab');
+})
+document.getElementById("auctionTab").addEventListener('tap', function() {
+	mui.openWindow('auctionHall.html', 'auctionTab');
+})
+document.getElementById("myTab").addEventListener('tap', function() {
+	if(hasLogin()) {
+		mui.openWindow('myIndex.html', 'myTab');
+	} else {
+		mui.openWindow({
+			url: '../myIndex/login.html'
+		});
+	}
+})
 function setTranscationPwd() {
 	phone = $("input[name='tranPhone']").val();
 	verifyPhone(phone);
@@ -161,8 +178,10 @@ myIndex();
 function myIndex() {
 	const myIndexImg = getUserData("headImgUrl");
 	const myNickName = getUserData("nickname");
+	const myIndexWalletNum = getUserData("amount");
 	$("#headImg").attr('src', myIndexImg);
 	$("#myNickName").html(myNickName);
+	$("#walletNum").html("￥"+myIndexWalletNum);
 }
 setInterval(function() {
 	const badgeNum = localStorage.getItem("firstDataLength");

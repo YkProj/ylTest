@@ -48,73 +48,25 @@ const auctionListId = localStorage.getItem('AuctionListId');
 auctionDetail(auctionListId)
 console.log(auctionListId)
 
-//交报名保证金
-document.getElementById("Bond").addEventListener('tap', function(e) {
-	//当在文本框输入内容的时候隐藏底部导航栏
-	$("#auctionBottomEnd").css('display', 'none')
-	if(auctionHouseDataStatus == 0 || auctionHouseDataStatus == 2) {
-		e.detail.gesture.preventDefault(); //修复iOS 8.x平台存在的bug，使用plus.nativeUI.prompt会造成输入法闪一下又没了
-		var btnArray = ['取消', '确定'];
-		mui.prompt('参与竞拍需要交300元保证金', '请输入支付密码', '报名交保证金', btnArray, function(e) {
-			if(e.index == 1) {
-				$("#auctionBottomEnd").css('display', 'block')
-				layer.open({
-					content: "点击了确定按钮",
-					skin: 'msg',
-					time: 2 //2秒后自动关闭
-				});
-			} else {
-				$("#auctionBottomEnd").css('display', 'block')
-				layer.open({
-					content: "点击了取消按钮",
-					skin: 'msg',
-					time: 2 //2秒后自动关闭
-				});
-			}
-		})
-	} else {
-		layer.open({
-			content: "竞拍已结束",
-			skin: 'msg',
-			time: 2 //2秒后自动关闭
-		});
-	}
-});
-
-//出价
-var auctionMarkup = $("#auctionMarkup").html();
-var auctionMarkupContent = "加价幅度" + auctionMarkup;
-
-function offer() {
-	if(auctionHouseDataStatus == 0 || auctionHouseDataStatus == 2) {
-		var btnArray = ['取消', '确认'];
-		mui.confirm(auctionMarkupContent, '确认出价', btnArray, function(e) {
-			if(e.index == 1) {
-				mui.toast("你点击了确认按钮");
-			} else {
-				mui.toast("你点击了取消按钮");
-			}
-		})
-	} else {
-		layer.open({
-			content: "竞拍已结束",
-			skin: 'msg',
-			time: 2 //2秒后自动关闭
-		});
-
-	}
-}
-
-var auctionLogsHtml =""
-var auctionlantitude =""
+var auctionLogsHtml = ""
+var auctionlantitude = ""
 var auctionlontitude = ""
+var isSignUp = ""
+
 function auctionDetail(auctionListId) {
 	var auctionHouseId = auctionListId;
 	var DATA = new Object();
 	DATA.houseId = auctionHouseId;
+	DATA.userId = getUserData("id");
 	getWebData("landlord", "findAuctionHouseInfDetail", METHOD_POST, DATA, function(data) {
 		if(data.code == 200) {
 			var auctionData = data.data;
+			isSignUp = auctionData.isSignUp;
+			if(isSignUp == 0) {
+				$("#isSignUp").html("交报名保证金");
+			} else {
+				$("#isSignUp").html("出价");
+			}
 			var auctionSliderPicture = auctionData.loopImg;
 			var auctionHouseData = auctionData.house;
 			auctionlantitude = auctionHouseData.lantitude;
@@ -150,23 +102,17 @@ function auctionDetail(auctionListId) {
 			auctionHouseDataStatus = auctionHouseData.status;
 			if(auctionHouseData.status == 1) {
 				auctionStatus = "审核中";
-				$("#auctionBottomEnd").addClass('auctionBottomEnd');
-				$("#auctionBottomEndSecond").addClass('auctionBottomEnd');
-				$("#auctionBottomEndThird").addClass('auctionBottomEnd');
+				$("#controlIsSignUp").addClass('auctionBottomEnd');
 			} else if(auctionHouseData.status == 0) {
 				auctionStatus = "报名中";
 			} else if(auctionHouseData.status == 2) {
 				auctionStatus = "正在拍卖";
 			} else if(auctionHouseData.status == 3) {
 				auctionStatus = "已结束";
-				$("#auctionBottomEnd").addClass('auctionBottomEnd');
-				$("#auctionBottomEndSecond").addClass('auctionBottomEnd');
-				$("#auctionBottomEndThird").addClass('auctionBottomEnd');
-			}else if(auctionHouseData.status == 4){
+				$("#controlIsSignUp").addClass('auctionBottomEnd');
+			} else if(auctionHouseData.status == 4) {
 				auctionStatus = "流拍";
-				$("#auctionBottomEnd").addClass('auctionBottomEnd');
-				$("#auctionBottomEndSecond").addClass('auctionBottomEnd');
-				$("#auctionBottomEndThird").addClass('auctionBottomEnd');
+				$("#controlIsSignUp").addClass('auctionBottomEnd');
 			}
 			$("#auctionStatus").html(auctionStatus);
 			if(auctionHouseData.status !== 2) {
@@ -231,24 +177,6 @@ function auctionDetail(auctionListId) {
 			}
 			$("#auctionHoseDescribe").html(auctionHouseData.description);
 
-			var auctionLogs = auctionData.auctionLogs;
-			$("#auctionLogsContent").empty();
-			if(auctionLogs.length > 0) {
-				auctionLogsHtml = "";
-				for(var j = 0; j < auctionLogs.length; i++) {
-					auctionLogsHtml += '<div class="auctionListContentList">';
-					if(auctionLogs[i].status == 1) {
-						auctionLogsHtml += '<span style="color:#FF3734">领先</span>';
-					} else if(auctionLogs[i].status == 0) {
-						auctionLogsHtml += '<span style="color:#02BB9A">出局</span>';
-					}
-					auctionLogsHtml += '<span>' + auctionLogs[i].userId + '</span>';
-					auctionLogsHtml += '<span>' + auctionLogs[i].auctionPrice + "元" + '</span>';
-					auctionLogsHtml += '<span>' + auctionLogs[i].createTime + '</span>';
-					auctionLogsHtml += '</div>';
-				}
-				//				$("#auctionLogsContent").append(auctionLogsHtml);
-			}
 		} else {
 			layer.open({
 				content: data.code + data.msg,
@@ -263,7 +191,7 @@ function auctionDetail(auctionListId) {
 //地图
 function map(Longitude, Lantitude, homeIndextSubTitle) {
 	var SubhomeIndextSubTitle = homeIndextSubTitle.substr(0, 18) + "...";
-	var map = new BMap.Map("allmap");  //创建地图实例
+	var map = new BMap.Map("allmap"); //创建地图实例
 	var point = new BMap.Point(Longitude, Lantitude);
 	map.centerAndZoom(point, 13); //初始化地图设置中心点坐标和地图级别
 	var marker = new BMap.Marker(point); // 创建标注
@@ -273,7 +201,7 @@ function map(Longitude, Lantitude, homeIndextSubTitle) {
 		height: 50, // 信息窗口高度
 		title: SubhomeIndextSubTitle, // 信息窗口标题
 	}
-	console.log(auctionlantitude , auctionlontitude)
+	console.log(auctionlantitude, auctionlontitude)
 	var baiduApp = '<a href="http://api.map.baidu.com/geocoder?location=auctionlantitude,auctionlontitude&coord_type=gcj02&output=html&src=webapp.lj.render">打开百度地图查看详情</a>';
 	var infoWindow = new BMap.InfoWindow(baiduApp, opts); // 创建信息窗口对象 
 	marker.addEventListener("click", function() {
@@ -311,13 +239,52 @@ function houseDescribe() {
 	$("#item2").removeClass('mui-active');
 	$("#item3").removeClass('mui-active');
 }
+getSignUpRecord();
+var offerRecordTopAmount = "";
+var auctionLogs = "";
+
+function getSignUpRecord() { //获取出价记录
+	var DATA = new Object();
+	DATA.pageNo = 1;
+	DATA.houseId = auctionListId;
+	getWebData("offerLog", "findOfferLogByHouse", METHOD_POST, DATA, function(data) {
+		if(data.code == 200) {
+			var offerRecordData = data.data;
+			$("#auctionLogsContent").empty();
+			auctionLogs = offerRecordData.offerLogList;
+			$("#topAmount").html(offerRecordTopAmount);
+			if(auctionLogs.length > 0) {
+				offerRecordTopAmount = auctionLogs[0].amount;
+				auctionLogsHtml = "";
+				for(var i = 0; i < auctionLogs.length; i++) {
+					auctionLogsHtml += '<div class="auctionListContentList">';
+					if(i = 0) {
+						auctionLogsHtml += '<span style="color:#FF3734">领先</span>';
+					} else {
+						auctionLogsHtml += '<span style="color:#02BB9A">出局</span>';
+					}
+					auctionLogsHtml += '<span userId="' + auctionLogs[i].userId + '">' + auctionLogs[i].nickName + '</span>';
+					auctionLogsHtml += '<span>' + auctionLogs[i].amount + "元" + '</span>';
+					auctionLogsHtml += '<span>' + auctionLogs[i].createTime + '</span>';
+					auctionLogsHtml += '</div>';
+				}
+			}
+		} else {
+			layer.open({
+				content: data.code + data.msg,
+				skin: 'msg',
+				time: 2 //2秒后自动关闭
+			});
+		}
+	});
+}
 
 function signUp() {
 	$(this).prop('href', '#item2');
 	$("#item2").addClass('mui-active');
 	$("#item1").removeClass('mui-active');
 	$("#item3").removeClass('mui-active');
-	if(auctionLogsHtml.length > 0) {
+	if(auctionLogs > 0) {
 		$("#auctionLogsContent").append(auctionLogsHtml);
 	} else {
 		layer.open({
@@ -328,10 +295,157 @@ function signUp() {
 	}
 }
 
-
 function notice() {
 	$(this).prop('href', '#item3');
 	$("#item3").addClass('mui-active');
 	$("#item1").removeClass('mui-active');
 	$("#item2").removeClass('mui-active');
+}
+
+//点击交报名保证金
+function IsSignUp() {
+	if(hasLogin()) {
+		if(auctionHouseDataStatus == 0 || auctionHouseDataStatus == 2) {
+			if(isSignUp == 0) {
+				$("#deposit").css('display', 'block');
+			} else {
+				$("#offer").css('display', 'block');
+			}
+		} else {
+			layer.open({
+				content: "竞拍已结束",
+				skin: 'msg',
+				time: 2 //2秒后自动关闭
+			});
+		}
+	} else {
+		layer.open({
+			content: "您还未设置账号,请先进行账号设置",
+			skin: 'msg',
+			time: 2 //2秒后自动关闭
+		});
+		setTimeout(function() {
+			mui.openWindow({
+				url: '../myIndex/login.html'
+			});
+		}, 1000)
+	}
+}
+
+//点击出价确定按钮
+function offerOk() {
+	$("#offer").css('display', 'none');
+	var PriceIncreaseRange = $("#addPrice").html();
+	const openid = getUserData("openId");
+	const totalFee = PriceIncreaseRange * 100;
+	var twosign = "";
+	var t = parseInt(new Date().getTime() / 1000);
+	var addressIp = returnCitySN["cip"];
+	console.log("ip：" + addressIp);
+
+	function onBridgeReady() {
+
+		$.ajax({
+			"url": "http://www.zukepai.com/server/pay/weChatPay",
+			"data": {
+				"totalFee": totalFee, //支付的钱、单位是分
+				"openId": "oQu7K1cGW09XFUwE4h7tJ2vedOWg", //用户的openid
+				"addressIp": addressIp //当前设备的ip地址
+			},
+			"success": function(json) {
+				out_trade_no = json.out_trade_no;
+				getSign(json);
+
+				//onBridgeReady();
+
+				WeixinJSBridge.invoke(
+					'getBrandWCPayRequest', {
+						"appId": json.appid, //公众号名称，由商户传入     
+						"timeStamp": t, //时间戳，自1970年以来的秒数     
+						"nonceStr": json.nonce_str, //随机串     
+						"package": "prepay_id=" + json.prepay_id,
+						"signType": "MD5", //微信签名方式：   
+
+						"paySign": twosign //微信签名 
+					},
+					function(res) {
+
+						//							alert(JSON.stringify(res));
+						if(res.err_msg == "get_brand_wcpay_request:ok") { //成功
+							successOffer();
+						} else { //失败
+							layer.open({
+								content: "付款失败",
+								skin: 'msg',
+								time: 5 //2秒后自动关闭
+							})
+						}
+					});
+
+			},
+			"error": function() {
+				console.log("出错了");
+			}
+		});
+
+	}
+	if(typeof WeixinJSBridge == "undefined") {
+		if(document.addEventListener) {
+			document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+		} else if(document.attachEvent) {
+			document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+			document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+		}
+	} else {
+		onBridgeReady();
+	}
+
+	function get_client_ip() {
+		$cip = "unknown";
+		if($_SERVER['REMOTE_ADDR']) {
+			$cip = $_SERVER['REMOTE_ADDR'];
+
+		} else if(getenv("REMOTE_ADDR")) {
+			$cip = getenv("REMOTE_ADDR");
+		}
+		return $cip;
+
+	}
+
+	function getSign(json) { //获取二次签名
+		var str = "appId=" + json.appid + "&nonceStr=" + json.nonce_str + "&package=prepay_id=" + json.prepay_id + "&signType=MD5&timeStamp=" + t + "&key=38d59457da75037ce7e5c1999143a3e4";
+		console.log(str);
+		twosign = $.md5(str).toUpperCase();
+		console.log(twosign);
+	}
+}
+
+//出价成功之后调出价接口
+function successOffer() {
+	var topAmount = $("#topAmount").html();
+	var DATA = new Object();
+	DATA.userId = getUserData("id");
+	DATA.amount = topAmount;
+	DATA.payPwd = getUserData("payPwd");
+	DATA.houseId = auctionListId;
+	getWebData("landlord", "signUpHouse", METHOD_POST, DATA, function(data) {
+		if(data.code == 200) {
+			layer.open({
+				content: "出价成功",
+				skin: 'msg',
+				time: 5 //2秒后自动关闭
+			})
+			document.getElementById("offerRecord").click();
+		} else {
+			layer.open({
+				content: data.code + data.msg,
+				skin: 'msg',
+				time: 5 //2秒后自动关闭
+			})
+		}
+	});
+}
+//取消按钮
+function offerCancel() {
+	$("#offer").css('display', 'none');
 }
