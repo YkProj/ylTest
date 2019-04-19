@@ -11,14 +11,14 @@
 				</view>
 			</view>
 			<view class="navBarRight" @click="showTopPopup">
-				<text class="navBarTextMargin navBarTextColor">{{houseTypeList.name}}</text>
+				<text class="navBarTextMargin navBarTextColor" id="houseType">住宅</text>
 				<text class="iconfont icon-caidan iconfontStyle menu-style"></text>
 			</view>
 		</view>
 		<uni-popup :show="showPopupTop" :type="popType" v-on:hidePopup="hidePopup">
 			<view class="popup-rectangle"></view>
 			<view data-v-2fcc5cca="" class="index-popup-top" style="">
-				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="index" v-model="houseTypeList.name">
+				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="houseTypeList.name" v-model="houseTypeList.name" @click="clickText(houseTypeList.name)">
 					<text :class="houseTypeList.class"></text>
 					<text>{{houseTypeList.name}}</text>
 				</view>
@@ -83,6 +83,7 @@
 	import uniIcon from '../../components/uni-icon.vue'
 	import uniLoad from '../../components/uni-load-more.vue'
 	import uniPopup from '../../components/uni-popup.vue'
+	let houseType = "住宅";
 	export default {
 		components: {
 			uniNavBar,
@@ -97,6 +98,7 @@
 				showPopupTop: false,
 				showLoadMore: true,
 				loadMoreText: "加载中...",
+				houseType,
 				indexLists: [{
 						src: 'http://192.168.1.100:8080/static/index/homIndexList.png',
 						title: '桃源村 桃源村三期 次卧 朝东',
@@ -130,11 +132,20 @@
 						price: '￥3500元/月'
 					}
 				],
-				houseTypeLists:[
-					{class:'iconfont icon-fangzu',name:'住宅'},
-					{class:'iconfont icon-xiezilou',name:'写字楼'},
-					{class:'iconfont icon--shangpu',name:'商铺'},
+				houseTypeLists: [{
+						class: 'iconfont icon-fangzu',
+						name: '住宅'
+					},
+					{
+						class: 'iconfont icon-xiezilou',
+						name: '写字楼'
+					},
+					{
+						class: 'iconfont icon--shangpu',
+						name: '商铺'
+					},
 				]
+
 			}
 		},
 		onLoad() {
@@ -156,8 +167,9 @@
 				this.popType = 'top';
 				this.showPopupTop = true;
 			},
-			clickText:function(e){
-				console.log(e)
+			clickText: function(e) {
+				console.log(e);
+				houseType = e;
 			}
 		},
 		onPullDownRefresh() {

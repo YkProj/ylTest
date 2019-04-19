@@ -1,4 +1,3 @@
-//myWalletData(1);
 var loading = false;
 var MyWalletPageIndex = 1;
 var myWalletDataList = "";
