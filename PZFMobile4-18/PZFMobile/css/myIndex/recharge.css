@@ -1,0 +1,72 @@
+.rechargeContent{
+	height: auto;
+	margin-bottom: 245px;
+}
+/*列表样式*/
+.rechargeContentTop{
+	height: 64px;
+	overflow: auto;
+	width: 100%;
+	padding: 0px 2.8vw;
+}
+.rechargeContentTopLeft{
+	width: 50%;
+	float: left;
+	padding-top: 22px;
+}
+.rechargeContentTopRight{
+	width: 50%;
+	float: right;
+	text-align: right;
+}
+.rechargeContentTopRight img{
+	margin-top: 9px;
+	width: 35px;
+    height: 35px;
+	border-radius: 50%;
+}
+.rechargeContentBottom{
+	margin-bottom: 5px;
+	padding: 0px 2.8vw;
+}
+.rechargeContentBottom>.rechargeInput{
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 0px;
+	border: none;
+	margin-left: 2.2vw;
+	padding: 0px 0px 0px 15px;
+}
+.rechargeInput::-ms-input-placeholder {
+	text-align: left;
+	color: #B4B4B4;
+	font-size: 3.9vw;
+}
+
+.rechargeInput::-webkit-input-placeholder {
+	text-align: left;
+	color: #B4B4B4;
+	font-size: 3.9vw;
+}
+.rechargeContentBottom span{
+	display: inline-block;
+    line-height: 30px;
+    position: absolute;
+    font-size: 4.4vw;
+    color: #02BB9A;
+    font-weight: 600;
+}
+
+/*提现界面样式*/
+.cashInput{
+	width: 85% !important;
+}
+.rechargeContentBottom>.cashAll{
+	font-size: 3.9vw;
+	color: #19D100;
+}
+.myButton p{
+	font-size: 3.3vw;
+	color: #212121;
+	opacity: 0.5;
+}

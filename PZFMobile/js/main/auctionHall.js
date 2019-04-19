@@ -59,11 +59,8 @@ var auctionListData = "";
 //	}
 //}
 
-$("input").focus(function(){
-	$("#bottomBar").css('display','none')
-});
-$("input").blur(function(){
-	$("#bottomBar").css('display','block')
+$("input").focus(function() {
+	$("#bottomBar").css('display', 'none')
 });
 
 //获取首页前三条公告信息
@@ -120,39 +117,13 @@ function auctionSlider() {
 	});
 };
 
-//搜索
-var auctionSearch = document.getElementById('auctionInput');
-var clickBtn = document.getElementsByClassName('.mui-search');
-auctionSearch.addEventListener('keydown', function(e) {
-	if(e.keyCode == 13) {
-		var keyWord = $("#auctionInput").val();
-		$("#bottomBar").css('display','block')
-		$("#auctionListData").empty();
-		auctionData(1)
-	}
-}, false);
-var cpLock = false;
-$('#auctionInput').on('compositionstart', function() {
-	cpLock = true;
-	console.log("不搜索")
-});
-$('#auctionInput').on('compositionend', function() {
-	cpLock = false;
-	console.log("汉字搜索");
-	var keyWord = $("#auctionInput").val();
-	$("#bottomBar").css('display','block')
+function auctionSearchInput(e) {
+	//	landmarkSearch = e.value;
+	//	console.log(e.value);
+	$("#bottomBar").css('display', 'block')
 	$("#auctionListData").empty();
 	auctionData(1)
-});
-$('#auctionInput').on('input', function() {
-	setTimeout(function() {
-		if(!cpLock) {
-			console.log("字母搜索")
-			var keyWord = $("#auctionInput").val();
-			auctionData(1)
-		}
-	}, 500)
-});
+}
 
 var auctionTimeNew = []; //定义数组
 
@@ -190,7 +161,7 @@ mui('#screenWrap').on('tap', '#auctionResetBtn', function() { //点击筛选重�
 	houseTypeValue = -1;
 	auctionData(1);
 });
-mui('#screenWrap').on('tap', '#auctionOkBtn', function() {//点击筛选确定
+mui('#screenWrap').on('tap', '#auctionOkBtn', function() { //点击筛选确定
 
 	collectionValue = CollectionValue;
 	houseTypeValue = HouseTypeValue;
@@ -202,10 +173,6 @@ var loading = false;
 var AuctionPageIndex = 1;
 //获取拍卖大厅数据
 function auctionData(auctionPageIndex) {
-	if(loading) {
-		return ;
-	}
-	loading = true;
 	var auctionKerWord = "";
 	var auctionSearch = $("#auctionInput").val();
 	if(auctionSearch == "") {
@@ -251,17 +218,6 @@ function auctionData(auctionPageIndex) {
 					auctionListHtml += '</div>';
 				}
 				$("#auctionListData").append(auctionListHtml);
-				setTimeout(function() {
-					loading = false;
-					AuctionPageIndex = parseInt(AuctionPageIndex) + 1;
-					if(auctionListData.length < 10) {
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-						AuctionPageIndex = 1;
-					} else {
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-					}
-				}, 500)
-				mui('#pullrefresh').pullRefresh().refresh(true);
 			} else {
 				layer.open({
 					content: "没有更多数据",
@@ -294,14 +250,6 @@ mui.init({
 	}
 });
 
-//上拉加载
-function pullupRefresh() {
-	setTimeout(function() {
-		auctionData(AuctionPageIndex); //ajax
-	}, 500)
-
-};
-
 //下拉刷新
 function pulldownRefresh() {
 	setTimeout(function() {
@@ -310,8 +258,30 @@ function pulldownRefresh() {
 		mui.toast("已为您更新至最新数据")
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+		mui('#pullrefresh').pullRefresh().refresh(true);
 	}, 500);
 };
+
+//上拉加载
+function pullupRefresh() {
+	setTimeout(function() {
+		if(loading) {
+			return;
+		}
+		loading = true;
+		auctionData(AuctionPageIndex); //ajax
+		loading = false;
+		AuctionPageIndex = parseInt(AuctionPageIndex) + 1;
+		if(auctionListData.length < 10) {
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+			AuctionPageIndex = 1;
+		} else {
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+		}
+	}, 500)
+
+};
+
 
 //筛选
 var CollectionValue = -1;

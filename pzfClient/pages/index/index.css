@@ -1,19 +1,226 @@
-.indexImg{
+.indexImg {
 	width: 16.2vw;
 }
-.indexImg img{
+
+.indexImg img {
 	width: 100%;
 }
+
 /* 导航栏样式 */
-.navBarAll{
+.navBarAll {
+	position: fixed;
+	top: 0px;
+	width: 100%;
 	height: 48px;
 	line-height: 48px;
 	background-color: #000;
+	z-index: 999;
 }
-.indexLogo{
-	display: inline-block;
-	width: 100px;
+
+.iconfontStyle {
+	color: #fff;
 }
-.indexLogo img{
+
+.indexLogo {
+	float: left;
+	display: block;
+	height: 48px;
+}
+
+.indexLogo img {
+	width: 60px;
+	margin: 15px;
+	padding-right: 15px;
+	border-right: 1px solid #e5e5e5;
+}
+
+.navBarLeft {
+	float: left;
+}
+
+.navBarRight {
+	float: right;
+	height: 48px;
+	line-height: 48px;
+	margin-right: 12px;
+}
+/* 字体图标间距 */
+.navBarTextMargin {
+	margin-right: 5px;
+}
+/* 字体颜色 */
+.navBarTextColor{
+	color: #fff;
+}
+
+.city {
+	float: left;
+	height: 48px;
+	line-height: 48px;
+}
+
+.menu-style {
+	font-size: 1.5rem;
+	vertical-align: middle;
+}
+
+/* 二级导航栏 */
+.subNav {
+	position: fixed;
+	top: 48px;
 	width: 100%;
+	height: 100px;
+	background: #fff;
+	z-index: 1;
+}
+
+
+/* input自用样式 */
+.subNavStyle {
+	margin: 0px 12px;
+}
+.row-margin{
+	padding-bottom: 14px;
+	border-bottom: 1px solid #EFEFEF;
+}
+.flex-item {
+	width: 30%;
+	text-align: center;
+}
+.flex-item:first-child{
+	text-align: left;
+	width: 20%;
+}
+.flex-item:last-child{
+	text-align: right;
+	width: 20%;
+}
+.subNavTextColor{
+	color: #353D46;
+}
+.subNavColor{
+	color: #8E8E8E;
+}
+.flex-item-active-color text{
+	color: #3DBD77!important;
+}
+/* 首页列表样式 */
+.indexList{
+	padding: 17px 0px 12px 0px;
+	border-bottom: 1px solid #eee;
+}
+.indexListLeft{
+	float: left;
+}
+.indexListLogo image{
+	width: 100px;
+	height: 88px;
+	border-radius: 4px;
+	margin-right: 9px;
+}
+.indexListRight{
+	margin-left: 109px;
+}
+.indexListTitle h3{
+	font-size: 0.875rem;
+	line-height: 1.3;
+	margin-bottom: 5px;
+}
+.icon-dingwei-style{
+	font-size: 0.8125rem;
+}
+.indexListHouseHall{
+	line-height: 1.5;
+	color: #939393;
+}
+.indexListHousePosition{
+	color: #939393;
+	line-height: 1.5;
+	margin-bottom: 5px;
+}
+.indexListHouseLabel{
+	line-height: 2;
+}
+.indexListHousePrice{
+	margin-left: 109px;
+	font-size: 1rem;
+	color: #FF5350;
+	font-weight: 500;
+}
+.public-btn{
+	padding: 0px;
+	margin: 0px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	border-radius: 0px;
+}
+.index-btn{
+	font-size: 0.4375rem;
+	border: none;
+	font-size: 0.4375rem;
+    padding: 2px 5px;
+    margin-right: 3px;
+	border-radius: 2px;
+}
+uni-button:after{
+	border: none;
+}
+.index-btn-simple{
+	background-color: #DEEEFF;
+	color: #86B9FC;
+}
+.index-btn-fine{
+	background-color: #DAF8F7;
+	color: #7EC6B0;
+}
+.index-btn-luxury{
+	background-color: #FBE2CF;
+	color: #EB7855;
+}
+/* 租住宅弹出框 */
+.index-popup-top{
+	position: absolute;
+    z-index: 999;
+    background-color: #ffffff;
+	top: 59px;
+	left: auto;
+    right: 12px;
+    line-height: 42px;
+    text-align: center;
+    width: 104px;
+    height: 142px;
+    border-radius: 6px;
+}
+.popup-rectangle{
+	width: 24px;
+    height: 11px;
+    background-color: #fff;
+    z-index: 999;
+    position: absolute;
+    top: 58px;
+    right: 12px;
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); /* IE 9 */
+	-webkit-transform:rotate(45deg); 
+}
+.popupList{
+	height: 47px;
+	line-height: 47px;
+	width: 100%;
+}
+.popupList text:first-child{
+	color: #02BB9A;
+	font-size: 1rem;
+	display: inline-flex;
+	width: 47px;
+	height: 47px;
+	justify-content: center;
+	float: left;
+}
+.popupList text:last-child{
+	color: #22292C;
+	font-size: 0.625rem;
+	display: inline-flex;
+	justify-content: flex-start;
+	float: left;
 }

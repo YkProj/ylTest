@@ -1,0 +1,18 @@
+//===============行情提醒消息
+[{
+"ToUserId":"2001",
+"ToUserName":"老刘",
+"MsgGuid":"sdf6s76fsdf9sf0sd79sd6g9sdgfgs",
+"MsgType":"单一市场",
+"MsgTime":"2017-12-01 12:35:54",
+"MsgContent":"OKex行情BTC超过11135人民币"
+}]
+
+//================最新新闻公告,最好弄静态json文件，我直接读取
+
+{
+"NewsId":"12",
+"NewsTitle":"首都华盛顿号时候地方",
+"NewsTime":"2017-12-01",
+"NewsContent":"......."
+}

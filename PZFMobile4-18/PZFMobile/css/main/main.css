@@ -1,0 +1,38 @@
+html,
+body {
+	/*background-color: #F0EFF4;*/
+}
+
+header.mui-bar {
+	padding-left: 0px;
+	background-color: #0E80F2;
+}
+
+#share,
+#title {
+	color: white;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+	color: #3DBD77 !important;
+}
+
+.mui-bar-tab .post-relative-parent {
+	position: relative;
+}
+
+
+.mui-bar.mui-bar-tab{
+	margin-top: 10px;
+	background-color: #fff !important;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	box-shadow:0px -2px 6px rgba(0,0,0,0.06) !important;
+}
+
+.menu-title{
+	font-size: 14px;
+}
+
+

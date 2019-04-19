@@ -48,7 +48,7 @@
 				<div class="homeIndexSearch">
 					<!--<input type="search" name="homeIndexSearch" id="homeIndexSearch" maxlength="10" class="iconfont homeIndexSearchStyle" placeholder="&#xe63b;  位置地标" onclick="hideNavBar()" />-->
 					<div class="mui-input-row mui-search">
-						<input onclick="hideNavBar()" id="homeIndexSearch" maxlength="10" name="homeIndexSearch" type="search" class="mui-input-clear input-color" placeholder="位置地标" />
+						<input onchange="searchInput(this)" id="homeIndexSearch" maxlength="10" name="homeIndexSearch" type="search" class="mui-input-clear input-color" placeholder="位置地标" />
 					</div>
 				</div>
 			</div>
@@ -182,6 +182,7 @@
 		<script src="../../js/mui.min.js"></script>
 		<script type="text/javascript" src="../../js/tools/layer.js"></script>
 		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/lodash.core.js"></script>
 		<!--<script type="text/javascript" src="../../js/homeIndex/indexSub.js"></script>-->
 		<script type="text/javascript" src="../../js/homeIndex/homeIndex.js"></script>
 		<script type="text/javascript" src="../../js/homeIndex/screen.js"></script>

@@ -4,65 +4,73 @@ var MyWalletPageIndex = 1;
 var myWalletDataList = "";
 
 var CashWithdrawlAmount = getUserData("amount");
-$("#myWalletMoney").html(CashWithdrawlAmount +"￥");
+$("#myWalletMoney").html(CashWithdrawlAmount + "￥");
+myWalletData(1);
+
 function myWalletData(myWalletPageIndex) { //获取交易记录
-	if(loading) {
-		loading = false;
-	}
-	loading = true;
-	var DATA = new Object();
-	DATA.userId = getUserData("id");
-	DATA.pageNo = myWalletPageIndex;
-	DATA.type = 1;
-	getWebData("pay", "findUserTransactionByPage", METHOD_POST, DATA, function(data) {
-		if(data.code == 200) {
-			var myWalletData = data.data;
-			myWalletDataList = myWalletData.transactionLogList;
-			if(myWalletDataList.length > 0) {
-//				$("#myWalletContent").empty();
-				let myWalletList = "";
-				for(let i = 0; i < myWalletDataList.length; i++) {
-					myWalletList = `<div class="publicList transactionRecordList">
-									if(myWalletDataList[i].status==1){
-										<div class="transactionRecordListLeft">
-										<img src="${myWalletDataList[i].img}" alt="" />
-										<span>
-											<div>充值</div>
-											<div>${myWalletDataList[i].creatTime}</div>
-										</span>
-									</div>
-									<div class="transactionRecordListRight">
-										<div>+${myWalletDataList[i].num}</div>
-										if(myWalletDataList[i].orderStatus == 1){
-											<div>处理中</div>
-										}else if(myWalletDataList[i].orderStatus == 2){
-											<div>已完成</div>
-										}
-									</div>
-									}
-								</div>
-					`;
-				}
-				$("#myWalletContent").append(myWalletList);
-				setTimeout(function() {
-					loading = false;
-					MyWalletPageIndex = parseInt(MyWalletPageIndex + 1);
-					if(myWalletDataList.length < 10) {
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-						MyWalletPageIndex = 1;
-					} else {
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-					}
-				}, 500);
-			}
-		} else {
-			layer.open({
-				content: data.code + data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
-		}
+	$("#myWalletContent").empty();
+	layer.open({
+		content: "功能暂未完成，带后续开发",
+		skin: 'msg',
+		time: 2 //2秒后自动关闭
 	});
+	//	if(loading) {
+	//		loading = false;
+	//	}
+	//	loading = true;
+	//	var DATA = new Object();
+	//	DATA.userId = getUserData("id");
+	//	DATA.pageNo = myWalletPageIndex;
+	//	DATA.type = 1;
+	//	getWebData("pay", "findUserTransactionByPage", METHOD_POST, DATA, function(data) {
+	//		if(data.code == 200) {
+	//			var myWalletData = data.data;
+	//			myWalletDataList = myWalletData.transactionLogList;
+	//			if(myWalletDataList.length > 0) {
+	////				$("#myWalletContent").empty();
+	//				let myWalletList = "";
+	//				for(let i = 0; i < myWalletDataList.length; i++) {
+	//					myWalletList = `<div class="publicList transactionRecordList">
+	//									if(myWalletDataList[i].status==1){
+	//										<div class="transactionRecordListLeft">
+	//										<img src="${myWalletDataList[i].img}" alt="" />
+	//										<span>
+	//											<div>充值</div>
+	//											<div>${myWalletDataList[i].creatTime}</div>
+	//										</span>
+	//									</div>
+	//									<div class="transactionRecordListRight">
+	//										<div>+${myWalletDataList[i].num}</div>
+	//										if(myWalletDataList[i].orderStatus == 1){
+	//											<div>处理中</div>
+	//										}else if(myWalletDataList[i].orderStatus == 2){
+	//											<div>已完成</div>
+	//										}
+	//									</div>
+	//									}
+	//								</div>
+	//					`;
+	//				}
+	//				$("#myWalletContent").append(myWalletList);
+	//				setTimeout(function() {
+	//					loading = false;
+	//					MyWalletPageIndex = parseInt(MyWalletPageIndex + 1);
+	//					if(myWalletDataList.length < 10) {
+	//						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+	//						MyWalletPageIndex = 1;
+	//					} else {
+	//						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+	//					}
+	//				}, 500);
+	//			}
+	//		} else {
+	//			layer.open({
+	//				content: data.code + data.msg,
+	//				skin: 'msg',
+	//				time: 2 //2秒后自动关闭
+	//			});
+	//		}
+	//	});
 }
 
 mui.init({
@@ -99,8 +107,6 @@ function pulldownRefresh() {
 		//		mui('#pullrefresh').pullRefresh().refresh(true);
 	}, 500);
 };
-
-
 
 //function CashWithdrawalOk() { //点击提现页面 确定按钮
 //	let CashWithdrawalNum = $("#cashwithdrawNum").val();

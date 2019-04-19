@@ -4,6 +4,8 @@ email: 1216226589@qq.com
 createtime: 2017-11-19
 summary: 服务调用方法
 */
+//获取验证码全局变量
+var countdown = 60;
 
 //首页分页全局变量
 var  homePageIndex = 1; //分页

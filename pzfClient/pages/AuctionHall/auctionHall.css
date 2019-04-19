@@ -1,0 +1,139 @@
+.wrapFixed {
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+    background: #fff;
+	padding-bottom: 3px;
+}
+.auctionHallWrap{
+	height: calc(100% - 229px);
+}
+
+.swiper {
+	height: 152px;
+	margin-top: 9px;
+}
+
+.swiper-item {
+	display: block;
+	height: 152px;
+	line-height: 152px;
+	text-align: center;
+}
+
+.swiper-item image {
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+}
+
+.auctionAllSize {
+	font-size: 1rem;
+	color: #868686;
+}
+
+.swiper-msg-align-item {
+	align-items: center;
+}
+
+.swiper-item-color {
+	color: #868686;
+}
+
+/* 搜索框样式 */
+.auction-input-view {
+	margin: 0px;
+	border-radius: 4px;
+}
+
+.auctionHallSearchLeft {
+	float: left;
+	width: 81%;
+}
+
+.auctionHallSearchRight {
+	float: right;
+}
+
+.auctionHallSearch {
+	width: 100%;
+	overflow: auto;
+}
+
+.auctionHallSearchStyle {
+	width: 18%;
+	background-color: #F0EFF4;
+	text-align: center;
+	border-radius: 4px;
+	color: #B2B2B2;
+}
+
+.auctionHallSearchStyle text:first-child {
+	margin-right: 2px;
+}
+/* 重改列表样式 */
+.auctionHallList{
+	border-bottom: none !important;
+}
+.auctionHallListRight{
+	height: 88px;
+	border-bottom: 1px solid #eee;
+}
+.auctionList{
+	display: inline-flex;
+}
+.auctionHallListRightDescribe span {
+	color: #484848;
+}
+
+.auctionHallListRightDescribe span:nth-child(2) {
+	font-size: 4.4vw;
+	color: #FF5350;
+	font-weight: 600;
+}
+
+.offerStyle {
+	padding: 3px 1vw;
+	text-align: center;
+	width: 16.9vw;
+	height: 23px;
+	line-height: 23px;
+	border: none;
+	background-color: #FF5350;
+	color: #fff !important;
+	font-size: 3.3vw;
+	border-radius: 1.1vw;
+}
+
+.offerBtn {
+	display: inline-block;
+	height: 23px;
+	text-align: right;
+	float: right;
+}
+.auctionHallListRightDescribe{
+	margin-bottom: 5px;
+}
+/* .auctionList text:nth-child(2){
+	font-size: 1.6rem;
+    color: #FF5350;
+    font-weight: 600;
+}
+.auctionRightBtn{
+	display: inline-flex;
+}
+.public-btn.auction-btn{
+	font-size: 0.4375rem;
+	border: none;
+	font-size: 0.4375rem;
+	padding: 2px 1.4vw;
+	border-radius: 2px;
+}
+.sign-up-btn{
+	background-color: #FF5350;
+	color: #fff;
+} */
+/* 倒计时样式 */
+.countDownDisplay{
+	display: inline-flex;
+}

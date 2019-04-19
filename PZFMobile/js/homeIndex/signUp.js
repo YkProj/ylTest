@@ -58,7 +58,7 @@ function depositOk(IsIndexSub) {
 				"url": "http://www.zukepai.com/server/pay/weChatPay",
 				"data": {
 					"totalFee": 1, //支付的钱、单位是分
-					"openId": "oQu7K1cGW09XFUwE4h7tJ2vedOWg", //用户的openid
+					"openId": getUserData("openId"), //用户的openid
 					"addressIp": addressIp //当前设备的ip地址
 				},
 				"success": function(json) {

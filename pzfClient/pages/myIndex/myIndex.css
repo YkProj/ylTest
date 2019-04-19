@@ -1,0 +1,60 @@
+.banner{
+	position: fixed;
+	z-index: 999;
+	padding: 0px 3.6vw;
+	width: 100%;
+	background-color: #0DC19C;
+	height: 114px;
+}
+.myIndexContent{
+	padding-top: 114px;
+	margin-bottom: 51px;
+}
+.navBar-height{
+	z-index: 1;
+}
+.userLogo{
+	height: 114px;
+	line-height: 114px;
+}
+.userLogo image{
+	margin: 8px 1.7vw;
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.userLogo text{
+	color: #fff;
+}
+/* 列表样式 */
+.myIndexImage{
+	width: 56px;
+	height: 57px;
+	text-align: center;
+}
+.clear-padding{
+	padding-left: 0px !important;
+}
+.myIndexImage image{
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+	padding-top: 12px;
+}
+.myIndexListCell::after{
+	left: 56px !important;
+}
+.myIndexCard{
+	webkit-box-shadow: none; 
+    box-shadow: none;
+}
+.myIndexList::before{
+	background-color: initial;
+}
+.myIndexList::after{
+	background-color: initial;
+}
+.uni-list .uni-list-cell:last-child::after{
+	height: 1px !important;
+}

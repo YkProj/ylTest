@@ -4,13 +4,49 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"enablePullDownRefresh":true,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#02BB9A",
+						"style": "circle",
+						"offset":"148px",
+						"contentdown": {
+							"caption": "下拉可刷新自定义文本"
+						},
+						"contentover": {
+							"caption": "释放可刷新自定义文本"
+						},
+						"contentrefresh": {
+							"caption": "正在刷新自定义文本"
+						}
+					}
+				}
 			}
 		},
 		{
-			"path": "pages/AuctionHall/AuctionHall",
+			"path": "pages/auctionHall/auctionHall",
 			"style": {
-				"navigationBarTitleText": "拍卖大厅"
+				"navigationBarTitleText": "拍卖大厅",
+				"enablePullDownRefresh":true,
+				"app-plus": {
+					"pullToRefresh": {
+						"support": true,
+						"color": "#02BB9A",
+						"style": "circle",
+						"offset":"229px",
+						"contentdown": {
+							"caption": "下拉可刷新自定义文本"
+						},
+						"contentover": {
+							"caption": "释放可刷新自定义文本"
+						},
+						"contentrefresh": {
+							"caption": "正在刷新自定义文本"
+						}
+					}
+				}
 			}
 		},
 		{
@@ -19,13 +55,13 @@
 				"navigationBarTitleText": "我的"
 			}
 		}
-	],
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "拍租房",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
-		"navigationStyle":"custom"
+		"navigationStyle": "custom"
 	},
 	"tabBar": {
 		"color": "#A7A7A7",
@@ -40,7 +76,7 @@
 				"selectedIconPath": "static/icon/homeIndexActive.png"
 			},
 			{
-				"pagePath": "pages/AuctionHall/AuctionHall",
+				"pagePath": "pages/auctionHall/auctionHall",
 				"text": "拍卖大厅",
 				"iconPath": "static/icon/auctionHall.png",
 				"selectedIconPath": "static/icon/auctionHallActive.png"

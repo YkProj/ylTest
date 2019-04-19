@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Security-Policy" content="default-src 'unsafe-inline' 'self' ws: https: http: data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <h1 class="mui-title">原生图片轮播</h1>
+	</header>
+	<div class="mui-content">
+	    <button class="mui-btn-blue" style="margin: 20px;" id="slider">创建有原生图片轮播的页面</button>
+	</div>
+	<script type="text/javascript">
+		document.querySelector('#slider').addEventListener('click',function(){
+			var webview = plus.webview.create("slider-native.html", "slider-native", {
+			    titleNView:{//配置标题
+			        'backgroundColor': '#f7f7f7',//导航栏背景色
+			        'titleText': 'slider(native模式)',//导航栏标题
+			        'titleColor': '#000000',//文字颜色
+			        type:'transparent',//透明渐变样式标题栏，可以使slider通顶，更加美观
+			        autoBackButton: true//自动绘制返回箭头
+			    },
+			    subNViews:[{ //配置图片轮播
+					id: 'slider-native',
+					type: 'ImageSlider',
+					styles: {//这里的left和top是控制控件的位置；Width和height控制控件大小
+						left: 0,
+						top: 0,
+						width:'100%',
+						height: '200px',
+						position: 'static',//static正常定位随窗口滚动，absolute时不随页面滚动
+						loop: true,//是否循环播放
+						images: [{
+							src: '_www/images/yuantiao.jpg',
+							width: '100%'
+						}, {
+							src: '_www/images/shuijiao.jpg',
+							width: '100%'
+						}, {
+							src: '_www/images/muwu.jpg',
+							width: '100%'
+						}, {
+							src: '_www/images/cbd.jpg',
+							width: '100%'
+						}]
+					}
+				}]
+			});
+			webview.show("slide-in-right", 300);//直接显示
+		})
+		
+  </script>
+  <script>
+    // redirect to login page
+    window.location.replace('./htmls/myIndex/login.html');
+  </script>
+</body>
+</html>

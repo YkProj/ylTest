@@ -35,21 +35,21 @@ document.getElementById("myTab").addEventListener('tap', function() {
 	}
 })
 getData(1);
-$("input").focus(function(){
-	$("#bottomBar").css('display','none')
-});
-$("input").blur(function(){
-	$("#bottomBar").css('display','block')
+$("input").focus(function() {
+	$("#bottomBar").css('display', 'none')
 });
 
-var loding = false;
+function searchInput(e) {
+	//	landmarkSearch = e.value;
+	//	console.log(e.value);
+	$("#bottomBar").css('display', 'block')
+	$("#list").empty();
+	getData(1)
+}
+
+var loading = false;
 
 function getData(HomePageIndex) {
-	if(loding) {
-		return false;
-	}
-
-	loding = true;
 	var areaCity = $("#homeIndexArea").html();
 	var homeKeword = "";
 	var district = "";
@@ -175,17 +175,12 @@ function getData(HomePageIndex) {
 					liHtml += '</div>';
 				}
 				$("#list").append(liHtml);
-
-				setTimeout(function() {
-					loding = false;
-					homePageIndex = parseInt(homePageIndex) + 1;
-					if(homePageIndex <= homePageCount) {
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
-					} else {
-						mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-						homePageIndex = 1;
-					}
-				}, 500)
+			}else{
+				layer.open({
+					content: "没有更多数据",
+					skin: 'msg',
+					time: 2 //2秒后自动关闭
+				});
 			}
 		} else {
 			layer.open({
@@ -201,6 +196,7 @@ mui.init({
 	pullRefresh: {
 		container: '#pullrefresh',
 		down: {
+			auto: false,
 			style: 'circle',
 			callback: pulldownRefresh
 		},
@@ -211,16 +207,6 @@ mui.init({
 		}
 	}
 });
-
-//上拉加载
-function pullupRefresh() {
-	setTimeout(function() {
-		
-		getData(homePageIndex); //ajax
-	}, 500)
-
-};
-
 //下拉刷新
 function pulldownRefresh() {
 	setTimeout(function() {
@@ -230,7 +216,27 @@ function pulldownRefresh() {
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
 		mui('#pullrefresh').pullRefresh().refresh(true);
-	}, 500);
+	}, 1100);
+};
+
+//上拉加载
+function pullupRefresh() {
+	setTimeout(function() {
+		if(loading) {
+			return;
+		}
+		loading = true;
+		getData(homePageIndex); //ajax
+		loading = false;
+		homePageIndex = parseInt(homePageIndex) + 1;
+		if(homePageIndex <= homePageCount) {
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
+		} else {
+			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
+			homePageIndex = 1;
+		}
+	}, 1000)
+
 };
 
 //首页详情页动态导航栏
@@ -257,31 +263,38 @@ function indexDetail(HomeIndexListId) {
 		url: '../homeIndex/indexSub.html'
 	});
 };
-useInfo();//调用获取用户信息
-var href = window.location.href;
-
-var data =  href.split("?")[1].split("&");
-var userId = data[0].split("=")[1];
-//var nickName = decodeURI(data[1].split("=")[1]);
-//var headImgUrl = data[2].split("=")[1];
-window.localStorage.setItem("userId",userId);
+useInfo(); //调用获取用户信息
 //window.localStorage.setItem("nickName",nickName);
 //window.localStorage.setItem("headImgUrl",headImgUrl);
-function useInfo(){//获取用户信息
+function useInfo() { //获取用户信息
+	var href = window.location.href;
+
+	var data = href.split("?")[1].split("&");
+	var userId = data[0].split("=")[1];
+	//var nickName = decodeURI(data[1].split("=")[1]);
+	//var headImgUrl = data[2].split("=")[1];
+	window.localStorage.setItem("userId", userId);
 	var userId = window.localStorage.getItem("userId");
+	window.lo
 	var DATA = new Object();
 	DATA.userId = userId;
 	getWebData("wuser", "findUserById", METHOD_POST, DATA, function(data) {
-		if(data.code == 200){
+		if(data.code == 200) {
 			var userData = data.data;
-			saveUserData(userData);
-			var UserPhone = getUserData("phone");
-			if(UserPhone == "null"){
-				saveStorageData("isLogin",false);
-			}else{
-				saveStorageData("isLogin",true);
+			if(userData != null) {
+				saveUserData(userData);
+				var UserPhone = getUserData("phone");
+				if(UserPhone == "null") {
+					saveStorageData("isLogin", false);
+				} else {
+					saveStorageData("isLogin", true);
+				}
+			} else {
+				saveStorageData("isLogin", false);
+				clearData();
 			}
-		}else{
+
+		} else {
 			layer.open({
 				content: data.msg,
 				skin: 'msg',
@@ -290,4 +303,3 @@ function useInfo(){//获取用户信息
 		}
 	});
 }
-

@@ -1,0 +1,153 @@
+/*弹出层样式*/
+
+.Sign-up-for-deposit {
+	display: none;
+	z-index: 999;
+	position: absolute;
+	top: 30%;
+	left: 0px;
+	right: 0px;
+	margin: 0px auto;
+	text-align: center;
+	width: 280px;
+	height: 188px;
+	padding: 14px 10px 0px 11px;
+	background-color: #fff;
+	box-shadow: 2px 2px 20px #000;
+}
+
+.offer-wrap {
+	height: 133px !important;
+}
+
+.Sign-up-for-deposit h4 {
+	margin-bottom: 8px;
+}
+
+.Sign-up-for-deposit p {
+	color: #7e7e7e;
+	font-size: 0.75rem;
+}
+.Sign-up-for-deposit p:last-child{
+	margin-bottom: 25px;
+}
+
+.depositNum {
+	color: #FF3734;
+}
+
+.Sign-up-for-deposit-btn {
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 38px;
+	line-height: 38px;
+}
+
+.Sign-up-for-deposit-btn-left {
+	width: 50%;
+	float: left;
+	background-color: #F5F5F5;
+	color: #8E8E8E;
+	font-size: 1rem;
+}
+
+.Sign-up-for-deposit-btn-right {
+	width: 50%;
+	float: left;
+	background-color: #02BB9A;
+	color: #fff;
+	font-size: 1rem;
+}
+
+
+/*6个输入框样式*/
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+iframe,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+button,
+input,
+textarea,
+th,
+td,
+fieldset {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+th,
+td,
+button,
+input,
+select,
+textarea {
+	font-family: "Microsoft Yahei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, tahoma, arial, Verdana, sans-serif, "WenQuanYi Micro Hei", "\5B8B\4F53";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+#ipt {
+	opacity: 0;
+	border: none;
+	box-sizing: border-box;
+}
+
+#ipt:focus {
+	outline: none;
+}
+
+.passbox {
+	position: relative;
+    width: 240px;
+    height: 40px;
+    margin: 0 auto;
+    background: #FFF;
+    cursor: pointer;
+}
+
+.passbox input {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -100;
+	left: 0;
+	top: 0;
+}
+
+.passbox span {
+	padding: 0;
+    width: 16.67%;
+    height: 100%;
+    float: left;
+    background: #F5F5F5;
+    text-align: center;
+    font-size: 20px;
+    border-right: 4px solid #fff;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 50px;
+}
+
+.passbox span:last-child {
+	border: none;
+}

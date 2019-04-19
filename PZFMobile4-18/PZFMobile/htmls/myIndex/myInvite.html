@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myIndexPublic.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css" />
+		<link rel="stylesheet" href="../../css/myIndex/myWallet.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myInvite.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-nav-bg bar-color-style">
+			<a id="icon-menu" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left reset-left-icon-color"></a>
+			<h1 class="mui-title title-color">我的邀请</h1>
+		</header>
+		<div class="myWalletBody">
+			<div class="myWalletBodyTitle myInviteBodyTitle">
+				<div class="myWalletBodyTitleContent myInviteTitle" id="accumulatedIncome">
+					<span>累计收益</span> 677.0￥
+				</div>
+			</div>
+			<div style="height: 97px;"></div>
+			<div class="twoButtonTop shareBgColor">
+				<div class="twoButton">
+					<div class="twoButtonAll" onclick="Poster()">
+						<span>分享</span>
+					</div>
+					<!--<div class="twoButtonRight" id="popoverLinkId" onclick="copyUrl()">
+						<input type="text" id="LinkUrl" style="display: none;" />
+						
+						<span>分享链接</span>
+					</div>-->
+				</div>
+			</div>
+			<div style="height: 85px;background-color: #F0EFF4;"></div>
+			<div class="mui-content">
+				<div style="overflow: auto;height: 31px;padding: 0px 1.9vw;position: fixed;">
+					<div id="segmentedControl" class="mui-segmented-control updateControl">
+						<a class="mui-control-item new-item mui-active" href="#item1" onclick="myTeam();">我的团队</a>
+						<a class="mui-control-item new-item" href="#item2" onclick="myInviteProfile();">收益记录</a>
+					</div>
+				</div>
+				<div style="height: 31px;"></div>
+				<div>
+					<div id="item1" class="mui-control-content mui-active">
+						<div id="myteamPullrefresh" class="mui-scroll-wrapper myInvite-scroll-height">
+							<div class="mui-scroll transactionRecordAll">
+								<div class="transactionRecordContent" id="myTeamContent">
+									<!--<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+											<div>马云</div>
+										</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>
+									<div class="publicList transactionRecordList">
+										<div class="transactionRecordListLeft myInvite">
+											<img src="../../images/homeIndex/homIndexList.png" alt="" />
+											<span>
+												<div>马云</div>
+											</span>
+										</div>
+										<div class="transactionRecordListRight myInviteRight">
+											<div>2019/2/12 09:11:12</div>
+										</div>
+									</div>-->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item2" class="mui-control-content transactionRecordAll">
+						<div id="profilePullrefresh" class="mui-scroll-wrapper myInvite-scroll-height">
+							<div class="mui-scroll transactionRecordAll">
+						<div class="transactionRecordContent" id="transactionRecordContent">
+							<!--<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>
+							<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>
+							<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>
+							<div class="publicList transactionRecordList">
+								<div class="transactionRecordListLeft profitLeft">
+									<span>
+										<div>张三竞拍的房源 明珠花园</div>
+										<div>竞拍成功</div>
+									</span>
+								</div>
+								<div class="transactionRecordListRight negative profitRight">
+									<div>20￥</div>
+									<div>2019/2/12 09:11:12</div>
+								</div>
+							</div>-->
+						</div>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--蒙版-->
+		<div id="popover" class="mui-popover">
+			<div class="invitePoster">
+				<img src="../../images/myIndex/inviteJiantou.png" alt="" />
+				<!--<a href="http://192.168.1.117:8020/PZFMobile/images/myIndex/invitePoster.png" download="pzfInvite">
+				<img id="inviteImg" src="http://www.zukepai.com/zkpClient/PZFMobile/images/myIndex/invitePoster.png" />
+				</a>-->
+			</div>
+			<!--<footer id="posterFooter" style="position: absolute;bottom: 0px; width:100%;background: white;">
+				<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #fff;">
+					<li onclick="shareHref(1);" class="mui-table-view-cell mui-media mui-col-xs-6 wx-img">
+						<img class="mui-media-object" src="../../images/myIndex/wx.png">
+						<div class="mui-media-body">微信</div>
+					</li>
+					<li onclick="shareHref(0);" class="mui-table-view-cell mui-media mui-col-xs-6 wx-img">
+						<img class="mui-media-object" src="../../images/myIndex/CircleOfFriends.png">
+						<div class="mui-media-body">朋友圈</div>
+					</li>
+				</ul>
+			</footer>-->
+		</div>
+		<!--<div id="popverLink" style="display: none;">
+			<footer style="position: absolute;bottom: 0px; width:100%;background: white;">
+			<ul class="mui-table-view mui-grid-view mui-grid-9"  style="background-color: #fff;">
+				<li onclick="shareHref(1);" class="mui-table-view-cell mui-media mui-col-xs-6 wx-img">
+					<img class="mui-media-object" src="../../images/myIndex/wx.png">
+					<div class="mui-media-body">微信</div>
+				</li>
+				<li onclick="shareHref(0);" class="mui-table-view-cell mui-media mui-col-xs-6 wx-img">
+					<img class="mui-media-object" src="../../images/myIndex/CircleOfFriends.png">
+					<div class="mui-media-body">朋友圈</div>
+				</li>
+			</ul>
+		</footer>
+		</div>-->
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/myInvite.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

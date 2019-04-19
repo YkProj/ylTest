@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/auctionHall/auctionHall.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/homeIndex/homeIndex.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/main/main.css" />
+	</head>
+
+	<body>
+		<div class="mui-content-style">
+			<div id="slider" class="mui-slider slider-height">
+				<div class="mui-slider-group mui-slider-loop" id="auctionHallSlider">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item slider-item-style mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../../images/auctionHall/auctionHallBanner.png" />
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item slider-item-style">
+						<a href="#">
+							<img src="../../images/yuantiao.jpg" />
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item slider-item-style">
+						<a href="#">
+							<img src="../../images/homeIndex/shuijiao.jpg" />
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item slider-item-style">
+						<a href="#">
+							<img src="../../images/auctionHall/auctionHallBanner.png" />
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item slider-item-style">
+						<a href="#">
+							<img src="../../images/yuantiao.jpg" />
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item slider-item-style mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../../images/shuijiao.jpg" />
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+				</div>
+			</div>
+			<div class="auctionHallInfo" id="Marquee">
+				<div class="marqueeClass">
+					<span class="iconfont icon-tongzhi">
+						<span>拍租房新版本已上线1</span>
+					</span>
+				</div>
+				<div class="marqueeClass">
+					<span class="iconfont icon-tongzhi">
+						<span>拍租房新版本已上线2</span>
+					</span>
+				</div>
+				<div class="marqueeClass">
+					<span class="iconfont icon-tongzhi">
+						<span>拍租房新版本已上线3</span>
+					</span>
+				</div>
+			</div>
+			<div class="auctionHallSearch">
+				<div class="auctionHallSearchLeft">
+					<div class="mui-input-row mui-search">
+						<input maxlength="10" id="auctionInput" onclick="auctionHallhideNavBar();" type="search" class="mui-input-clear input-color" placeholder="" />
+					</div>
+				</div>
+				<div class="auctionHallSearchRight" onclick="hideShow();">
+					<span>
+						<img src="../../images/auctionHall/screen.png" alt="" />
+					</span>
+					<span>筛选</span>
+				</div>
+				<!--筛选下拉菜单start-->
+				<div id="screenWrap" class="screen-wrap">
+					<div class="mui-table-view">
+						<div class="auctionHallScreen" id="screen1">
+							<h5>类别</h5>
+							<div class="auctionHallScreenStyle" id="collectionType">
+								<button type="button" class="mui-btn-grey" value="-1">全部</button>
+								<button type="button" class="mui-btn-grey" value="0">我报名的</button>
+								<button type="button" class="mui-btn-grey" value="1">我收藏的</button>
+							</div>
+						</div>
+						<div class="auctionHallScreen" id="screen2">
+							<h5>类型</h5>
+							<div class="auctionHallScreenStyle" id="rantType">
+								<button type="button" class="mui-btn-grey" value="-1">全部</button>
+								<button type="button" class="mui-btn-grey" value="0">住宅</button>
+								<button type="button" class="mui-btn-grey" value="1">写字楼</button>
+								<button type="button" class="mui-btn-grey" value="2">商铺</button>
+							</div>
+						</div>
+						<div class="auctionHallBtn">
+							<span>
+							<button type="button" class="resetBtn" id="auctionResetBtn">重置</button>
+						</span>
+							<span>
+							<button type="button" class="okBtnActive" id="auctionOkBtn">确定</button>
+						</span>
+						</div>
+					</div>
+				</div>
+				<!--筛选下拉菜单end-->
+			</div>
+		</div>
+		
+		<div id="pullrefresh" class="mui-scroll-wrapper scroll-wrap-auction-height">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron">
+					<div class="auctionHallContent" id="auctionListData">
+						<!--<div class="auctionHallList" onclick="auctionDetailPage(this)" data-page="../auctionHall/auctionHallDetail.html">
+							<div class="auctionHallListLeft">
+								<img src="../../images/homeIndex/homIndexList.png" />
+							</div>
+							<div class="auctionHallListRight">
+								<h5>桃源村 桃源村三期 次卧 朝东</h5>
+								<div class="auctionHallListRightEndTime">距结束:<span id="auctionEndTime">12时12分</span></div>
+								<div class="auctionHallListRightDescribe">
+									<span>当前价:</span>
+									<span>￥3500元/月</span>
+									<span class="offerBtn">
+							<span class="offerStyle">80次出价</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="auctionHallList" onclick="auctionDetailPage(this)" data-page="../auctionHall/auctionHallDetail.html">
+							<div class="auctionHallListLeft">
+								<img src="../../images/homeIndex/homIndexList.png" />
+							</div>
+							<div class="auctionHallListRight">
+								<h5>桃源村 桃源村三期 次卧 朝东</h5>
+								<div class="auctionHallListRightEndTime">距结束:12时12分</div>
+								<div class="auctionHallListRightDescribe">
+									<span>当前价:</span>
+									<span>￥3500元/月</span>
+									<span class="offerBtn">
+							<span class="offerStyle">80次出价</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="auctionHallList" onclick="auctionDetailPage(this)" data-page="../auctionHall/auctionHallDetail.html">
+							<div class="auctionHallListLeft">
+								<img src="../../images/homeIndex/homIndexList.png" />
+							</div>
+							<div class="auctionHallListRight">
+								<h5>桃源村 桃源村三期 次卧 朝东</h5>
+								<div class="auctionHallListRightEndTime">距结束:12时12分</div>
+								<div class="auctionHallListRightDescribe">
+									<span>当前价:</span>
+									<span>￥3500元/月</span>
+									<span class="offerBtn">
+									<span class="offerStyle">80次出价</span>
+									</span>
+								</div>
+							</div>
+						</div>-->
+					</div>
+				</ul>
+			</div>
+		</div>
+		<nav id="bottomBar" class="mui-bar mui-bar-tab">
+			<a href="homeIndex.html" class="mui-tab-item" id="homeTab">
+				<span class="mui-icon iconfont icon-shouye"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a href="auctionHall.html" class="mui-tab-item mui-active" id="auctionTab">
+				<span class="mui-icon iconfont icon-paimai2"></span>
+				<span class="mui-tab-label">拍卖大厅</span>
+			</a>
+			<a href="myIndex.html" class="mui-tab-item" id="myTab">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/auctionHall/raceLamp.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/main/auctionHall.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+
+	</body>
+
+</html>

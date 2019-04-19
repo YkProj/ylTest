@@ -1,4 +1,3 @@
-
 //点击跳转至相应页面
 document.getElementById("homeTab").addEventListener('tap', function() {
 	mui.openWindow('homeIndex.html', 'homeTab');
@@ -15,6 +14,7 @@ document.getElementById("myTab").addEventListener('tap', function() {
 		});
 	}
 })
+
 function setTranscationPwd() {
 	phone = $("input[name='tranPhone']").val();
 	verifyPhone(phone);
@@ -48,27 +48,35 @@ function verrifyCode() { //获取验证码
 		});
 	} else {
 		var obj = $("#verifyCode");
-		settime(obj);
-	}
-	var DATA = new Object();
-	DATA.phone = phone;
-	DATA.type = 2;
-	getWebData("code", "sendCode", METHOD_POST, DATA, function(data) {
-		if(data.code == 200) {
-			layer.open({
-				content: data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
+		if(countdown == 60) {
+			settime(obj);
+			var DATA = new Object();
+			DATA.phone = phone;
+			DATA.type = 2;
+			getWebData("code", "sendCode", METHOD_POST, DATA, function(data) {
+				if(data.code == 200) {
+					layer.open({
+						content: data.msg,
+						skin: 'msg',
+						time: 2 //2秒后自动关闭
+					});
+				} else {
+					layer.open({
+						content: data.code + data.msg,
+						skin: 'msg',
+						time: 2 //2秒后自动关闭
+					});
+				}
+
 			});
 		} else {
 			layer.open({
-				content: data.code + data.msg,
+				content: "验证码已发送",
 				skin: 'msg',
 				time: 2 //2秒后自动关闭
 			});
 		}
-
-	});
+	}
 }
 
 function setPhoneOk() { //修改手机号
@@ -87,28 +95,29 @@ function setPhoneOk() { //修改手机号
 			skin: 'msg',
 			time: 2 //2秒后自动关闭
 		});
-	}
-	var DATA = new Object();
-	DATA.userId = getUserData("id");
-	DATA.phone = phone;
-	DATA.code = verifyCodeContet;
-	DATA.loginPwd = setPhoneLoginPwd;
-	getWebData("user", "updatePhoneNo", METHOD_POST, DATA, function(data) {
-		if(data.code == 200) {
-			layer.open({
-				content: data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
-		} else {
-			layer.open({
-				content: data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
-		}
+	} else {
+		var DATA = new Object();
+		DATA.userId = getUserData("id");
+		DATA.phone = phone;
+		DATA.code = verifyCodeContet;
+		DATA.loginPwd = setPhoneLoginPwd;
+		getWebData("user", "updatePhoneNo", METHOD_POST, DATA, function(data) {
+			if(data.code == 200) {
+				layer.open({
+					content: data.msg,
+					skin: 'msg',
+					time: 2 //2秒后自动关闭
+				});
+			} else {
+				layer.open({
+					content: data.msg,
+					skin: 'msg',
+					time: 2 //2秒后自动关闭
+				});
+			}
 
-	});
+		});
+	}
 }
 
 function setLoginPwdOk() { //修改登陆密码
@@ -147,43 +156,46 @@ function setLoginPwdOk() { //修改登陆密码
 					skin: 'msg',
 					time: 2 //2秒后自动关闭
 				});
+			} else {
+				var DATA = new Object();
+				DATA.userId = getUserData("id");
+				DATA.oldLoginPwd = currentLoginPwd;
+				DATA.newLoginPwd = confirmLoginPwdAgain;
+				getWebData("user", "updateLoginPwd", METHOD_POST, DATA, function(data) {
+					if(data.code == 200) {
+						layer.open({
+							content: data.msg,
+							skin: 'msg',
+							time: 2 //2秒后自动关闭
+						});
+					} else {
+						layer.open({
+							content: data.msg,
+							skin: 'msg',
+							time: 2 //2秒后自动关闭
+						});
+					}
+
+				});
 			}
 		}
 	}
-	var DATA = new Object();
-	DATA.userId = getUserData("id");
-	DATA.oldLoginPwd = currentLoginPwd;
-	DATA.newLoginPwd = confirmLoginPwdAgain;
-	getWebData("user", "updateLoginPwd", METHOD_POST, DATA, function(data) {
-		if(data.code == 200) {
-			layer.open({
-				content: data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
-		} else {
-			layer.open({
-				content: data.msg,
-				skin: 'msg',
-				time: 2 //2秒后自动关闭
-			});
-		}
-
-	});
 }
 
 //我的首页数据
 myIndex();
 
 function myIndex() {
+
 	const myIndexImg = getUserData("headImgUrl");
 	const myNickName = getUserData("nickname");
 	const myIndexWalletNum = getUserData("amount");
 	$("#headImg").attr('src', myIndexImg);
 	$("#myNickName").html(myNickName);
-	$("#walletNum").html("￥"+myIndexWalletNum);
+	$("#walletNum").html("￥" + myIndexWalletNum);
 }
 setInterval(function() {
 	const badgeNum = localStorage.getItem("firstDataLength");
 	$("#badgeNum").html(badgeNum)
 }, 500)
+

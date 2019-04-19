@@ -1,0 +1,252 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 2.8vw;
+}
+
+body {
+	background-color: #fff;
+}
+
+.mui-content-style {
+	margin: 3.3vw 9px;
+	/*height: 220px;
+	position: fixed;
+	z-index: 9999;*/
+}
+
+.slider-height {
+	height: 152px !important;
+}
+
+.lunbo-img{
+	height: 152px;
+	border-radius: 1.7vw;
+}
+
+
+/*通知栏信息样式*/
+
+.auctionHallInfo {
+	width: 100%;
+	text-align: center;
+	height: 30px;
+}
+.auctionHallInfo span {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	font-size: 3.3vw;
+	color: #868686;
+}
+/*跑马灯样式*/
+#Marquee {
+	height: 30px;
+	overflow: hidden;
+}
+.marqueeClass {
+	justify-content: initial;
+	line-height: 30px;
+	height: 30px;
+}
+
+
+/*搜索框样式*/
+
+.auctionHallSearch {
+	width: 100%;
+	overflow: auto;
+}
+
+.auctionHallSearchLeft {
+	float: left;
+	width: 80%;
+}
+
+.auctionHallSearchRight {
+	text-align: center;
+	float: right;
+	width: 18%;
+	background-color: #F0EFF4;
+	height: 34px;
+	line-height: 34px;
+	border-radius: 1.1vw;
+}
+
+.auctionHallSearchRight span {
+	font-size: 3.3vw;
+	display: inline-block;
+	vertical-align: middle;
+	color: #B2B2B2;
+}
+
+.auctionHallSearchRightRow {
+	height: 34px;
+	line-height: 34px;
+}
+
+.auctionHallSearchRight img {
+	vertical-align: middle;
+	width: 4.2vw;
+	height: 17px;
+	margin-top: -3px;
+}
+
+.input-color {
+	background-color: #F0EFF4 !important;
+	height: 34px !important;
+	margin-bottom: 0px !important;
+}
+
+.mui-icon {
+	line-height: 34px !important;
+}
+
+.mui-icon-clear{
+	top: 0px !important;
+}
+/*刷新样式*/
+.scroll-wrap-auction-height{
+	margin-top: 220px;
+	overflow-y: scroll;
+	bottom: 51px;
+}
+.auctionHallContent{
+	margin: 5px 10px;
+}
+.mui-table-view:before{
+	background-color: initial !important; 
+}
+.mui-table-view:after{
+	background-color: initial !important; 
+}
+
+/*列表样式*/
+
+.auctionHallList {
+	width: 100%;
+	height: auto;
+	margin-top: 12px;
+	overflow: auto;
+}
+
+.auctionHallListLeft {
+	width: 32.8%;
+	float: left;
+}
+
+.auctionHallListLeft img {
+	width: 100%;
+	height: 13.8vh;
+	border-radius: 5px;
+}
+
+.auctionHallListRight {
+	height: 88px;
+	margin-left: 36.8%;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+.auctionHallListRight h5 {
+	line-height: 18px;
+	padding-top: 2px;
+	margin-top: 0px;
+	font-size: 3.9vw;
+	color: #000;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+
+.auctionHallListRightEndTime {
+	color: #484848;
+}
+
+.auctionHallListRightDescribe span {
+	color: #484848;
+	vertical-align: text-bottom;
+}
+
+.auctionHallListRightDescribe span:nth-child(2) {
+	font-size: 4.4vw;
+	color: #FF5350;
+	font-weight: 600;
+}
+
+.offerStyle {
+	padding: 3px 1.4vw;
+	text-align: center;
+	width: 16.9vw;
+	height: 23px;
+	line-height: 23px;
+	border: none;
+	background-color: #FF5350;
+	color: #fff !important;
+	font-size: 3.3vw;
+	border-radius: 1.1vw;
+}
+
+.offerBtn {
+	display: inline-block;
+	height: 23px;
+	text-align: right;
+	float: right;
+}
+.auctionHallListRightDescribe{
+	margin-bottom: 5px;
+}
+
+/*筛选样式*/
+.screen-wrap{
+	display: none;
+	padding: 19px 3vw;
+	position: absolute;
+    top: 220px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    text-align: center;
+    background-color: #fff;
+    width: 100%;
+}
+.auctionHallScreen{
+	padding: 7px 3vw;
+	text-align: left;
+}
+.auctionHallScreenStyle{
+	text-align: left;
+}
+.auctionHallScreenStyle button {
+    text-align: center;
+    margin-bottom: 7px;
+    margin-right: 3vw;
+    font-size: 3.3vw;
+    background-color: #F0EFF4;
+    border: none;
+    color: #000;
+}
+.screen-wrap>.mui-table-view:after{
+	background-color: #fff;
+}
+.screen-wrap>.mui-table-view:before{
+	background-color: #fff;
+}
+.auctionHallBtn{
+	padding: 13px 0px;
+}
+.auctionHallBtn span{
+	display: inline-block;
+	width: 48%;
+}
+.auctionHallBtn span button{
+	padding: 7px 16.5vw;
+	border-radius: 1.7vw;
+}
+.resetBtn:active{
+	
+}
+.okBtnActive{
+	background-color: #3DBD77;
+	border: none;
+	color: #fff;
+}

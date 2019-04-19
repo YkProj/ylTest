@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css"/>
+		<link rel="stylesheet" href="../../css/public.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css" />
+		<link rel="stylesheet" href="../../css/homeIndex/homeIndex.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/main/main.css"/>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav mui-bar-nav-height">
+			<div class="mui-pull-left homeIndexLeftHeight">
+				<span class="homeIndexNav homeIndexNavImg"><img src="../../images/homeIndex/homeIndexLogo.png" /></span>
+				<span class="homeIndexNav homeIndexNavArea">
+					<span id="homeIndexArea">深圳市</span>
+					<span class="homeIndexNav homeIndexNavPulldown">
+						<img src="../../images/homeIndex/areaPulldown.png" />
+					</span>
+				</span>
+			</div>
+			<div class="mui-pull-right homeIndexLeftHeight">
+				<span class="homeIndexNav homeIndexNavArea" id="selectWrapInfo">租住宅</span>
+				<a href="javascript:void(0);" class="mui-icon mui-icon-bars right-icon homeIndexRightIcon" id="selectWrapInfoAa" onclick="selectWrapControl();"></a>
+			</div>
+			<div id="selectWrap" class="navBarSelect">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href=""><span class="iconfont icon-zhuzhai homeIndexIcon"></span>租住宅</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href=""><span class="iconfont icon-xiezilou homeIndexIcon"></span>写字楼</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a href=""><span class="iconfont icon-shangpu homeIndexIcon"></span>商铺</a>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<div class="positionFixed">
+			<div class="searchList">
+				<div class="homeIndexSearch">
+					<!--<input type="search" name="homeIndexSearch" id="homeIndexSearch" maxlength="10" class="iconfont homeIndexSearchStyle" placeholder="&#xe63b;  位置地标" onclick="hideNavBar()" />-->
+					<div class="mui-input-row mui-search">
+						<input onclick="hideNavBar()" onchange="searchInput(this)" id="homeIndexSearch" maxlength="10" name="homeIndexSearch" type="search" class="mui-input-clear input-color" placeholder="位置地标" />
+					</div>
+				</div>
+			</div>
+			<div class="homeIndexScreen">
+				<ul class="homeIndexScreenList">
+					<li onclick="areaWrapControl();">
+						<a href="#" id="endArea">区域</a>
+						<span class="iconfont icon-xiala"></span>
+					</li>
+					<li onclick="startingPriceWrapControl();">
+						<a href="#" id="startingPriceWrapInfo">起拍价</a>
+						<span class="iconfont icon-xiala"></span>
+					</li>
+					<li onclick="ApartmentWrapControl();">
+						<a href="#" id="ApartmentWrapInfo">户型</a>
+						<span class="iconfont icon-xiala"></span>
+					</li>
+					<li id="more-menu" onclick="moreWrapControl()">
+						<a href="#">更多</a>
+						<span class="iconfont icon-xiala"></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--区域下拉菜单start-->
+		<div id="areaWrap" class="homeIndex-screen-wrap">
+			<div class="mui-table-view">
+				<div class="mui-table-view-left" id="areaLeft">
+					<div class="mui-table-view-cell" id="areaLeftChild" onclick="leftChild();"><span>宝安区</span></div>
+					<div class="mui-table-view-cell" id="areaLeftChild"><span>南山区</span></div>
+				</div>
+				<div class="mui-table-view-right" id="areaRight">
+					<div class="mui-table-view-cell"><span>新安街道</span></div>
+					<div class="mui-table-view-cell"><span>西乡街道</span></div>
+				</div>
+			</div>
+		</div>
+		<!--区域下拉菜单end-->
+		<!--户型下拉菜单start-->
+		<div id="ApartmentWrap" class="homeIndex-screen-wrap">
+			<div class="mui-table-view">
+				<div class="auctionHallScreenStyle" id="ApartmentBtn">
+					<button type="button" class="mui-btn-grey">单间</button>
+					<button type="button" class="mui-btn-grey">1室1厅</button>
+					<button type="button" class="mui-btn-grey">2室1厅</button>
+					<button type="button" class="mui-btn-grey">3室1厅</button>
+					<button type="button" class="mui-btn-grey">3室2厅</button>
+					<button type="button" class="mui-btn-grey">其他</button>
+				</div>
+			</div>
+		</div>
+		<!--户型下拉菜单end-->
+		<!--起拍价下拉菜单start-->
+		<div id="startingPriceWrap" class="homeIndex-screen-wrap">
+			<div class="mui-table-view">
+				<div class="auctionHallScreenStyle" id="startingPriceBtn">
+					<button type="button" class="mui-btn-grey">1000以下</button>
+					<button type="button" class="mui-btn-grey">1000-2000元</button>
+					<button type="button" class="mui-btn-grey">2000-3000元</button>
+					<button type="button" class="mui-btn-grey">3000元以上</button>
+				</div>
+			</div>
+		</div>
+		<!--起拍价下拉菜单end-->
+		<!--更多下拉菜单start-->
+		<div id="moreWrap" class="homeIndex-screen-wrap">
+			<div class="mui-table-view">
+				<div class="auctionHallScreen">
+					<h5>面积（平方米）</h5>
+					<div class="auctionHallScreenStyle" id="areaBtn">
+						<button type="button" class="mui-btn-grey">50以下</button>
+						<button type="button" class="mui-btn-grey">50-100</button>
+						<button type="button" class="mui-btn-grey">100-150</button>
+						<button type="button" class="mui-btn-grey">150-200</button>
+						<button type="button" class="mui-btn-grey">200-300</button>
+						<button type="button" class="mui-btn-grey">300以上</button>
+					</div>
+				</div>
+				<div class="auctionHallScreen">
+					<h5>装修</h5>
+					<div class="auctionHallScreenStyle" id="decorationType">
+						<button type="button" class="mui-btn-grey" value="1">毛坯</button>
+						<button type="button" class="mui-btn-grey" value="2">简单装修</button>
+						<button type="button" class="mui-btn-grey" value="3">精装修</button>
+						<button type="button" class="mui-btn-grey" value="4">豪华装修</button>
+						<button type="button" class="mui-btn-grey" value="5">其他</button>
+					</div>
+				</div>
+				<div class="auctionHallScreen">
+					<h5>类型</h5>
+					<div class="auctionHallScreenStyle" id="rantType">
+						<button type="button" class="mui-btn-grey" value="1">整租</button>
+						<button type="button" class="mui-btn-grey" value="2">合租</button>
+					</div>
+				</div>
+				<div class="auctionHallBtn">
+					<span>
+						<button type="button" class="resetBtn" id="resetBtn">重置</button>
+					</span>
+					<span>
+						<button type="button" class="okBtnActive" id="okBtn">确定</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!--更多下拉菜单end-->
+		<div id="pullrefresh" class="mui-scroll-wrapper scroll-wrap-height">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-chevron">
+					<div class="homeIndexContent" id="list">
+					</div>
+				</ul>
+			</div>
+		</div>
+		<nav id="bottomBar" class="mui-bar mui-bar-tab">
+			<a href="homeIndex.html" class="mui-tab-item mui-active" id="homeTab">
+				<span class="mui-icon iconfont icon-shouye"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a href="auctionHall.html" class="mui-tab-item" id="auctionTab">
+				<span class="mui-icon iconfont icon-paimai2"></span>
+				<span class="mui-tab-label">拍卖大厅</span>
+			</a>
+			<a href="myIndex.html" class="mui-tab-item" id="myTab">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/lodash.core.js"></script>
+		<!--<script type="text/javascript" src="../../js/homeIndex/indexSub.js"></script>-->
+		<script type="text/javascript" src="../../js/homeIndex/homeIndex.js"></script>
+		<script type="text/javascript" src="../../js/homeIndex/screen.js"></script>
+		<script type="text/javascript">
+//			mui.init({
+//				swipeBack: true
+//			});
+		</script>
+	</body>
+
+</html>

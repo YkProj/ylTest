@@ -1,3 +1,57 @@
-.uni-tabbar{
-	box-shadow:0px -2px 6px rgba(0,0,0,0.06);
+* {
+	margin: 0px;
+	padding: 0px;
+	font-size: 0.75rem;
 }
+
+
+/* 搜索框样式 */
+.input-view {
+	width: 92%;
+	display: flex;
+	background-color: #F0EFF4;
+	height: 30px;
+	border-radius: 15px;
+	padding: 0 4%;
+	flex-wrap: nowrap;
+	margin: 14px 0;
+	line-height: 30px;
+}
+
+.input-view .uni-icon {
+	line-height: 30px !important;
+}
+
+.input-view .input {
+	height: 30px;
+	line-height: 30px;
+	width: 94%;
+	padding: 0 3%;
+}
+
+/* 框架样式 */
+.wrapMargin {
+	margin: 0px 12px;
+}
+
+/* 改变原有uni-app自带框架样式 */
+/* 去除倒计时的框 */
+.uni-countdown-numbers[data-v-6f6fc4cf] {
+	border: none !important;
+}
+/* 新增底部导航栏添加阴影 */
+.uni-tabbar {
+	box-shadow: 0px -2px 6px rgba(0, 0, 0, 0.06);
+}
+/* 改变列表行高 */
+.myIndexList{
+	line-height: 57px !important;
+}
+/* 改变弹出框的背景色 */
+.uni-popup-top[data-v-2fcc5cca] {
+    background: initial;
+}
+.uni-popup[data-v-2fcc5cca]{
+	background-color: initial !important;
+}
+    

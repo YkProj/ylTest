@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../../css/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../../css/myIndex/myIndexPublic.css"/>
+		<link rel="stylesheet" href="../../css/myIndex/recharge.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-bar-nav-bg bar-color-style">
+			<a id="icon-menu" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left reset-left-icon-color"></a>
+			<h1 class="mui-title title-color">充值</h1>
+		</header>
+		<div class="content">
+			<div class="publicList rechargeContent">
+				<div class="rechargeContentTop">
+					<div class="rechargeContentTopLeft">充值到微信</div>
+					<div class="rechargeContentTopRight">
+						<img src="../../images/myIndex/wx.png" alt="" />
+					</div>
+				</div>
+				<div class="rechargeContentBottom">
+					<span class="iconfont icon-qian"></span>
+					<input type="number" name="rechargeInput" class="rechargeInput" placeholder="请输入充值金额" />
+				</div>
+			</div>
+			<div class="myButton">
+					<button type="button" class="myButtonStyle" onclick="RechargeOk();">确认</button>
+				</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/md5.js"></script>
+		<script type="text/javascript" src="../../js/tools/layer.js"></script>
+		<script type="text/javascript" src="../../js/ServerUrl.js"></script>
+		<script type="text/javascript" src="../../js/myIndex/Recharge.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>
