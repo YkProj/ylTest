@@ -26,7 +26,30 @@
 			</view>
 		</uni-popup>
 		<!-- 区域 -->
-		<uni-popup :show="showAreaPopup" :type="popType" v-on:hidePopup="hidePopup">
+		<uni-popup :show="showAreaPopup" :type="popType" v-on:hidePopup="hidePopup" :current="subNavIndex">
+			<view data-v-2fcc5cca="" class="index-area-popup-top" style="">
+				<view class="areaList">
+					<view class="areaListLeft">
+						<view class="areaLeftList" :class="[areaIndex ==index?'areaActive':'']" v-for="(areaList,index) in areaLists" @click="areaIndexData">
+							<text>{{areaList.district}}</text>
+						</view>
+					</view>
+					<view class="areaListRight" :current="areaIndex">
+						<view class="areaRightList" v-for="(placeName,index) in placeNames" :key="index">
+							<text>桂圆</text>
+						</view>
+						<view class="areaRightList">
+							<text>黄贝</text>
+						</view>
+						<view class="areaRightList">
+							<text>东门</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</uni-popup>
+		<!-- 起拍价 -->
+		<uni-popup :show="showPricePopup" :type="popType" v-on:hidePopup="hidePopup" :current="subNavIndex">
 			<view data-v-2fcc5cca="" class="index-area-popup-top" style="">
 				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="houseTypeList.name" @click="clickText(houseTypeList.name)">
 					<text :class="houseTypeList.class"></text>
@@ -34,27 +57,33 @@
 				</view>
 			</view>
 		</uni-popup>
-		<view class="subNav">
+		<!-- 户型 -->
+		<uni-popup :show="showApartPopup" :type="popType" v-on:hidePopup="hidePopup" :current="subNavIndex">
+			<view data-v-2fcc5cca="" class="index-area-popup-top" style="">
+				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="houseTypeList.name" @click="clickText(houseTypeList.name)">
+					<text :class="houseTypeList.class"></text>
+					<text>{{houseTypeList.name}}</text>
+				</view>
+			</view>
+		</uni-popup>
+		<!-- 更多 -->
+		<uni-popup :show="showMorePopup" :type="popType" v-on:hidePopup="hidePopup" :current="subNavIndex">
+			<view data-v-2fcc5cca="" class="index-area-popup-top" style="">
+				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="houseTypeList.name" @click="clickText(houseTypeList.name)">
+					<text :class="houseTypeList.class"></text>
+					<text>{{houseTypeList.name}}</text>
+				</view>
+			</view>
+		</uni-popup>
+		<view class="subNav" :class="{isHideSubNav:isHide}">
 			<view class="subNavStyle">
 				<view class="input-view">
 					<uni-icon type="search" size="22" color="#666666"></uni-icon>
 					<input confirm-type="search" @confirm="confirm" class="input" type="text" placeholder="位置地标" />
 				</view>
 				<view class="uni-flex uni-row row-margin">
-					<view class="flex-item active" @click="showTopPopup(1)">
-						<text class="navBarTextMargin subNavTextColor">区域</text>
-						<text class="iconfont icon-xiala subNavColor"></text>
-					</view>
-					<view class="flex-item">
-						<text class="navBarTextMargin subNavTextColor">起拍价</text>
-						<text class="iconfont icon-xiala subNavColor"></text>
-					</view>
-					<view class="flex-item">
-						<text class="navBarTextMargin subNavTextColor">户型</text>
-						<text class="iconfont icon-xiala subNavColor"></text>
-					</view>
-					<view class="flex-item">
-						<text class="navBarTextMargin subNavTextColor">更多</text>
+					<view class="flex-item" :class="[subNavIndex==index?'active':'']" @click="showTopPopup(index+1)" v-for="(subNavList,index) in subNavLists" :key="index">
+						<text class="navBarTextMargin subNavTextColor">{{subNavList.title}}</text>
 						<text class="iconfont icon-xiala subNavColor"></text>
 					</view>
 				</view>
@@ -104,11 +133,17 @@
 			return {
 				city: '深圳',
 				popType: 'middle',
+				isHide: false,
 				showPopupTop: false,
 				showAreaPopup:false,
+				showPricePopup: false,
+				showApartPopup: false,
+				showMorePopup: false,
 				showLoadMore: true,
 				loadMoreText: "加载中...",
 				houseType:'住宅',
+				subNavIndex:0,
+				areaIndex:0,
 				indexLists: [{
 						src: 'http://192.168.1.121:8080/static/index/homIndexList.png',
 						title: '桃源村 桃源村三期 次卧 朝东',
@@ -154,8 +189,24 @@
 						class: 'iconfont icon--shangpu',
 						name: '商铺'
 					},
+				],
+				subNavLists:[
+					{title:'区域'},
+					{title:'起拍价'},
+					{title:'户型'},
+					{title:'更多'},
+				],
+				areaLists:[
+					{district:'罗湖区'},
+					{district:'福田区'},
+					{district:'南山区'},
+					{district:'宝安区'},
+					{district:'龙岗区'},
+					{district:'盐田区'},
+					{district:'龙华区'},
+					{district:'坪山区'},
+					{district:'光明区'}
 				]
-
 			}
 		},
 		onLoad() {
@@ -171,6 +222,9 @@
 			hidePopup: function() {
 				this.showPopupTop = false;
 				this.showAreaPopup = false;
+				this.showPricePopup = false;
+				this.showApartPopup = false;
+				this.showMorePopup = false;
 			},
 			//展示顶部 popup
 			showTopPopup: function(index) {
@@ -180,10 +234,31 @@
 					this.hidePopup();
 					this.popType = 'top';
 					this.showPopupTop = true;
+					this.isHide = true;
 				}else if(index == 1){
 					this.hidePopup();
 					this.popType = 'top';
 					this.showAreaPopup = true;
+					this.isHide = false;
+					this.subNavIndex = 0;
+				}else if(index == 2){
+					this.hidePopup();
+					this.popType = 'top';
+					this.showPricePopup = true;
+					this.isHide = false;
+					this.subNavIndex = 1;
+				}else if(index == 3){
+					this.hidePopup();
+					this.popType = 'top';
+					this.showApartPopup = true;
+					this.isHide = false;
+					this.subNavIndex = 2;
+				}else if(index == 4){
+					this.hidePopup();
+					this.popType = 'top';
+					this.showMorePopup = true;
+					this.isHide = false;
+					this.subNavIndex = 3;
 				}
 				
 			},

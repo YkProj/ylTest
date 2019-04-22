@@ -73,7 +73,9 @@
 	background: #fff;
 	z-index: 999;
 }
-
+.isHideSubNav{
+	z-index: 1 !important;
+}
 
 /* input自用样式 */
 .subNavStyle {
@@ -235,5 +237,37 @@ uni-button:after{
     line-height: 42px;
     text-align: center;
     width: 100%;
-    height: 142px;
+    height: auto;
+}
+/* 区域列表样式 */
+.areaList{
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	font-size: 0.875rem;
+}
+.areaListLeft{
+	width: 50%;
+	float: left;
+	height: auto;
+	background-color: #fff;
+}
+.areaLeftList{
+	color: #353D46; 
+	height: 45px;
+	line-height: 45px;
+}
+.areaActive text{
+	padding: 0px 7px;
+	border-left: 1px solid #02BB9A;
+	color: #02BB9A;
+}
+.areaListRight{
+	margin-left: 50%;
+	background-color: #fff;
+}
+.areaRightList{
+	height: 45px;
+	line-height: 45px;
+	color: #868686;
 }
