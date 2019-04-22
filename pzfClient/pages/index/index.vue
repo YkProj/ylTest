@@ -10,15 +10,25 @@
 					<text class="iconfont icon-xiala iconfontStyle"></text>
 				</view>
 			</view>
-			<view class="navBarRight" @click="showTopPopup">
-				<text class="navBarTextMargin navBarTextColor" id="houseType">住宅</text>
+			<view class="navBarRight" @click="showTopPopup(0)">
+				<text class="navBarTextMargin navBarTextColor" :value="houseType">{{houseType}}</text>
 				<text class="iconfont icon-caidan iconfontStyle menu-style"></text>
 			</view>
 		</view>
+		<!-- 租房类型 -->
 		<uni-popup :show="showPopupTop" :type="popType" v-on:hidePopup="hidePopup">
 			<view class="popup-rectangle"></view>
 			<view data-v-2fcc5cca="" class="index-popup-top" style="">
-				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="houseTypeList.name" v-model="houseTypeList.name" @click="clickText(houseTypeList.name)">
+				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="houseTypeList.name" @click="clickText(houseTypeList.name)">
+					<text :class="houseTypeList.class"></text>
+					<text>{{houseTypeList.name}}</text>
+				</view>
+			</view>
+		</uni-popup>
+		<!-- 区域 -->
+		<uni-popup :show="showAreaPopup" :type="popType" v-on:hidePopup="hidePopup">
+			<view data-v-2fcc5cca="" class="index-area-popup-top" style="">
+				<view class="popupList" v-for="(houseTypeList,index) in houseTypeLists" :key="houseTypeList.name" @click="clickText(houseTypeList.name)">
 					<text :class="houseTypeList.class"></text>
 					<text>{{houseTypeList.name}}</text>
 				</view>
@@ -31,7 +41,7 @@
 					<input confirm-type="search" @confirm="confirm" class="input" type="text" placeholder="位置地标" />
 				</view>
 				<view class="uni-flex uni-row row-margin">
-					<view class="flex-item flex-item-active-color">
+					<view class="flex-item active" @click="showTopPopup(1)">
 						<text class="navBarTextMargin subNavTextColor">区域</text>
 						<text class="iconfont icon-xiala subNavColor"></text>
 					</view>
@@ -83,7 +93,6 @@
 	import uniIcon from '../../components/uni-icon.vue'
 	import uniLoad from '../../components/uni-load-more.vue'
 	import uniPopup from '../../components/uni-popup.vue'
-	let houseType = "住宅";
 	export default {
 		components: {
 			uniNavBar,
@@ -96,11 +105,12 @@
 				city: '深圳',
 				popType: 'middle',
 				showPopupTop: false,
+				showAreaPopup:false,
 				showLoadMore: true,
 				loadMoreText: "加载中...",
-				houseType,
+				houseType:'住宅',
 				indexLists: [{
-						src: 'http://192.168.1.100:8080/static/index/homIndexList.png',
+						src: 'http://192.168.1.121:8080/static/index/homIndexList.png',
 						title: '桃源村 桃源村三期 次卧 朝东',
 						hall: '3室2厅 约87㎡',
 						position: '宝安-新安 香珠花园',
@@ -108,7 +118,7 @@
 						price: '￥3500元/月'
 					},
 					{
-						src: 'http://192.168.1.100:8080/static/index/homIndexList.png',
+						src: 'http://192.168.1.121:8080/static/index/homIndexList.png',
 						title: '桃源村 桃源村三期 次卧 朝东',
 						hall: '3室2厅 约87㎡',
 						position: '宝安-新安 香珠花园',
@@ -116,7 +126,7 @@
 						price: '￥3500元/月'
 					},
 					{
-						src: 'http://192.168.1.100:8080/static/index/homIndexList.png',
+						src: 'http://192.168.1.121:8080/static/index/homIndexList.png',
 						title: '桃源村 桃源村三期 次卧 朝东',
 						hall: '3室2厅 约87㎡',
 						position: '宝安-新安 香珠花园',
@@ -124,7 +134,7 @@
 						price: '￥3500元/月'
 					},
 					{
-						src: 'http://192.168.1.100:8080/static/index/homIndexList.png',
+						src: 'http://192.168.1.121:8080/static/index/homIndexList.png',
 						title: '桃源村 桃源村三期 次卧 朝东',
 						hall: '3室2厅 约87㎡',
 						position: '宝安-新安 香珠花园',
@@ -160,16 +170,27 @@
 			//统一的关闭popup方法
 			hidePopup: function() {
 				this.showPopupTop = false;
+				this.showAreaPopup = false;
 			},
 			//展示顶部 popup
-			showTopPopup: function() {
+			showTopPopup: function(index) {
 				this.hidePopup();
 				this.popType = 'top';
-				this.showPopupTop = true;
+				if(index == 0){
+					this.hidePopup();
+					this.popType = 'top';
+					this.showPopupTop = true;
+				}else if(index == 1){
+					this.hidePopup();
+					this.popType = 'top';
+					this.showAreaPopup = true;
+				}
+				
 			},
 			clickText: function(e) {
 				console.log(e);
-				houseType = e;
+				this.houseType = e;
+				this.showPopupTop = false;
 			}
 		},
 		onPullDownRefresh() {

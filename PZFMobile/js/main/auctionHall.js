@@ -254,6 +254,7 @@ mui.init({
 function pulldownRefresh() {
 	setTimeout(function() {
 		$("#auctionListData").empty();
+		AuctionPageIndex = 1;
 		auctionData(1);
 		mui.toast("已为您更新至最新数据")
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
@@ -274,7 +275,6 @@ function pullupRefresh() {
 		AuctionPageIndex = parseInt(AuctionPageIndex) + 1;
 		if(auctionListData.length < 10) {
 			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-			AuctionPageIndex = 1;
 		} else {
 			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
 		}

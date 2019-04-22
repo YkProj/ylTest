@@ -211,6 +211,7 @@ mui.init({
 function pulldownRefresh() {
 	setTimeout(function() {
 		$("#list").empty();
+		homePageIndex = 1;
 		getData(1);
 		mui.toast("已为您更新到最新数据");
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh(false);
@@ -233,7 +234,6 @@ function pullupRefresh() {
 			mui('#pullrefresh').pullRefresh().endPullupToRefresh(false);
 		} else {
 			mui('#pullrefresh').pullRefresh().endPullupToRefresh(true);
-			homePageIndex = 1;
 		}
 	}, 1000)
 

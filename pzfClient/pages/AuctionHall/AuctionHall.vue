@@ -94,13 +94,13 @@
 				endTime:"距结束:",
 				currentPrice:"当前价:",
 				sliderPics: [{
-						imgUrl: 'http://192.168.1.198:8080/static/auctionHall/auctionHallBanner.png'
+						imgUrl: 'http://192.168.1.121:8080/static/auctionHall/auctionHallBanner.png'
 					},
 					{
-						imgUrl: 'http://192.168.1.198:8080/static/auctionHall/shuijiao.jpg'
+						imgUrl: 'http://192.168.1.121:8080/static/auctionHall/shuijiao.jpg'
 					},
 					{
-						imgUrl: 'http://192.168.1.198:8080/static/auctionHall/auctionHallBanner.png'
+						imgUrl: 'http://192.168.1.121:8080/static/auctionHall/auctionHallBanner.png'
 					},
 				],
 				msg: [

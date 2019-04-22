@@ -13,7 +13,7 @@ $("#popover").click(function() {
 //点击分享链接
 function copyUrl() {
 	var parentUserId = getUserData("id");
-	var invitation = 'http://www.zukepai.com/zkpClient/PZFMobile/htmls/myIndex/update.html?parentUserId=' + parentUserId;
+	var invitation = 'http://www.zukepai.com/zkpClient/PZFMobile/htmls/myIndex/update.html;
 	$("#LinkUrl").val(invitation);
 	var Url = document.getElementById("LinkUrl");
 	Url.select(); // 选择对象

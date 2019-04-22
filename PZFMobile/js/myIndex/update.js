@@ -24,9 +24,11 @@ function update() { //点击账号登录下一步
 		} else {
 			var DATA = new Object();
 			DATA.phone = accountPhone;
+			window.localStorage.setItem("phone",accountPhone);
 			DATA.code = VerificationCode;
-			getWebData("wuser", "setUserInfo", METHOD_POST, DATA, function(data) {
+			getWebData("wuser", "loginByPhone", METHOD_POST, DATA, function(data) {
 				if(data.code == 200) {
+					var inviteLoginData = data.data;
 					layer.open({
 						content: data.msg,
 						skin: 'msg',
@@ -76,11 +78,15 @@ function updateOk() {
 				time: 2 //2秒后自动关闭
 			});
 		} else {
+			phone = window.localStorage.getItem("phone");
 			var DATA = new Object();
 			DATA.loginPassword = updateAccountPwd;
 			DATA.payPassword = updateAccountTranscationPwd;
+			DATA.phone = phone;
 			getWebData("wuser", "setUserInfo", METHOD_POST, DATA, function(data) {
 				if(data.code == 200) {
+					var inviteUserData = data.data;
+					saveUserData(inviteUserData);
 					layer.open({
 						content: data.msg,
 						skin: 'msg',

@@ -71,7 +71,7 @@
 	width: 100%;
 	height: 100px;
 	background: #fff;
-	z-index: 1;
+	z-index: 999;
 }
 
 
@@ -101,7 +101,7 @@
 .subNavColor{
 	color: #8E8E8E;
 }
-.flex-item-active-color text{
+.active text{
 	color: #3DBD77!important;
 }
 /* 首页列表样式 */
@@ -223,4 +223,17 @@ uni-button:after{
 	display: inline-flex;
 	justify-content: flex-start;
 	float: left;
+}
+/* 区域弹框 */
+.index-area-popup-top{
+	position: absolute;
+    z-index: 999;
+    background-color: #ffffff;
+	top: 148px;
+	left: 0px;
+    right: 0px;
+    line-height: 42px;
+    text-align: center;
+    width: 100%;
+    height: 142px;
 }
