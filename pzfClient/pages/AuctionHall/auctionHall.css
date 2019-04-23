@@ -137,3 +137,7 @@
 .countDownDisplay{
 	display: inline-flex;
 }
+/* 模态框样式 */
+.uni-mask[data-v-2fcc5cca]{
+	top: 229px !important;
+}

@@ -271,3 +271,66 @@ uni-button:after{
 	line-height: 45px;
 	color: #868686;
 }
+/* 更多样式 */
+.moreList{
+	padding: 10px 21px;
+	text-align: left;
+}
+.moreList:nth-child(1){
+	border-bottom: 1px solid #eee;
+}
+.moreList:nth-child(2){
+	border-bottom: 1px solid #eee;
+}
+.moreList h3{
+	height: 33px;
+	line-height: 33px;
+}
+.moreList button{
+	margin-bottom: 9px;
+	margin-right: 3.3vw;
+}
+.more-btn{
+	height: 25px;
+	width: 57px;
+	line-height: 25px;
+	border-radius: 12px;
+	background: none;
+	border: 1px solid #E7E7E7;
+	font-size: 0.625rem;
+	color: #2F2F2F;
+}
+.screenActive{
+	border: 1px solid #02BB9A;
+	color: #02BB9A;
+}
+/* 更多两个按钮样式 */
+.more-two-btn{
+	padding: 0px 21px;
+	text-align: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.reset-btn{
+	width: 32%;
+	height: 38px;
+	line-height: 38px;
+	background: none;
+	border: 1px solid #DBDBDB;
+	border-radius: 4px;
+	color: #8E8E8E;
+	font-size: 1rem;
+	padding: 0px;
+	margin-right: 10px;
+}
+.more-ok-btn{
+	width: 63%;
+	height: 38px;
+	line-height: 38px;
+	background: #02BB9A;
+	border-radius: 4px;
+	color: #fff;
+}
+.uni-mask{
+	top: 229px !important;
+}
